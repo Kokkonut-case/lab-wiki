@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Kokkonuts wiki and resources"
+  title: "The Kokkonutcase"
   sidebar:
     style: "docked"
     search: true
