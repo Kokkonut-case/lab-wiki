@@ -15,6 +15,8 @@ website:
         href: homepage.qmd
       - text: "Useful links"
         href: links.qmd
+      - text: "Lab meeting talk schedule"
+        href: labmeeting-talk-schedule.qmd
       - section: "Technical knowledge"
         contents:
         - section: "General math"
