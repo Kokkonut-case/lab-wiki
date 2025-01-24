@@ -4,3 +4,9 @@ format: html
 editor: source
 engine: knitr
 ---
+
+The two most relevant seminar series held at JGU are
+
+1. The [seminar series in Evolutionary Biology](https://seminar.iome.biology.uni-mainz.de/)
+
+2. The [Institute for Quantitative and Computational Biosciences seminar series](https://iqcb.uni-mainz.de/news-events/events)
