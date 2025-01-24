@@ -1,0 +1,15 @@
+{
+  "hash": "e8b06dd87804334750b59fba4627dfcc",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Getting help\"\nformat: html\neditor: source\nengine: knitr\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

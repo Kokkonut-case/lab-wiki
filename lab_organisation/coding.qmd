@@ -1,0 +1,6 @@
+---
+title: "Coding practices"
+format: html
+editor: source
+engine: knitr
+---

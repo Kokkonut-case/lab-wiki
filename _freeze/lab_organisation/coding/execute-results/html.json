@@ -1,0 +1,15 @@
+{
+  "hash": "ca80a79cf9ae495a9547c4b0add0df5e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Coding practices\"\nformat: html\neditor: source\nengine: knitr\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

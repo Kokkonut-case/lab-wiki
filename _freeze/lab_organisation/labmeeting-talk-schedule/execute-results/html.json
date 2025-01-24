@@ -1,0 +1,15 @@
+{
+  "hash": "a592458ccb9f97268b35d9642299f872",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Lab meeting talk schedule\"\nformat: html\neditor: source\nengine: knitr\n---\n\n\n\n\n## Content\n\nGoals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we're currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\n\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets \\<= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you'd like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work\n\n## Schedule 2025\n\nThe dates below are for every second Wednesday starting the week of 27 January, upto and including the month of April (note the change in dates because we have switched to Wednesday lab meetings from Thursday).\n\nThe exact day of the week when we have our lab meeting is variable, but usually Thursday. So this table is made assuming that the meeting is by default on Thursday when it has not been decided otherwise. Changes will be made as necessary.\n\n| Date        | Speaker       |\n|-------------|---------------|\n| 29 January  | Tom           |\n| 5 February  | Gaurav        |\n| 12 February | Mos           |\n| 19 February | \\-            |\n| 26 February | Shikhara      |\n| 5 March     | \\-            |\n| 12 March    | Roman         |\n| 19 March    | \\-            |\n| 26 March    | Tabea/Margaux |\n| 2 April     | \\-            |\n| 9 April     | Victor        |\n| 16 April    | \\-            |\n| 23 April    | Margaux       |\n| 7 May       | \\-            |\n| 14 May      | \\-            |\n| 21 May      | \\-            |\n| 28 May      | \\-            |\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

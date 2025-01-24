@@ -1,0 +1,15 @@
+{
+  "hash": "b92b6b3b8f938af2e5b424451503584e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Winter school content\"\nformat: html\neditor: source\nengine: knitr\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

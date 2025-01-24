@@ -1,0 +1,6 @@
+---
+title: "Winter school content"
+format: html
+editor: source
+engine: knitr
+---

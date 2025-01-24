@@ -1,0 +1,15 @@
+{
+  "hash": "b19e049851dc56540d292f0b05efafa7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Seminars and mailing lists\"\nformat: html\neditor: source\nengine: knitr\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,6 @@
+---
+title: "Seminars and mailing lists"
+format: html
+editor: source
+engine: knitr
+---

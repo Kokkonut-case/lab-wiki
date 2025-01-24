@@ -1,0 +1,6 @@
+---
+title: "Supervising or completing a bachelor thesis"
+format: html
+editor: source
+engine: knitr
+---

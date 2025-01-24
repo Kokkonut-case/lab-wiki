@@ -1,0 +1,15 @@
+{
+  "hash": "4f5df5cdc86ad69670cfe3b6d6d4def7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Downloading software\"\nformat: html\neditor: source\nengine: knitr\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

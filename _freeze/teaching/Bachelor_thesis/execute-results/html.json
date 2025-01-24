@@ -1,0 +1,15 @@
+{
+  "hash": "bd356bc41cfd0d15f08a3251a70ecd60",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Supervising or completing a bachelor thesis\"\nformat: html\neditor: source\nengine: knitr\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

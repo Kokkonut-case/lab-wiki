@@ -14,8 +14,6 @@ engine: knitr
 
 ::: {.justify}
 
-## Kokkonuts wiki
-
 The purpose of this wiki is to collate useful information and technical knowledge. For now, I (shikhara) am just porting some notebooks I already had. Will hopefully flesh out the wiki later.
 
 To go back to the kokkonutscase repository of scripts, click [here](https://github.com/Kokkonut-case).

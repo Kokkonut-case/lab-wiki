@@ -1,0 +1,15 @@
+{
+  "hash": "42207bea5ef74082ce8fa05046eecf0c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"EU citizens\"\nformat: html\neditor: source\nengine: knitr\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

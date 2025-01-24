@@ -10,6 +10,36 @@ website:
     contents:
       - text: "Home"
         href: homepage.qmd
+      - text: "Lab meeting talks"
+        href: lab_organisation/labmeeting-talk-schedule.qmd
+      - section: "Onboarding"
+        contents:
+        - text: "EU citizens"
+          href: lab_organisation/EU_citizens.qmd
+        - text: "Non-EU citizens"
+          href: lab_organisation/Non_EU_citizens.qmd
+      - section: "Computing"
+        contents:
+        - text: "Downloading software"
+          href: lab_organisation/Downloading_software.qmd
+        - text: "Using MOGON 2"
+          href: lab_organisation/mogon.qmd
+        - text: "Getting help"
+          href: lab_organisation/Getting_help.qmd
+      - section: "Teaching"
+        contents:
+        - text: "Masters level"
+          href: teaching/Masters_teaching.qmd
+        - text: "Bachelor level"
+          href: teaching/Bachelors_teaching.qmd
+        - text: "Winter school 2024"
+          href: teaching/winter_school_intro.qmd
+      - text: "Supervising or completing a bachelor thesis"
+        href: teaching/Bachelor_thesis.qmd
+      - text: "Code practice"
+        href: lab_organisation/coding.qmd
+      - text: "Seminars and mailing lists"
+        href: lab_organisation/sems_lists.qmd
       - text: "Useful links"
         href: links.qmd
       - section: "Technical knowledge"
@@ -24,10 +54,6 @@ website:
               href: technical/EGTsims/hawk-dove-reciprocator.ipynb
             - text: "Rock paper scissors"
               href: technical/EGTsims/RPS.ipynb
-        - text: "Using MOGON"
-          href: technical/MOGON/mogon.qmd
-
-
 
     tools:
       - icon: github
