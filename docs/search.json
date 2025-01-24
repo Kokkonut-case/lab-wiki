@@ -153,7 +153,7 @@
     "href": "homepage.html",
     "title": "The Kokkonutcase",
     "section": "",
-    "text": "The purpose of this wiki is to collate useful information and technical knowledge. For now, I (shikhara) am just porting some notebooks I already had. Will hopefully flesh out the wiki later.\nTo go back to the kokkonutscase repository of scripts, click here.  To visit the kokkonuts lab group webpage, click here.",
+    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a german resident, how to receive your salray and generally how to grapple with the monolith that is german bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fear, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources - lectures, workshops etc. - can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students need to complete this as the capstone of their undergrad studies, so we tend to have a couple in the lab at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nA key aim for this wiki is also to have it function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A big part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are supplied. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nTo go to the kokkonutscase repository of scripts, click here.  To visit the kokkonuts lab group webpage, click here.",
     "crumbs": [
       "Home"
     ]
@@ -196,6 +196,16 @@
     "text": "Reading, writing, and presentation\n\nPlaylist on academic writing by the Leadership Lab at UChicago\nHow to speak by Patrick Winston at MIT\nList of commonly used phrases in academic writing\nTen simple rules for making good oral presentations\nHow to give a theory talk by Shengwu Li",
     "crumbs": [
       "Useful links"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/sems_lists.html",
+    "href": "lab_organisation/sems_lists.html",
+    "title": "Seminars and mailing lists",
+    "section": "",
+    "text": "The two most relevant seminar series held at JGU are\n\nThe seminar series in Evolutionary Biology\nThe Institute for Quantitative and Computational Biosciences seminar series",
+    "crumbs": [
+      "Seminars and mailing lists"
     ]
   },
   {
