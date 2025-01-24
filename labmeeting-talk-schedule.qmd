@@ -2,6 +2,7 @@
 title: "labmeeting-talk-schedule.qmd"
 format: html
 editor: visual
+engine: knitr
 ---
 
 ## Lab meeting talks
