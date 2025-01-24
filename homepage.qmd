@@ -24,6 +24,36 @@ To visit the kokkonuts lab group webpage, click [here](https://www.kokkonuts.org
 <br>
 
 ![](assets/img/orange_pony.png)
+## Onboarding
 
+### EU citizens 
+
+### Non-EU citizens
+
+
+## Computing 
+
+### Downloading software
+
+### Getting help
+
+### Using MOGON 2
+
+
+## Completing or supervising a bachelor thesis
+
+### Supervisors
+
+### Students
+
+
+## Teaching in the Kokkonuts
+
+### Masters level
+
+### Bachelor level
+
+
+## Seminars and mailing list
 
 :::

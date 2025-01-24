@@ -1,8 +1,8 @@
 {
-  "hash": "508d1ac6571d475f062ebd1f0701ebe2",
+  "hash": "2172d3314b18099f7e043bd8e78b3b47",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Kokkonuts wiki homepage\"\nformat: html\neditor: source\nengine: knitr\n---\n\n\n\n\n<!--- below block is for justifying text --->\n\n\n\n::: {.cell}\n<style type=\"text/css\">\n.justify {\n  text-align: justify\n}\n</style>\n:::\n\n\n\n\n::: {.justify}\n\n## Kokkonuts wiki\n\nThe purpose of this wiki is to collate useful information and technical knowledge. For now, I (shikhara) am just porting some notebooks I already had. Will hopefully flesh out the wiki later.\n\nTo go back to the kokkonutscase repository of scripts, click [here](https://github.com/Kokkonut-case).\n<br>\nTo visit the kokkonuts lab group webpage, click [here](https://www.kokkonuts.org/).\n<br>\n\n![](assets/img/orange_pony.png)\n\n\n:::",
+    "markdown": "---\ntitle: \"Kokkonuts wiki homepage\"\nformat: html\neditor: source\nengine: knitr\n---\n\n\n\n\n<!--- below block is for justifying text --->\n\n\n\n::: {.cell}\n<style type=\"text/css\">\n.justify {\n  text-align: justify\n}\n</style>\n:::\n\n\n\n\n::: {.justify}\n\n## Kokkonuts wiki\n\nThe purpose of this wiki is to collate useful information and technical knowledge. For now, I (shikhara) am just porting some notebooks I already had. Will hopefully flesh out the wiki later.\n\nTo go back to the kokkonutscase repository of scripts, click [here](https://github.com/Kokkonut-case).\n<br>\nTo visit the kokkonuts lab group webpage, click [here](https://www.kokkonuts.org/).\n<br>\n\n![](assets/img/orange_pony.png)\n## Onboarding\n\n### EU citizens \n\n### Non-EU citizens\n\n\n## Computing \n\n### Downloading software\n\n### Getting help\n\n### Using MOGON 2\n\n\n## Completing or supervising a bachelor thesis\n\n### Supervisors\n\n### Students\n\n\n## Teaching in the Kokkonuts\n\n### Masters level\n\n### Bachelor level\n\n\n## Seminars and mailing list\n\n:::\n",
     "supporting": [
       "homepage_files"
     ],
