@@ -45,4 +45,3 @@ git remote set-url origin --push --add <another remote>
 - [List of commonly used phrases in academic writing](https://www.phrasebank.manchester.ac.uk/)
 - [Ten simple rules for making good oral presentations](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030077)
 - [How to give a theory talk](https://static1.squarespace.com/static/5b67b79831d4dfab6ca1b892/t/615a57a96e8fa355f29daf2f/1633310633185/Theory_Presentation_Advice.pdf) by Shengwu Li
-
