@@ -16,7 +16,7 @@ engine: knitr
 
 The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a german resident, how to receive your salary and generally how to grapple with the monolith that is german bureaucracy. 
 
-Once you've got your life sorted, you'll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? [see here](https://www.livius.org/articles/place/mogontiacum-mainz/)). Don't fear, we've got a whole section dedicated to these challenges.
+Once you've got your life sorted, you'll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? [see here](https://www.livius.org/articles/place/mogontiacum-mainz/)). Don't fret, we've got a whole section dedicated to these challenges.
 
 If you're a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the [Masters for Evolutionary Biology](https://www.blogs.uni-mainz.de/fb10-biologie-eng/master-evolutionary-biology/), headed by Hanna. Prior resources -- lectures, workshops etc. --  can be found in the teaching section. 
 
