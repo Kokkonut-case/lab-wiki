@@ -1,0 +1,6 @@
+---
+title: "Registering as a student"
+format: html
+editor: source
+engine: knitr
+---
