@@ -18,6 +18,8 @@ website:
           href: lab_organisation/EU_citizens.qmd
         - text: "Non-EU citizens"
           href: lab_organisation/Non_EU_citizens.qmd
+        - text: "Registering as a student"
+          href: lab_organisation/student_rego.qmd
       - section: "Computing"
         contents:
         - text: "Downloading software"
