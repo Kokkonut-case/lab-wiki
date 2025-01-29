@@ -15,7 +15,7 @@ Details of the talks: - The talks happen once every two weeks, and the person up
 
 The dates below are for every second Wednesday starting the week of 27 January, upto and including the month of April (note the change in dates because we have switched to Wednesday lab meetings from Thursday).
 
-The exact day of the week when we have our lab meeting is variable, but usually Thursday. So this table is made assuming that the meeting is by default on Thursday when it has not been decided otherwise. Changes will be made as necessary.
+The exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.
 
 | Date        | Speaker       |
 |-------------|---------------|
