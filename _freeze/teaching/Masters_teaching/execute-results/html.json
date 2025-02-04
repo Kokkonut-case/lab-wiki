@@ -1,9 +1,11 @@
 {
-  "hash": "b076884d79a5f6941407f2440d5c625b",
+  "hash": "5ae35a0c78030e6b6af7a0df81601120",
   "result": {
     "engine": "knitr",
     "markdown": "---\ntitle: \"Masters level\"\nformat: html\neditor: source\nengine: knitr\n---\n",
-    "supporting": [],
+    "supporting": [
+      "Masters_teaching_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

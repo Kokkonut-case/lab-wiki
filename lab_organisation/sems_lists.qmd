@@ -5,8 +5,20 @@ editor: source
 engine: knitr
 ---
 
-The two most relevant seminar series held at JGU are
+## Mailing lists
+
+The biology faculty mailing list: [wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe](https://lists.uni-mainz.de/sympa/subscribe/wissma_fb10)
+
+The biology faculty talks mailing list: [talks_fb10](https://lists.uni-mainz.de/sympa/subscribe/talks_fb10?previous_action=info)
+
+## Seminars
+
+The four most relevant seminar series held at JGU are
 
 1. The [seminar series in Evolutionary Biology](https://seminar.iome.biology.uni-mainz.de/)
 
 2. The [Institute for Quantitative and Computational Biosciences seminar series](https://iqcb.uni-mainz.de/news-events/events)
+
+3. [The GenEvo seminar series](https://www.genevo-rtg.de/seminars). PhD students in the GenEvo research training program are allocated funds to invite an external speaker that's influential in their field. There tend to be about eight a year. This link isn't helpful for upcoming seminars, but the archives give a sense of the types of topics covered.
+
+4. The ECR seminar series. This has no formal documentation, but is designed for ECRs to get to know each others work while practicing communication skills. To get involved email Camille Cozzarolo at `ccozzaro@uni-mainz.de`.
