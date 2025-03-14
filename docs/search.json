@@ -119,73 +119,14 @@
     ]
   },
   {
-    "objectID": "lab_organisation/sems_lists.html",
-    "href": "lab_organisation/sems_lists.html",
-    "title": "Seminars and mailing lists",
+    "objectID": "lab_organisation/mogon.html",
+    "href": "lab_organisation/mogon.html",
+    "title": "MOGON 2",
     "section": "",
-    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
+    "text": "Dummy text for now\nLet’s hope this works",
     "crumbs": [
-      "Seminars and mailing lists"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/sems_lists.html#mailing-lists",
-    "href": "lab_organisation/sems_lists.html#mailing-lists",
-    "title": "Seminars and mailing lists",
-    "section": "",
-    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
-    "crumbs": [
-      "Seminars and mailing lists"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/sems_lists.html#seminars",
-    "href": "lab_organisation/sems_lists.html#seminars",
-    "title": "Seminars and mailing lists",
-    "section": "Seminars",
-    "text": "Seminars\nThe four most relevant seminar series held at JGU are\n\nThe seminar series in Evolutionary Biology\nThe Institute for Quantitative and Computational Biosciences seminar series\nThe GenEvo seminar series. PhD students in the GenEvo research training program are allocated funds to invite an external speaker that’s influential in their field. There tend to be about eight a year. This link isn’t helpful for upcoming seminars, but the archives give a sense of the types of topics covered.\nThe ECR seminar series. This has no formal documentation, but is designed for ECRs to get to know each others work while practicing communication skills. To get involved email Camille Cozzarolo at ccozzaro@uni-mainz.de.",
-    "crumbs": [
-      "Seminars and mailing lists"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/labmeeting-talk-schedule.html",
-    "href": "lab_organisation/labmeeting-talk-schedule.html",
-    "title": "Lab meeting talk schedule",
-    "section": "",
-    "text": "Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
-    "crumbs": [
-      "Lab meeting talks"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/labmeeting-talk-schedule.html#content",
-    "href": "lab_organisation/labmeeting-talk-schedule.html#content",
-    "title": "Lab meeting talk schedule",
-    "section": "",
-    "text": "Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
-    "crumbs": [
-      "Lab meeting talks"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
-    "href": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
-    "title": "Lab meeting talk schedule",
-    "section": "Schedule 2025",
-    "text": "Schedule 2025\nThe dates below are for every second Wednesday starting the week of 27 January, upto and including the month of April (note the change in dates because we have switched to Wednesday lab meetings from Thursday).\nThe exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.\n\n\n\nDate\nSpeaker\n\n\n\n\n29 January\nTom\n\n\n5 February\nGaurav\n\n\n12 February\nMos\n\n\n19 February\n-\n\n\n26 February\nShikhara\n\n\n5 March\n-\n\n\n12 March\nRoman\n\n\n19 March\n-\n\n\n26 March\nTabea/Margaux\n\n\n2 April\n-\n\n\n9 April\nVictor\n\n\n16 April\n-\n\n\n23 April\nMargaux\n\n\n7 May\n-\n\n\n14 May\n-\n\n\n21 May\n-\n\n\n28 May\n-",
-    "crumbs": [
-      "Lab meeting talks"
-    ]
-  },
-  {
-    "objectID": "homepage.html",
-    "href": "homepage.html",
-    "title": "The Kokkonutcase",
-    "section": "",
-    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a german resident, how to receive your salary and generally how to grapple with the monolith that is german bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A neccessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nTo go to the kokkonutscase repository of scripts, click here.  To visit the kokkonuts lab group webpage, click here.",
-    "crumbs": [
-      "Home"
+      "Computing",
+      "Using MOGON 2"
     ]
   },
   {
@@ -229,69 +170,117 @@
     ]
   },
   {
-    "objectID": "lab_organisation/mogon.html",
-    "href": "lab_organisation/mogon.html",
-    "title": "MOGON 2",
+    "objectID": "homepage.html",
+    "href": "homepage.html",
+    "title": "The Kokkonutcase",
     "section": "",
-    "text": "Dummy text for now\nLet’s hope this works",
+    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a german resident, how to receive your salary and generally how to grapple with the monolith that is german bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A neccessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nTo go to the kokkonutscase repository of scripts, click here.  To visit the kokkonuts lab group webpage, click here.",
     "crumbs": [
-      "Computing",
-      "Using MOGON 2"
+      "Home"
     ]
   },
   {
-    "objectID": "lab_organisation/Non_EU_citizens.html",
-    "href": "lab_organisation/Non_EU_citizens.html",
-    "title": "Non-EU citizens",
+    "objectID": "lab_organisation/labmeeting-talk-schedule.html",
+    "href": "lab_organisation/labmeeting-talk-schedule.html",
+    "title": "Lab meeting talk schedule",
+    "section": "",
+    "text": "Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
+    "crumbs": [
+      "Lab meeting talks"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/labmeeting-talk-schedule.html#content",
+    "href": "lab_organisation/labmeeting-talk-schedule.html#content",
+    "title": "Lab meeting talk schedule",
+    "section": "",
+    "text": "Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
+    "crumbs": [
+      "Lab meeting talks"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
+    "href": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
+    "title": "Lab meeting talk schedule",
+    "section": "Schedule 2025",
+    "text": "Schedule 2025\nThe dates below are for every second Wednesday starting the week of 27 January, upto and including the month of April (note the change in dates because we have switched to Wednesday lab meetings from Thursday).\nThe exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.\n\n\n\nDate\nSpeaker\n\n\n\n\n29 January\nTom\n\n\n5 February\nGaurav\n\n\n12 February\nMos\n\n\n19 February\n-\n\n\n26 February\nShikhara\n\n\n5 March\n-\n\n\n12 March\nRoman\n\n\n19 March\n-\n\n\n26 March\nTabea/Margaux\n\n\n2 April\n-\n\n\n9 April\nVictor\n\n\n16 April\n-\n\n\n23 April\nMargaux\n\n\n7 May\n-\n\n\n14 May\n-\n\n\n21 May\n-\n\n\n28 May\n-",
+    "crumbs": [
+      "Lab meeting talks"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/sems_lists.html",
+    "href": "lab_organisation/sems_lists.html",
+    "title": "Seminars and mailing lists",
+    "section": "",
+    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
+    "crumbs": [
+      "Seminars and mailing lists"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/sems_lists.html#mailing-lists",
+    "href": "lab_organisation/sems_lists.html#mailing-lists",
+    "title": "Seminars and mailing lists",
+    "section": "",
+    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
+    "crumbs": [
+      "Seminars and mailing lists"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/sems_lists.html#seminars",
+    "href": "lab_organisation/sems_lists.html#seminars",
+    "title": "Seminars and mailing lists",
+    "section": "Seminars",
+    "text": "Seminars\nThe four most relevant seminar series held at JGU are\n\nThe seminar series in Evolutionary Biology\nThe Institute for Quantitative and Computational Biosciences seminar series\nThe GenEvo seminar series. PhD students in the GenEvo research training program are allocated funds to invite an external speaker that’s influential in their field. There tend to be about eight a year. This link isn’t helpful for upcoming seminars, but the archives give a sense of the types of topics covered.\nThe ECR seminar series. This has no formal documentation, but is designed for ECRs to get to know each others work while practicing communication skills. To get involved email Camille Cozzarolo at ccozzaro@uni-mainz.de.",
+    "crumbs": [
+      "Seminars and mailing lists"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/admin_essentials.html",
+    "href": "lab_organisation/admin_essentials.html",
+    "title": "Admin essentials when starting out",
     "section": "",
     "text": "Your first step after moving to Mainz will be to complete your registration with the city. You can book an appointment for registration online at this link, and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment here. The appointment will be at the Bürgeramt (=citizenship office) in Mainz, located on Kaiserstraße 3-5. To register, you will need to have\n\nYour passport (and a visa if applicable).\nA residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See here for how this is done.\nProof that you are indeed staying at the address mentioned above. If you are renting a place, you can ask your landlord/landlady for a ‘Wohnungsgeberbestätigung’, which will provide the required proof.\nIf you are married, a marriage certificate (offically translated into German)\nIf you are registering children, you also need to carry ID proof for your children.\n\nWhen you register, you will receive a piece of paper from the citizenship office called an Anmeldebescheinigung (=registration certificate). Hold on to this certificate, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your Steuer ID (= tax ID) by post to the address you registered. This ID should be communicated to both JGU’s HR contact and to Sabine (our secretary). This is important because you cannot be paid without a Steuer ID.",
     "crumbs": [
       "Onboarding",
-      "Non-EU citizens"
+      "Admin essentials"
     ]
   },
   {
-    "objectID": "lab_organisation/Non_EU_citizens.html#registration",
-    "href": "lab_organisation/Non_EU_citizens.html#registration",
-    "title": "Non-EU citizens",
+    "objectID": "lab_organisation/admin_essentials.html#registration",
+    "href": "lab_organisation/admin_essentials.html#registration",
+    "title": "Admin essentials when starting out",
     "section": "",
     "text": "Your first step after moving to Mainz will be to complete your registration with the city. You can book an appointment for registration online at this link, and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment here. The appointment will be at the Bürgeramt (=citizenship office) in Mainz, located on Kaiserstraße 3-5. To register, you will need to have\n\nYour passport (and a visa if applicable).\nA residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See here for how this is done.\nProof that you are indeed staying at the address mentioned above. If you are renting a place, you can ask your landlord/landlady for a ‘Wohnungsgeberbestätigung’, which will provide the required proof.\nIf you are married, a marriage certificate (offically translated into German)\nIf you are registering children, you also need to carry ID proof for your children.\n\nWhen you register, you will receive a piece of paper from the citizenship office called an Anmeldebescheinigung (=registration certificate). Hold on to this certificate, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your Steuer ID (= tax ID) by post to the address you registered. This ID should be communicated to both JGU’s HR contact and to Sabine (our secretary). This is important because you cannot be paid without a Steuer ID.",
     "crumbs": [
       "Onboarding",
-      "Non-EU citizens"
+      "Admin essentials"
     ]
   },
   {
-    "objectID": "lab_organisation/Non_EU_citizens.html#bank-accounts-and-getting-your-salary",
-    "href": "lab_organisation/Non_EU_citizens.html#bank-accounts-and-getting-your-salary",
-    "title": "Non-EU citizens",
+    "objectID": "lab_organisation/admin_essentials.html#bank-accounts-and-getting-your-salary",
+    "href": "lab_organisation/admin_essentials.html#bank-accounts-and-getting-your-salary",
+    "title": "Admin essentials when starting out",
     "section": "Bank accounts and getting your salary",
-    "text": "Bank accounts and getting your salary\nYou will be paid on the last working day of each month. To be paid, the university needs to have your Steuer ID. You also need to have a bank account that has an IBAN. As far as I (Shikhara) am aware, this is a largely European concept, so if you are not from Europe, you will likely have to create a local bank account to be paid. You can open a bank account immediately after registering with the city (see above), though some banks may have more stringent requirements than others (for instance, Sparkasse sometimes requires long-term residence permits). See here for some opinions on various banks in Germany to see your options. I (Shikhara) use Commerzbank because they have a branch in Mainz, have a very straightforward online process for opening an account, and offer English customer service. I have also heard good things about online banks like N26 and Revolut. However, please do your own research before taking financial advice on which bank to choose. Once you have an IBAN, you should share your IBAN with Sabine. This, again, is important for getting your salary. When you get your first payslip, you will be able to find the Personalnummer that has been given to you by the Landesamt für finanzen (LfF). The Personalnummer is an eight digit number assigned to you by the LfF and is important for tax purposes, so keep note of it. In general, if you contact the LfF for queries related to your salary, tax contributions, or tax returns, you will need to quote your Personalnummer. You should also hold on to all the payslips you receive because you could need them for administrative purposes (for instance, when applying for a residence permit, see below).",
+    "text": "Bank accounts and getting your salary\nYou will be paid on the last working day of each month. To be paid, the university needs to have your Steuer ID. You also need to have a bank account that has an IBAN. As far as I (Shikhara) am aware, this is a largely European concept, so if you are not from Europe, you will likely have to create a local bank account to be paid. You can open a bank account immediately after registering with the city (see above), though some banks may have more stringent requirements than others (for instance, Sparkasse sometimes requires long-term residence permits). See here for some opinions on various banks in Germany to see your options. I (Shikhara) use Commerzbank because they have a branch in Mainz, have a very straightforward online process for opening an account, and offer English customer service. I have also heard good things about online banks like N26 and Revolut. However, please do your own research before taking financial advice on which bank to choose. Once you have an IBAN, you should share your IBAN with Sabine. This, again, is important for getting your salary. When you get your first payslip, you will be able to find the Personalnummer that has been given to you by the Landesamt für finanzen (LfF). The Personalnummer is an eight digit number assigned to you by the LfF and is important for tax purposes, so keep note of it. In general, if you contact the LfF for queries related to your salary, tax contributions, or tax returns, you will need to quote your Personalnummer. You should also hold on to all the payslips you receive because you could need them for administrative purposes (for instance, when applying for a residence permit, see below). You will also need your Personalnummer to get travel expenses reimbursed.",
     "crumbs": [
       "Onboarding",
-      "Non-EU citizens"
+      "Admin essentials"
     ]
   },
   {
-    "objectID": "lab_organisation/Non_EU_citizens.html#applying-for-a-residence-permit",
-    "href": "lab_organisation/Non_EU_citizens.html#applying-for-a-residence-permit",
-    "title": "Non-EU citizens",
+    "objectID": "lab_organisation/admin_essentials.html#applying-for-a-residence-permit",
+    "href": "lab_organisation/admin_essentials.html#applying-for-a-residence-permit",
+    "title": "Admin essentials when starting out",
     "section": "Applying for a residence permit",
-    "text": "Applying for a residence permit\nIf you are staying in Germany for more than a year, you will need to apply for a residence permit. A residence permit essentially supersedes a visa and will be given for the length of your contract (or until your passport xpires if that happens first). Applications for residence permits from JGU scientists are processed differently by the Bürgeramt, so do not try to apply for a residence permit independently. Instead, write an email to the JGU Welcome Center (welcome[at]international[dot]uni-mainz[dot]de) saying you are employed with us and need a residence permit, and the Welcome Center will arrange for an appointment with the Burgerämt and give you further directions. When you first write to the Welcome Center for this, they will ask you to fill out some forms they send, and also send them copies of\n\nYour passport and visa\nYour rental certificate\nYour employment certiciate\nA hosting agreement from Hanna\nA health insurance certificate (not just a card)\nYour last three payslips\n\nFor the application with the Burgerämt itself, you will need\n\nA current (= at most six month old) biometric picture of yourself.\nYour passport and visa if applicable.\nA debit card to pay a fee of €100 (they don’t take cash). I (Shikhara) was able to get this reimbursed by the university, so hang on to the receipt.\n\nYou will need to visit the Burgerämt in person a few weeks after this appoint to pick up your residence permit (the Burgerämt will give you an exact date). While your application is being processed (after the first appointment but before you pick it up), it is possible to ask the Burgerämt for a Fiktionsbescheinigung, a temporary form for any immigration/border authorities that says that your application is being processed. I would recommend taking this form just to be safe. The residence permit process can take a really long time, so make sure to contact the Welcome Center well before your visa expires. This is really important because your contract will be terminated immediately by HR if you do not have a residence permit in hand before your visa expires.",
+    "text": "Applying for a residence permit\nIf you are staying in Germany for more than a year, you will need to apply for a residence permit. A residence permit essentially supersedes a visa and will be given for the length of your contract (or until your passport expires if that happens first). Applications for residence permits from JGU scientists are processed differently by the Bürgeramt, so do not try to apply for a residence permit independently. Instead, write an email to the JGU Welcome Center (welcome[at]international[dot]uni-mainz[dot]de) saying you are employed with us and need a residence permit, and the Welcome Center will arrange for an appointment with the Burgerämt and give you further directions. When you first write to the Welcome Center for this, they will ask you to fill out some forms they send, and also send them copies of\n\nYour passport and visa\nYour rental certificate\nYour employment certiciate\nA hosting agreement from Hanna\nA health insurance certificate (not just a card)\nYour last three payslips\n\nFor the appointment with the Burgerämt itself, you will need\n\nA current (= at most six month old) biometric picture of yourself.\nYour passport and visa if applicable.\nA debit card to pay a fee of €100 (they don’t take cash). I (Shikhara) was able to get this reimbursed by the university, so hang on to the receipt.\n\nYou will need to visit the Burgerämt in person a few weeks after this appoint to pick up your residence permit (the Burgerämt will give you an exact date). While your application is being processed (after the first appointment but before you pick it up), it is possible to ask the Burgerämt for a Fiktionsbescheinigung, a temporary form for any immigration/border authorities that says that your application is being processed. I would recommend taking this form just to be safe. The residence permit process can take a really long time, so make sure to contact the Welcome Center well before your visa expires. This is really important because your contract will be terminated immediately by HR if you do not have a residence permit in hand before your visa expires.",
     "crumbs": [
       "Onboarding",
-      "Non-EU citizens"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/Non_EU_citizens.html#miscellaneous-germany-things",
-    "href": "lab_organisation/Non_EU_citizens.html#miscellaneous-germany-things",
-    "title": "Non-EU citizens",
-    "section": "Miscellaneous Germany things",
-    "text": "Miscellaneous Germany things\n\nMost shops, and all supermarkets, are closed on Sundays in Germany. Plan for this so you don’t starve.\nGermany lives in the stone age with respect to technology and still relies heavily on cash and post. Make sure to keep some cash on you (many shops and restaurants don’t take card), and check your postbox often (a lot of the official communication happens via post).\nPublic transport is very good in Germany, and Mainz is no exception. The Deutschlandticket allows you to board any regional public transport (all buses and trams, and regional trains such as REs, RBs, U-Bahns, and S-Bahns) for just €58 per month. This is a fantastic deal, I strongly recommend you take it.\nDeepL is a very good online translator for translating German to English and vice versa. They also have an app.\nYou can buy a SIM card at most supermarkets, and they will be able to activate it for you at the checkout counter. You may need to provide some form of proof of identity such as a passport when activating the passport.\nMainz has various weekly markets selling fresh produce. You can see the days, times, and locations of the markets here.\nKleinanzeigen is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.\nIf you are looking for a place to stay, try Immoscout and Immowelt. If you are okay with shared housing, you can also look at WG-Gesucht. The housing market is really tough, so don’t be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.\nToogoodtogo is a great servic for buying food and groceries that are left unsold at the end of the day. It’s really cheap, and helps reduce food waste!",
-    "crumbs": [
-      "Onboarding",
-      "Non-EU citizens"
+      "Admin essentials"
     ]
   },
   {
@@ -344,6 +333,17 @@
     "title": "General information",
     "section": "Travelling for University related activities",
     "text": "Travelling for University related activities\n\nTravel request: download form – please complete with a signature from Hanna as soon as you start planning your travels. Please be sure to submit it to Sabine, so she can forward it to the university management.\nIf you are travelling within the EU you’ll need to fill this out for insurance purposes: download form. This needs to be submitted prior to the trip, ideally alongside the travel request.\nTravel reimbursement: download form – once you return from your trip, you will need to complete this form to request reimbursement for all travel expenses. Please submit this form, all original receipts and payment confirmation from your MC or Bank statement.",
+    "crumbs": [
+      "Onboarding",
+      "General info"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
+    "href": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
+    "title": "General information",
+    "section": "Miscellaneous Germany things",
+    "text": "Miscellaneous Germany things\n\nMost shops, and all supermarkets, are closed on Sundays in Germany. Plan for this so you don’t starve.\nGermany lives in the stone age with respect to technology and still relies heavily on cash and post. Make sure to keep some cash on you (many shops and restaurants don’t take card), and check your postbox often (a lot of the official communication happens via post).\nPublic transport is very good in Germany, and Mainz is no exception. The Deutschlandticket allows you to board any regional public transport (all buses and trams, and regional trains such as REs, RBs, U-Bahns, and S-Bahns) for just €58 per month. This is a fantastic deal, I strongly recommend you take it.\nDeepL is a very good online translator for translating German to English and vice versa. They also have an app.\nYou can buy a SIM card at most supermarkets, and they will be able to activate it for you at the checkout counter. You may need to provide some form of proof of identity such as a passport when activating the passport.\nMainz has various weekly markets selling fresh produce. You can see the days, times, and locations of the markets here.\nKleinanzeigen is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.\nIf you are looking for a place to stay, try Immoscout and Immowelt. If you are okay with shared housing, you can also look at WG-Gesucht. The housing market is really tough, so don’t be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.\nToogoodtogo is a great servic for buying food and groceries that are left unsold at the end of the day. It’s really cheap, and helps reduce food waste!",
     "crumbs": [
       "Onboarding",
       "General info"
