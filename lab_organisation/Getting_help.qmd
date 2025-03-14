@@ -5,8 +5,19 @@ editor: source
 engine: knitr
 ---
 
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
 If you need a hand with anything, we have a strong relationship with the [IQCB](https://iqcb.uni-mainz.de/). They're happy to help with IT issues and are equipped to deal with rather complex problems i.e. using the HPC. Coveniently, their IT department is housed in our building, up one floor from us. Visiting in person tends to be the best way to solve problems quickly, but they are also responsive at `it[dot]]iqcb[at]uni[hyphen]mainz[dot]de`. The two staff members you're most likely to interact with are Helge Vatheuer and Robert Vettel (the crow whisperer).
 
 One reason the IQCB exists is to act as a bridge between researchers like us and the ZDV; JGU's official IT department. I strongly suggest taking your problems to the ICQB first, because the ZDV can be a little... unpredictable. If you absolutely need to liase with the ZDV, visit them in person at their [hotline office](https://www.en-zdv.uni-mainz.de/hotline/#:~:text=by%20telephone%3A%20within%20JGU%3A%202,otherwise%3A%20%2B49%206131%2039%2026316). 
 
 Your choice of operating system determines how much help IT can give you. Windows is the ZDV's preferred operating system and as such, a lot of supporting infrastructure exists. They also have an entire LINUX division, but you need to talk to the right person to actually get help. MAC has no support at all - Carte Blanche! This has pros and cons. 
+
+:::

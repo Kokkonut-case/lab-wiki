@@ -5,6 +5,16 @@ editor: source
 engine: knitr
 ---
 
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
+
 Welcome to the JGU and our department! Sabine (our wonderful secretary) has gathered some useful Information for you. Please read through carefully.
 
 ## Information from the JGU for new employees
@@ -43,3 +53,5 @@ Further information about vacation, illness and other personnel issues can also 
 - [Kleinanzeigen](https://www.kleinanzeigen.de/) is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.
 - If you are looking for a place to stay, try [Immoscout](https://www.immobilienscout24.de/) and [Immowelt](https://www.immowelt.de/). If you are okay with shared housing, you can also look at [WG-Gesucht](https://www.wg-gesucht.de/). The housing market is really tough, so don't be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.
 - [Toogoodtogo](https://www.toogoodtogo.com/en-us) is a great servic for buying food and groceries that are left unsold at the end of the day. It's really cheap, and helps reduce food waste!
+
+:::

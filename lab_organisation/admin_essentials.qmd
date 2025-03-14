@@ -5,6 +5,15 @@ editor: source
 engine: knitr
 ---
 
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
 ## Registration
 
 Your first step after moving to Mainz will be to complete your **registration with the city**. You can book an appointment for registration online at [this link](https://mainz.de/verwaltung-und-politik/buergerservice-online/termine-online.php), and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment [here](https://www.international-office.uni-mainz.de/files/2022/03/klickanleitung_buergerservice_foreignersoffice_combined.pdf). The appointment will be at the [Bürgeramt](https://www.mainz.de/vv/oe/buergeramt.php) (=citizenship office) in Mainz, located on [Kaiserstraße 3-5](https://www.google.com/maps/place/Einwohnermeldeamt+Mainz/@50.0025234,8.2605038,17z/data=!3m1!4b1!4m6!3m5!1s0x47bd93f7e6a89f29:0xc33c4d39eb0f4dcf!8m2!3d50.0025234!4d8.2605038!16s%2Fg%2F11b6tvc1tc?entry=ttu&g_ep=EgoyMDI1MDMxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D).
@@ -47,5 +56,7 @@ For the appointment with the Burgerämt itself, you will need
 - A debit card to pay a fee of €100 (they don't take cash). I (Shikhara) was able to get this reimbursed by the university, so hang on to the receipt.
 
 You will need to visit the Burgerämt in person a few weeks after this appoint to pick up your residence permit (the Burgerämt will give you an exact date). While your application is being processed (after the first appointment but before you pick it up), it is possible to ask the Burgerämt for a *Fiktionsbescheinigung*, a temporary form for any immigration/border authorities that says that your application is being processed. I would recommend taking this form just to be safe. The residence permit process can take a really long time, so make sure to contact the Welcome Center well before your visa expires. This is really important because **your contract will be terminated immediately by HR if you do not have a residence permit in hand before your visa expires**.
+
+:::
 
 

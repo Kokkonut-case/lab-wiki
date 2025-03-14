@@ -180,21 +180,11 @@
     ]
   },
   {
-    "objectID": "lab_organisation/labmeeting-talk-schedule.html",
-    "href": "lab_organisation/labmeeting-talk-schedule.html",
-    "title": "Lab meeting talk schedule",
-    "section": "",
-    "text": "Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
-    "crumbs": [
-      "Lab meeting talks"
-    ]
-  },
-  {
     "objectID": "lab_organisation/labmeeting-talk-schedule.html#content",
     "href": "lab_organisation/labmeeting-talk-schedule.html#content",
     "title": "Lab meeting talk schedule",
-    "section": "",
-    "text": "Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
+    "section": "Content",
+    "text": "Content\nGoals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
     "crumbs": [
       "Lab meeting talks"
     ]
@@ -240,22 +230,11 @@
     ]
   },
   {
-    "objectID": "lab_organisation/admin_essentials.html",
-    "href": "lab_organisation/admin_essentials.html",
-    "title": "Admin essentials when starting out",
-    "section": "",
-    "text": "Your first step after moving to Mainz will be to complete your registration with the city. You can book an appointment for registration online at this link, and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment here. The appointment will be at the Bürgeramt (=citizenship office) in Mainz, located on Kaiserstraße 3-5.  To register, you will need to have\n\nYour passport (and a visa if applicable).\nA residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See here for how this is done.\nProof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a Wohnungsgeberbestätigung.\nIf you are married, a marriage certificate (offically translated into German)\nIf you are registering children, you also need to carry ID proof for your children.\n\nWhen you register, you will receive a piece of paper from the citizenship office called an Anmeldebescheinigung (=registration certificate). Hold on to this certificate, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your Steuer ID (= tax ID) by post to the address you registered. This ID should be communicated to both JGU’s HR contact and to Sabine (our secretary). This is important because you cannot be paid without a Steuer ID.",
-    "crumbs": [
-      "Onboarding",
-      "Admin essentials"
-    ]
-  },
-  {
     "objectID": "lab_organisation/admin_essentials.html#registration",
     "href": "lab_organisation/admin_essentials.html#registration",
     "title": "Admin essentials when starting out",
-    "section": "",
-    "text": "Your first step after moving to Mainz will be to complete your registration with the city. You can book an appointment for registration online at this link, and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment here. The appointment will be at the Bürgeramt (=citizenship office) in Mainz, located on Kaiserstraße 3-5.  To register, you will need to have\n\nYour passport (and a visa if applicable).\nA residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See here for how this is done.\nProof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a Wohnungsgeberbestätigung.\nIf you are married, a marriage certificate (offically translated into German)\nIf you are registering children, you also need to carry ID proof for your children.\n\nWhen you register, you will receive a piece of paper from the citizenship office called an Anmeldebescheinigung (=registration certificate). Hold on to this certificate, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your Steuer ID (= tax ID) by post to the address you registered. This ID should be communicated to both JGU’s HR contact and to Sabine (our secretary). This is important because you cannot be paid without a Steuer ID.",
+    "section": "Registration",
+    "text": "Registration\nYour first step after moving to Mainz will be to complete your registration with the city. You can book an appointment for registration online at this link, and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment here. The appointment will be at the Bürgeramt (=citizenship office) in Mainz, located on Kaiserstraße 3-5.  To register, you will need to have\n\nYour passport (and a visa if applicable).\nA residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See here for how this is done.\nProof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a Wohnungsgeberbestätigung.\nIf you are married, a marriage certificate (offically translated into German)\nIf you are registering children, you also need to carry ID proof for your children.\n\nWhen you register, you will receive a piece of paper from the citizenship office called an Anmeldebescheinigung (=registration certificate). Hold on to this certificate, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your Steuer ID (= tax ID) by post to the address you registered. This ID should be communicated to both JGU’s HR contact and to Sabine (our secretary). This is important because you cannot be paid without a Steuer ID.",
     "crumbs": [
       "Onboarding",
       "Admin essentials"
@@ -292,17 +271,6 @@
     "crumbs": [
       "Onboarding",
       "Admin essentials"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/onboarding_general_info.html",
-    "href": "lab_organisation/onboarding_general_info.html",
-    "title": "General information",
-    "section": "",
-    "text": "Welcome to the JGU and our department! Sabine (our wonderful secretary) has gathered some useful Information for you. Please read through carefully.",
-    "crumbs": [
-      "Onboarding",
-      "General info"
     ]
   },
   {

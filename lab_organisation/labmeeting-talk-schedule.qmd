@@ -5,6 +5,15 @@ editor: source
 engine: knitr
 ---
 
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
 ## Content
 
 Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we're currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.
@@ -36,3 +45,5 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 14 May      | \-            |
 | 21 May      | \-            |
 | 28 May      | \-            |
+
+:::
