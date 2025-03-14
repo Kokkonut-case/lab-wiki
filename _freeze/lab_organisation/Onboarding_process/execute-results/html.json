@@ -1,0 +1,15 @@
+{
+  "hash": "05ef235e9c998989503e25b60c0a13c7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"The process\"\nformat: html\neditor: source\nengine: knitr\n---\n\n\n\nOnce you've arrived:\n\n- What is needed to get your first paycheck\n\n  - Tax number\n  - Personal number\n  - Address\n  - Bank account (IBAN)\n  - ??\n\n- Getting a residence permit (if neccessary)\n\n- \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
