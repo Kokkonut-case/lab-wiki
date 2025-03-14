@@ -16,10 +16,8 @@ website:
         contents:
         - text: "General info"
           href: lab_organisation/onboarding_general_info.qmd
-        - text: "EU citizens"
-          href: lab_organisation/EU_citizens.qmd
-        - text: "Non-EU citizens"
-          href: lab_organisation/Non_EU_citizens.qmd
+        - text: "Admin essentials"
+          href: lab_organisation/admin_essentials.qmd
         - text: "Registering as a student"
           href: lab_organisation/student_rego.qmd
       - section: "Computing"

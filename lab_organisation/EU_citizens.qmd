@@ -1,6 +1,0 @@
----
-title: "EU citizens"
-format: html
-editor: source
-engine: knitr
----
