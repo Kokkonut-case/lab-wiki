@@ -7,15 +7,21 @@ engine: knitr
 
 ## Registration
 
-Your first step after moving to Mainz will be to complete your **registration with the city**. You can book an appointment for registration online at [this link](https://mainz.de/verwaltung-und-politik/buergerservice-online/termine-online.php), and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment [here](https://www.international-office.uni-mainz.de/files/2022/03/klickanleitung_buergerservice_foreignersoffice_combined.pdf). The appointment will be at the [Bürgeramt](https://www.mainz.de/vv/oe/buergeramt.php) (=citizenship office) in Mainz, located on [Kaiserstraße 3-5](https://www.google.com/maps/place/Einwohnermeldeamt+Mainz/@50.0025234,8.2605038,17z/data=!3m1!4b1!4m6!3m5!1s0x47bd93f7e6a89f29:0xc33c4d39eb0f4dcf!8m2!3d50.0025234!4d8.2605038!16s%2Fg%2F11b6tvc1tc?entry=ttu&g_ep=EgoyMDI1MDMxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D).  To register, you will need to have
+Your first step after moving to Mainz will be to complete your **registration with the city**. You can book an appointment for registration online at [this link](https://mainz.de/verwaltung-und-politik/buergerservice-online/termine-online.php), and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment [here](https://www.international-office.uni-mainz.de/files/2022/03/klickanleitung_buergerservice_foreignersoffice_combined.pdf). The appointment will be at the [Bürgeramt](https://www.mainz.de/vv/oe/buergeramt.php) (=citizenship office) in Mainz, located on [Kaiserstraße 3-5](https://www.google.com/maps/place/Einwohnermeldeamt+Mainz/@50.0025234,8.2605038,17z/data=!3m1!4b1!4m6!3m5!1s0x47bd93f7e6a89f29:0xc33c4d39eb0f4dcf!8m2!3d50.0025234!4d8.2605038!16s%2Fg%2F11b6tvc1tc?entry=ttu&g_ep=EgoyMDI1MDMxMS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D).
+<br>
+To register, you will need to have
 
 - Your passport (and a visa if applicable).
 - A residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See [here](https://www.iamexpat.de/housing/german-housing-market/change-of-address-germany) for how this is done.
- - Proof that you are indeed staying at the address mentioned above. If you are renting a place, you can ask your landlord/landlady for a 'Wohnungsgeberbestätigung', which will provide the required proof.
+ - Proof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a [Wohnungsgeberbestätigung](https://www.mainz.de/vv/medien/Wohnungsgebende-Bescheinigung-Formular.pdf).
 - If you are married, a marriage certificate (offically translated into German)
 - If you are registering children, you also need to carry ID proof for your children.
 
 When you register, you will receive a piece of paper from the citizenship office called an *Anmeldebescheinigung* (=registration certificate). **Hold on to this certificate**, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your *Steuer ID* (= tax ID) by post to the address you registered. This ID should be communicated to both JGU's HR contact and to Sabine (our secretary). This is important because **you cannot be paid without a Steuer ID**.
+
+## Certificate of Conduct
+
+The certificate of conduct is a police document required by JGU that essentially checks whether you have a criminal record in your home country. Everyone with an employment contract **must** submit a Certificate of Conduct to the university within the first three months of starting. Like Registration, the Certificate of Conduct is obtained from the Bürgeramt. The Certificate requires a €13 fee (to be paid by card). The Burgeramt will send the certificate directly to JGU's HR: The address of HR is `Dezernat Personal, Forum universitatis 3, 550099 Mainz`. Both registration and getting the Certificate of Conduct can be done in the same appointment --- I recommend doing this to save yourself time, there is no point in booking two separate appointments.
 
 ## Bank accounts and getting your salary
 
@@ -24,7 +30,7 @@ When you get your first payslip, you will be able to find the *Personalnummer* t
 
 ## Applying for a residence permit
 
-If you are staying in Germany for more than a year, you will need to apply for a *residence permit*. A residence permit essentially supersedes a visa and will be given for the length of your contract (or until your passport expires if that happens first). Applications for residence permits from JGU scientists are processed differently by the Bürgeramt, so do not try to apply for a residence permit independently. Instead, write an email to the JGU Welcome Center (`welcome[at]international[dot]uni[hyphen]mainz[dot]de`) saying you are employed with us and need a residence permit, and the Welcome Center will arrange for an appointment with the Burgerämt and give you further directions. When you first write to the Welcome Center for this, they will ask you to fill out some forms they send, and also send them copies of
+If you are staying in Germany for longer than a year, you will need to apply for a *residence permit*. A residence permit essentially supersedes a visa and will be given for the length of your contract (or until your passport expires if that happens first). Applications for residence permits from JGU scientists are processed differently by the Bürgeramt, so do not try to apply for a residence permit independently. Instead, write an email to the JGU Welcome Center (`welcome[at]international[dot]uni[hyphen]mainz[dot]de`) saying you are employed with us and need a residence permit, and the Welcome Center will arrange for an appointment with the Burgerämt and give you further directions. When you first write to the Welcome Center for this, they will ask you to fill out some forms they send, and also send them copies of
 
 - Your passport and visa
 - Your rental certificate
