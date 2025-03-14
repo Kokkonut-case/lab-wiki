@@ -13,11 +13,11 @@ Welcome to the JGU and our department! Sabine (our wonderful secretary) has gath
 
 ## Vacation
 
-As an employee of the University, you have 30 days paid leave per year (on a full year’s contract). You must take this leave each year. Please use Gisbo, using the following link to submit your vacation request, which must be approved by your PI: https://arbeitszeit.uni-mainz.de/. In the settings, please fill in your PI’s email address as well as `sekretariat.oekologie@uni-mainz.de`.
+As an employee of the University, you have 30 days paid leave per year (on a full year’s contract). You must take this leave each year. Please use Gisbo, using the following link to submit your vacation request, which must be approved by your PI: https://arbeitszeit.uni-mainz.de/. In the settings, please fill in your PI’s email address as well as `sekretariat[dot]oekologie[at]uni[hyphen]mainz[dot]de`.
 
 ## Sick leave
 
-If you are sick and unable to come to work, please send an email to the following addresses so that we can register you in the Gisbo (time management software) system as ill: `iome_krankmeldung@uni-mainz.de`; `Sekretariat.oekologie@uni-mainz.de`; or your PI.
+If you are sick and unable to come to work, please send an email to the following addresses so that we can register you in the Gisbo (time management software) system as ill: `iome_krankmeldung[at]uni[hyphen]mainz[dot]de`; `Sekretariat[dot]]oekologie[at]uni[hyphen]mainz[dot]de`; or your PI.
 
 When you are healthy again, please send another email letting us know you are healthy and returning to work. Please note – if you are out due to illness for more than 3 days, you must provide a doctor’s note.
 
