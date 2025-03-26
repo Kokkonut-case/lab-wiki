@@ -4,3 +4,116 @@ format: html
 editor: source
 engine: knitr
 ---
+ ---
+title: "Coding practices"
+format: html
+editor: source
+engine: knitr
+---
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
+
+This page is intended to collate some good coding advice for people who are relatively new to programming. If you really want to learn about writing good research code, check out the [Good Research Coding Handbook](https://goodresearch.dev/index.html). 
+
+## Good habits: A small subset of the Zen Of Python
+
+```
+Explicit is better than implicit.
+Readability counts.
+Simple is better than complex.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+```
+The [Zen of Python](https://en.wikipedia.org/wiki/Zen_of_Python) is a list of coding conventions that are supposed to exemplify how good Python code should be written. Since the majority of the lab currently uses either Python or languages that are very similar to Python (R, MATLAB, Octave, etc.), many of these tenets carry over to our use case. I have collated the ones I thnk are most important to us above.
+
+### Explicit is better than implicit.
+
+**Assign meaningful variable names** and be as explicit as possible about why you are doing the things you are doing. You may be tempted to leave some parts of your code unwritten/unexplained because you think it is 'obvious', or assign arbitrary variable names because it is faster - this is a bad idea because what is obvious to you may not be obvious to others, and what is obvious to you now may not be obvious to you five months or five years from now.
+
+It is also important to **comment your code thoroughly**. Much like with variable names, commenting code can greatly improve how understandable it is. It also improves readability (more on that below). Comments should specify what your code does and, more importantly, why you are doing what you do. Being explicit also means you explicitly write down what sort of inputs your code expects and what sort of assumptions it is making. This is especially important in languges like R and Python that allow users to be relatively sloppy about datatypes. For instance, Python allows you to multiply a string by an integer. Thus, if your code contains a block like `2*foo` where `foo` is an input, it is important to be explicit about whether `foo` is supposed to be a string or an integer, since both will return valid outputs but the outputs will have radically different meanings and so could cause problems downstream. Similarlu,
+
+As an example, suppose you wanted to write a function that calculates the (approximate) net salary a PhD student or post-doc in the lab should receive this month, given their starting date. Here is a bad way to write this code:
+
+
+
+```{r}
+#implicit
+#this is bad code
+f <- function(x,y=0.65){
+    return (2935*y +  200* (as.numeric(Sys.Date() - x)%/%365)) #so confusing. what are x and y? wtf is 2935?? what.
+}
+```
+This is bad code because all of the thinking behind the final formula has been obscured. If you saw it without context, it would be unclear what the function is even supposed to accomplish.  A much better way to write the same function is:
+
+```{r}
+CalculateSalary <- function(start_date, job_fraction=0.65){
+    #Function to calculate expected monthly salary sometime into your PhD. start_date is either a Date() object or a string of the form YYYY-MM-DD.
+    #This argument describes the date you started being employed in academia in the EU. If you are a PhD student, this is probably the date you started your contract.
+    #If you are a post-doc, where you did your PhD decides what counts as job experience. job_fraction is a float b/w 0 and 1) describing what percentage of a full contract you have.
+    #All current PhDs are on 65% contracts. If you are a post-doc, you are on 100%.
+    
+    start_date <- as.Date(start_date)  #assert that the start_date is a Date() object. If user accidentally supplied a string, convert it. 
+
+    # Both post-docs and PhDs are on the TV-L E13 scale. This results in a base net salary (stufe 1) of about 2935 EUR per month if you are not paying for VBL.
+    base_salary <- 2935 # From https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 
+
+    #calculate how many years of job experience you have
+    years_of_experience <- as.numeric(Sys.Date() - start_date)%/%365 #the 365 is to convert days to years
+
+    yearly_bonus <- 200 #average yearly bonus for getting job experience. Calculated from https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 
+
+    return(job_fraction*base_salary + yearly_bonus*years_of_experience)
+}
+```
+We have now named our function `CalculateSalary()`, making it clear what the function does. The arguments of the function have been renamed from the very opaque `x` and `y` to more transparent, meaningful names.  We have also explicitly declared the local variables `base_salary` and `yearly_bonus` amd explained where these numbers come from. Even though you generally *think* in a way that is closer to how `CalculateSalary()` was written, on you have already done the thinking, you may be tempted to just write down the final code in the way that `f()` was written because the logic is now obvious (to you). Resist this temptation. 
+
+### Readability counts
+
+It is often worth making a code longer and defining more intermediate steps if this improves how readable the code is. Ultimately, you want a human reading the script to understand it as quickly as possible, even if it makes the code slightly slower to the computer. For instance, our `CalculateSalary()` code can be further improved by adding more systematic comments and including some intermediate steps like this:
+
+```{r}
+CalculateSalary <- function(start_date, job_fraction=0.65){
+
+    #########################
+    #Function to calculate expected monthly salary sometime into your PhD
+    #Inputs:
+        # start_date (Date or str): Either a Date() object or a string of the form YYYY-MM-DD. 
+        #                           This argument describes the date you started being employed in academia in the EU. 
+        #                           If you are a PhD student, this is probably the date you started your contract.
+        #                           If you are a post-doc, where you did your PhD decides what counts as job experience.
+        # job_fraction (float b/w 0 and 1): What percentage of a full salary is your contract? All current PhDs are on 65% contracts. If you are a post-doc, you are on 100%.
+
+
+    #Outputs: Your expected monthly salary in euros.
+    #######################
+
+    start_date <- as.Date(start_date)  ##assert that the start_date is a Date() object. if the user supplied a string, force it to be a Date type. 
+
+    # Both post-docs and PhDs are on the TV-L E13 scale. This results in a base net salary (stufe 1) of about 2935 EUR per month if you are not paying for VBL.
+    base_salary <- 2935 # From https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 
+    
+    # PhDs are considered partial employment. Modify their base salary accordingly
+    base_salary <- job_fraction*base_salary
+
+    #calculate how many years of job experience you have
+    current_date <- Sys.Date()
+    years_of_experience <- as.numeric(current_date - start_date)%/%365 #the 365 is to convert days to years
+
+    yearly_bonus <- 200 #average yearly bonus for getting job experience
+
+    #calculate the salary you will actually get by adding any bonuses you may get due to job experience
+    realized_salary <- base_salary + yearly_bonus*years_of_experience
+
+    return(realized_salary)
+}
+```
+
+:::
