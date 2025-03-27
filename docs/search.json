@@ -314,6 +314,28 @@
     ]
   },
   {
+    "objectID": "lab_organisation/Downloading_software.html",
+    "href": "lab_organisation/Downloading_software.html",
+    "title": "Downloading software",
+    "section": "",
+    "text": "If you are a JGU employee, you can activate the ZDV license for mathematica by:\n\nInstalling Wolfram from this page\nAfter the download is complete, open Wolfram for the first time, it should ask you to activate the product.\nClick Other ways to activate and select Connect to a Network License Server.\nEnter mathlm-cl1.zdv.uni-mainz.de as the server name.\nThat’s it, derive away!",
+    "crumbs": [
+      "Computing",
+      "Downloading software"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/Downloading_software.html#mathematica",
+    "href": "lab_organisation/Downloading_software.html#mathematica",
+    "title": "Downloading software",
+    "section": "",
+    "text": "If you are a JGU employee, you can activate the ZDV license for mathematica by:\n\nInstalling Wolfram from this page\nAfter the download is complete, open Wolfram for the first time, it should ask you to activate the product.\nClick Other ways to activate and select Connect to a Network License Server.\nEnter mathlm-cl1.zdv.uni-mainz.de as the server name.\nThat’s it, derive away!",
+    "crumbs": [
+      "Computing",
+      "Downloading software"
+    ]
+  },
+  {
     "objectID": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
     "href": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
     "title": "General information",

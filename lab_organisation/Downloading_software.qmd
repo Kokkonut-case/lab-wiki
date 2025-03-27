@@ -4,3 +4,17 @@ format: html
 editor: source
 engine: knitr
 ---
+
+## Mathematica
+
+If you are a JGU employee, you can activate the ZDV license for mathematica by:
+
+1. Installing Wolfram from this [page](https://reference.wolfram.com/language/tutorial/InstallingWolfram.html)
+
+2. After the download is complete, open Wolfram for the first time, it should ask you to activate the product.
+
+3. Click `Other ways to activate` and select `Connect to a Network License Server`.
+
+4. Enter `mathlm-cl1.zdv.uni-mainz.de` as the server name.
+
+5. That's it, derive away!
