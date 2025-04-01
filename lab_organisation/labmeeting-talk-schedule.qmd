@@ -41,9 +41,29 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 9 April     | Victor        |
 | 16 April    | \-            |
 | 23 April    | Margaux       |
-| 7 May       | \-            |
+| 1 May       | public holiday (Labour Day) |
+| 7 May       | Tom            |
 | 14 May      | \-            |
-| 21 May      | \-            |
-| 28 May      | \-            |
+| 21 May      | Gaurav         |
+| 28 May  | \-           |
+| 4 June  | Erin        |
+| 11 June | \-           |
+| 18 June | Margaux/Luisa/Victor (ants)    |
+| 25 June | \-      |
+| 2 July     | Noemi            |
+| 9 July  | \-         |
+| 16 July    | Uthara            |
+| 23 July    | \-       |
+| 30 July     | Shikhara           |
+| 6 August     | \-        |
+| 13 August    | ESEB practice talks!    |
+| 20 August    | ESEB       |
+| 27 August       | \-            |
+| 3 September      | Claudia           |
+| 10 September      | \-            |
+| 17 September      | EvoDemo        |
+| 24 September      | Roman         |
+| 1 October      | \-         |
+| 8 October      | Mos         |
 
 :::
