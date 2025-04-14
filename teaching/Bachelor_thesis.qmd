@@ -28,7 +28,7 @@ It is the students responsibility to find a thesis project and it is our respons
 
 We also include particpiation in the module 14b bachelor winter semester subject _Theoretical Evolutionary Ecology_ as a **pre-requisite** to doing your thesis with our group.
 
-## Current potential thesis topics**
+## Current potential thesis topics
 
 **Spatial sorting and mutational meltdown**
 
