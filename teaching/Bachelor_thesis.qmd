@@ -32,6 +32,12 @@ We also include particpiation in the module 14b bachelor winter semester subject
 
 **Spatial sorting and mutational meltdown**
 
+**Do stressed mothers produce more variable offspring?**
+
+_Supervisor: Erin Macartney_
+
+Maternal environment can influence offspring traits important for survival and reproduction. These effects can be positive, negative, or neutral. However, studies of maternal environmental effects often only consider effects on trait means (i.e., does a particular environment increase or decrease the trait of interest). One of the key factors important for ‘evolutionary potential’, particularly in changing environments, is phenotypic variation. Genetic variation provides the backbone for selection to act on, but phenotypic variation induced by non-genetic factors can also affect ‘evolutionary potential’. This project will examine how maternal environmental stress can influence the phenotypic variation of a population in the following generation using meta-analytic methods. This will provide us with a greater understanding how populations may respond to changing environments through non-genetic inheritance.
+
 _Supervisor: Tom Keaney_
 
 Evolution usually proceeds via natural selection acting on the genetic component of trait variation. However, if a population is expanding its range, the range-front may be over-represented not by high fitness individuals, but by those individuals in the population with the greatest dispersal capabilities. Thus, on range fronts, a distinct evolutionary force -- termed spatial sorting -- is hypothesised to drive predictable trait evolution. In this bachelor thesis project you will investigate whether the forces driving dispersal away from an individual's natal range affect the efficacy of spatial sorting. For example, what if the individuals most likely to disperse aren't those that can theoretically travel the farthest, but primarily include those unable to hold a territory?
