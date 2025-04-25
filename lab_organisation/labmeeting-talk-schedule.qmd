@@ -65,5 +65,5 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 24 September      | Roman         |
 | 1 October      | \-         |
 | 8 October      | Mos         |
-
+| 15 October | \-	|
 :::
