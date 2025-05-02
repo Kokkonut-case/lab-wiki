@@ -9,12 +9,26 @@ engine: knitr
 
 If you are a JGU employee, you can activate the ZDV license for mathematica by:
 
-1. Installing Wolfram from this [page](https://reference.wolfram.com/language/tutorial/InstallingWolfram.html)
+1. Download Mathematica using the Download Manager that Tom will send you.
 
-2. After the download is complete, open Wolfram for the first time, it should ask you to activate the product.
+2. After the download is complete, open Wolfram for the first time, it should ask you to activate the product. We will do this with an "activation key”. Here is how to get one:
 
-3. Click `Other ways to activate` and select `Connect to a Network License Server`.
+- General details on installation are on https://reference.wolfram.com/language/tutorial/InstallingWolfram.html. What works for us is to go to the JGU’s “site info page”: https://www.wolfram.com/siteinfo/.  
 
-4. Enter `mathlm-cl1.zdv.uni-mainz.de` as the server name.
+- The page, once opened, should say “Johannes Gutenberg Universitaet Mainz Has Access to Wolfram Products” at the top and ask you for your institutional email address.
 
-5. That's it, derive away!
+- Enter your email address, and then on the next page, select the appropriate option when asked if you are a student or staff (PhD students are technically staff).
+
+- Click the red button that says “Get Mathematica Desktop”.
+
+- Fill out the form asking for name, email address, department, etc.
+
+- Note: the department drop-down doesn’t seem to be university specific, I just chose "Biological & Life Sciences” and this works. Submit the form.
+
+- This should immediately lead to the generation of an activation key that is both displayed on the browser and sent to your Mainz email. 
+
+4. Go back to the Wolfram app. Click "Other ways to activate" and select “Connect online using an Activation Key”. 
+
+- Enter the activation key that you got above.
+
+- Done!
