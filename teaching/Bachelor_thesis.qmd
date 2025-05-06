@@ -36,23 +36,17 @@ _Supervisor: Erin Macartney_
 
 Maternal environment can influence offspring traits important for survival and reproduction. These effects can be positive, negative, or neutral. However, studies of maternal environmental effects often only consider effects on trait means (i.e., does a particular environment increase or decrease the trait of interest). One of the key factors important for ‘evolutionary potential’, particularly in changing environments, is phenotypic variation. Genetic variation provides the backbone for selection to act on, but phenotypic variation induced by non-genetic factors can also affect ‘evolutionary potential’. This project will examine how maternal environmental stress can influence the phenotypic variation of a population in the following generation using meta-analytic methods. This will provide us with a greater understanding how populations may respond to changing environments through non-genetic inheritance.
 
-**Spatial sorting and mutational meltdown**
+**Does competition for nest sites influence adaptation to climate change?**
+
+_Supervisor: Tomos Potter_
+
+Climate change is altering the optimum timing of reproduction in seasonally breeding animals. Many species have shown a phenological shift: they start breeding earlier in the year. Rapid adaptive evolution can contribute to earlier nesting and may be key to species survival as the climate continues to change. But is nesting earlier always better? In some animals, like seabirds, early arrivals to breeding sites get the best nesting spots, and latecomers may find none left. However in others, like sea turtles, early nests can be damaged by later ones, making early breeding less successful. In this project, we will investigate how competition for nest sites might help or hinder species phenological responses to climate change.
+
+**One reason why whales aren't dinosaurs**
 
 _Supervisor: Tom Keaney_
 
-Evolution usually proceeds via natural selection acting on the genetic component of trait variation. However, if a population is expanding its range, the range-front may be over-represented not by high fitness individuals, but by those individuals in the population with the greatest dispersal capabilities. Thus, on range fronts, a distinct evolutionary force -- termed spatial sorting -- is hypothesised to drive predictable trait evolution. In this bachelor thesis project you will investigate whether the forces driving dispersal away from an individual's natal range affect the efficacy of spatial sorting. For example, what if the individuals most likely to disperse aren't those that can theoretically travel the farthest, but primarily include those unable to hold a territory?
-
-XXX (Roman)
-
-XXX (Margaux)
-
-XXX (Victor)
-
-XXX (Tom P)
-
-XXX (Claudia)
-
-Evolutionary game theory; Demographic stochasticity, genetic drift, evolution in finite populations (Shikhara)
+The click-baity title is definitely a little annoying, but it is thought provoking. Once you get past the _one's a mammal, one's a reptile_ and _one lives in the ocean, one mostly doesn't_ kind of answers, it starts to get interesting. One particularly intriguing difference is that dinosaurs lay eggs while whales give birth to live young. Why it that thought provoking? Well, eggs can only get so big before the embryos asphxiate, whereas this constraint on offspring size at birth is relaxed in mammals. The question you'll explore is how natural selection acting on comparably gigantic organisms such as non-avian dinsoaurs and whales optimises their life history. Specifically, how does this differing constraint on offspring size change things? 
 
 ## A Kokkonuts style thesis experience 
 
