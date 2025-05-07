@@ -46,7 +46,7 @@ Climate change is altering the optimum timing of reproduction in seasonally bree
 
 _Supervisor: Tom Keaney_
 
-This click-baity title is definitely a little annoying, but hopefully also thought provoking. Once you get past the _one's a mammal, one's a reptile_ and _one lives in the ocean, one mostly doesn't_ kind of answers, it starts to get interesting. One particularly intriguing difference is that dinosaurs lay eggs while whales give birth to live young. Why it that thought provoking? Well, eggs can only get so big before the embryos asphyxiate, whereas this constraint on offspring size at birth is relaxed in mammals. The question you'll explore is how natural selection acting on comparably gigantic organisms such as non-avian dinsoaurs and whales optimises their life history. Specifically, how does this differing constraint on offspring size change things? 
+This click-baity title is definitely a little annoying, but hopefully also thought provoking. Once you get past the _one's a mammal, one's a reptile_ and _one lives in the ocean, one mostly doesn't_ kind of answers, it starts to get interesting. A particularly intriguing difference is that dinosaurs lay eggs while whales give birth to live young. Why it that thought provoking? Well, eggs can only get so big before the embryos asphyxiate, whereas this constraint on offspring size at birth is relaxed in mammals. The question you'll explore is how natural selection acting on comparably gigantic organisms such as non-avian dinsoaurs and whales optimises their life history. Specifically, how does this differing constraint on offspring size change things? 
 
 ## A Kokkonuts style thesis experience 
 
