@@ -24,6 +24,8 @@ The postdocs in the group coordinate a late-level Bachelors module *Theoretical 
 
 - General course admin stuff - when shared: very manageable.
 
+Past material can be found in the `14b_content` [folder on github](https://github.com/Kokkonut-case/lab-wiki/tree/main/teaching/14b_content). In the `Admin_docs` sub directory, there are two helpful files. These are what you need to submit to JGU's teaching office to register the subject for the following semester. Registering. is done by emailing Gunther Ochs `ochs[at]uni-mainz.de` and/or Peter Schubert `schubepe[at]uni-mainz.de`.
+
 Code written by the 2024 cohort can be found [here](https://github.com/Kokkonut-case/2024_ModellingInEcology_BSc).
 
 :::
