@@ -24,4 +24,6 @@ The postdocs in the group coordinate a late-level Bachelors module *Theoretical 
 
 - General course admin stuff - when shared: very manageable.
 
+Code written by the 2024 cohort can be found [here](https://github.com/Kokkonut-case/2024_ModellingInEcology_BSc).
+
 :::
