@@ -1,9 +1,11 @@
 {
-  "hash": "7f1f6d12390d4418a1426fac05396a89",
+  "hash": "aec34cf7cf9caccf7f1665ef196620ed",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Bachelor level\"\nformat: html\neditor: source\nengine: knitr\n---\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Bachelor level\"\nformat: html\neditor: source\nengine: knitr\n---\n\n<!--- below block is for justifying text --->\n\n::: {.cell}\n<style type=\"text/css\">\n.justify {\n  text-align: justify\n}\n</style>\n:::\n\n\n::: {.justify}\n\nThe postdocs in the group coordinate a late-level Bachelors module *Thereotical Evolutionary Ecology*. It's designed to be a students first experience with mathematical modelling, which we approach in a very hands-on manner. Broadly teaching tasks include:\n\n- A small number of ~90 min lectures designed to provide the background needed to model a particular evolutionary phenomena. Previous topics include [antagonistic pleiotropy](teaching/14b_content/Antagonistic_pleiotropy_lecture.pptx), [sex ratios](), [demographic buffering]() and [lotka-volterra style dynamics]().\n\n- Building and running coding workshops. This is most likely to be in `R`, but is dependent on current lab expertise. \n\n- Guiding students through a basic model of your choice. Very simple, intellectually stimulating models are the aim of the game here. \n\n- General course admin stuff - when shared: very manageable.\n\n:::\n",
+    "supporting": [
+      "Bachelors_teaching_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

@@ -150,6 +150,17 @@
     ]
   },
   {
+    "objectID": "teaching/Bachelors_teaching.html",
+    "href": "teaching/Bachelors_teaching.html",
+    "title": "Bachelor level",
+    "section": "",
+    "text": "The postdocs in the group coordinate a late-level Bachelors module Thereotical Evolutionary Ecology. It’s designed to be a students first experience with mathematical modelling, which we approach in a very hands-on manner. Broadly teaching tasks include:\n\nA small number of ~90 min lectures designed to provide the background needed to model a particular evolutionary phenomena. Previous topics include antagonistic pleiotropy, sex ratios, demographic buffering and lotka-volterra style dynamics.\nBuilding and running coding workshops. This is most likely to be in R, but is dependent on current lab expertise.\nGuiding students through a basic model of your choice. Very simple, intellectually stimulating models are the aim of the game here.\nGeneral course admin stuff - when shared: very manageable.",
+    "crumbs": [
+      "Teaching",
+      "Bachelor level"
+    ]
+  },
+  {
     "objectID": "links.html",
     "href": "links.html",
     "title": "Useful Links",
