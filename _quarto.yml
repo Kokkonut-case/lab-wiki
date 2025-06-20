@@ -3,7 +3,6 @@ project:
   output-dir: docs
   resources:
      - assets/pdf/useful_proof_ideas.pdf
-     - teaching/14b_content/Antagonistic_pleiotropy_lecture.pptx
 
 website:
   title: "The Kokkonutcase"
