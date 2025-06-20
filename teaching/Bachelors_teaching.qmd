@@ -4,3 +4,24 @@ format: html
 editor: source
 engine: knitr
 ---
+
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
+The postdocs in the group coordinate a late-level Bachelors module *Thereotical Evolutionary Ecology*. It's designed to be a students first experience with mathematical modelling, which we approach in a very hands-on manner. Broadly teaching tasks include:
+
+- A small number of ~90 min lectures designed to provide the background needed to model a particular evolutionary phenomena. Previous topics include [antagonistic pleiotropy](teaching/14b_content/Antagonistic_pleiotropy_lecture.pptx), [sex ratios](), [demographic buffering]() and [lotka-volterra style dynamics]().
+
+- Building and running coding workshops. This is most likely to be in `R`, but is dependent on current lab expertise. 
+
+- Guiding students through a basic model of your choice. Very simple, intellectually stimulating models are the aim of the game here. 
+
+- General course admin stuff - when shared: very manageable.
+
+:::
