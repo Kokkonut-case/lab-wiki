@@ -16,7 +16,7 @@ engine: knitr
 
 The postdocs in the group coordinate a late-level Bachelors module *Theoretical Evolutionary Ecology*. It's designed to be a students first experience with mathematical modelling, which we approach in a very hands-on manner. Broadly, teaching tasks include:
 
-- A small number of ~90 min lectures designed to provide the background needed to model a particular evolutionary phenomena. Previous topics include [antagonistic pleiotropy](teaching/14b_content/Antagonistic_pleiotropy_lecture.pptx), [sex ratios](), [demographic buffering]() and [Lotka-Volterra style dynamics]().
+- A small number of ~90 min lectures designed to provide the background needed to model a particular evolutionary phenomena. Previous topics include [antagonistic pleiotropy](teaching/14b_content/Antagonistic_pleiotropy_lecture.pdf), [sex ratios](), [demographic buffering]() and [Lotka-Volterra style dynamics]().
 
 - Building and running coding workshops. This is most likely to be in `R`, but is dependent on current lab expertise. Tom's previous attempt to introduce the tidyverse can be found in this [repository](https://github.com/tomkeaney/Introduction_to_R_TEE). 
 
