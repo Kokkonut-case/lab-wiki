@@ -53,5 +53,9 @@ Further information about vacation, illness and other personnel issues can also 
 - [Kleinanzeigen](https://www.kleinanzeigen.de/) is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.
 - If you are looking for a place to stay, try [Immoscout](https://www.immobilienscout24.de/) and [Immowelt](https://www.immowelt.de/). If you are okay with shared housing, you can also look at [WG-Gesucht](https://www.wg-gesucht.de/). The housing market is really tough, so don't be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.
 - [Toogoodtogo](https://www.toogoodtogo.com/en-us) is a great servic for buying food and groceries that are left unsold at the end of the day. It's really cheap, and helps reduce food waste!
+- [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) is the official federal disaster warning app in Germany. Download it so you stay informed about any natural disasters (storms, fires, etc) in your area.
+- [NORA](https://www.nora-notruf.de/en-en/startpage) is the official emergency call app in Germany, and will let you contact emergency services without speaking the language.
+- [Meteoblue](https://play.google.com/store/apps/details?id=com.meteoblue.droid&hl=en) is a reasonably good weather app in Germany.
+- If you enjoy hiking, consider using [komoot](https://www.komoot.com/) or [alltrails](https://www.alltrails.com/) to find hiking routes around you. Germany tends to have many well-documented routes, so the apps are a very good resource. The [Rheinsteig](https://www.rheinsteig.de/en/rheinsteig) is a long (320km) multi-stage hike from Bonn to Weisbaden that could be a good summer goal to keep you occupied on the weekends ;)
 
 :::
