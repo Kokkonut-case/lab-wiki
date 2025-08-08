@@ -50,7 +50,7 @@ website:
         contents:
         - section: "General math"
           contents:
-            - text: "How to prove things"
+            - text: "Clever proofs and proof techniques"
               href: assets/pdf/useful_proof_ideas.pdf
             - text: "Nonlinear dynamics"
               href: technical/math_notebooks/NLD.ipynb
