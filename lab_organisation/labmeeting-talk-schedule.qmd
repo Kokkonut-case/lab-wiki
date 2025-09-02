@@ -28,42 +28,34 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 
 | Date        | Speaker       |
 |-------------|---------------|
-| 29 January  | Tom           |
-| 5 February  | Gaurav        |
-| 12 February | Mos           |
-| 19 February | \-            |
-| 26 February | Shikhara      |
-| 5 March     | \-            |
-| 12 March    | Roman         |
-| 19 March    | \-            |
-| 26 March    | Tabea/Margaux |
-| 2 April     | \-            |
-| 9 April     | Victor        |
-| 16 April    | \-            |
-| 23 April    | Margaux       |
-| 1 May       | public holiday (Labour Day) |
-| 7 May       | Tom            |
-| 14 May      | \-            |
-| 21 May      | Erin         |
-| 28 May  | extended JC with Laura Ross et al. (haplodiploidy & fast mitochondrial evolution)      |
-| 4 June  |  Shikhara       |
-| 11 June | \-           |
-| 18 June | Margaux/Luisa/Victor (ants)    |
-| 25 June | \-      |
-| 2 July     | Noemi            |
-| 9 July  | \-         |
-| 16 July    | Uthara            |
-| 23 July    | \-       |
-| 30 July     |  Gaurav           |
-| 6 August     | \-        |
-| 13 August    | ESEB practice talks!    |
-| 20 August    | ESEB       |
-| 27 August       | \-            |
-| 3 September      | Claudia           |
+| 3 September      | Claudia        |
 | 10 September      | \-            |
-| 17 September      | EvoDemo        |
+| 17 September      | \-        |
 | 24 September      | Roman         |
 | 1 October      | \-         |
-| 8 October      | Mos         |
+| 8 October      |   Mos       |
+| 15 October      | \-         |
+| 22 October      | Victor           |
+| 29 October      | \-         |
+| 5 November      | Margaux         |
+| 12 November      | \-         |
+| 19 November      | Tom (intro to GitHub)          |
+| 26 November      | \-         |
+| 10 December      | Shikhara  |
+| 17 December      | X         |
+| 24 December      | M         |
+| 31 December      | A         |
+| 7 January      | S         |
+| 14 January      | Uthara         |
+| 21 January      | \-         |
+| 28 January      | Gaurav         |
+| 4 February      | \-         |
+| 11 February      | Claudia         |
+| 18 February      | Aschermittwoch         |
+| 25 February      | Roman         |
+| 4 March      | \-         |
+| 11 March      | Mos         |
+| 18 March      | \-         |
+| 25 March      |  Victor    |
 
 :::
