@@ -50,12 +50,12 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 21 January      | \-         |
 | 28 January      | Gaurav         |
 | 4 February      | \-         |
-| 11 February      | Claudia         |
+| 11 February      | Yi         |
 | 18 February      | Aschermittwoch         |
 | 25 February      | Roman         |
 | 4 March      | \-         |
-| 11 March      | Mos         |
+| 11 March      | Claudia         |
 | 18 March      | \-         |
-| 25 March      |  Victor    |
+| 25 March      |  Mos    |
 
 :::
