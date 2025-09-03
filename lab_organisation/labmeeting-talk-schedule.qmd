@@ -46,16 +46,18 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 24 December      | M         |
 | 31 December      | A         |
 | 7 January      | S         |
-| 14 January      | Uthara         |
+| 14 January      | Hanna         |
 | 21 January      | \-         |
-| 28 January      | Gaurav         |
+| 28 January      | Uthara         |
 | 4 February      | \-         |
-| 11 February      | Yi         |
+| 11 February      | Gaurav         |
 | 18 February      | Aschermittwoch         |
 | 25 February      | Roman         |
 | 4 March      | \-         |
-| 11 March      | Claudia         |
+| 11 March      | Yi         |
 | 18 March      | \-         |
-| 25 March      |  Mos    |
+| 25 March      |  Claudia    |
+| 1 April      |  \-    |
+| 8 April      |  Mos    |
 
 :::
