@@ -22,8 +22,8 @@ To register, you will need to have
 
 - Your passport (and a visa if applicable).
 - A residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See [here](https://www.iamexpat.de/housing/german-housing-market/change-of-address-germany) for how this is done.
- - Proof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a [Wohnungsgeberbestätigung](https://www.mainz.de/vv/medien/Wohnungsgebende-Bescheinigung-Formular.pdf).
-- If you are married, a marriage certificate (offically translated into German)
+ - Proof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a [Wohnungsgeberbestätigung](https://www.mainz.de/vv/medien/internet/Wohnungsgebende-Bescheinigung-Formular.pdf).
+- If you are married, a marriage certificate (officially translated into German)
 - If you are registering children, you also need to carry ID proof for your children.
 
 When you register, you will receive a piece of paper from the citizenship office called an *Anmeldebescheinigung* (=registration certificate). **Hold on to this certificate**, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your *Steuer ID* (= tax ID) by post to the address you registered. This ID should be communicated to both JGU's HR contact and to Sabine (our secretary). This is important because **you cannot be paid without a Steuer ID**.

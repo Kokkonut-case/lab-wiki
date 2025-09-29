@@ -2,7 +2,7 @@
   "hash": "f99e2d500544c44b15d044dc64d36cab",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"MOGON 2\"\nformat: html\neditor: source\nengine: knitr\n---\n\n\n\n\nDummy text for now\n\nLet's hope this works\n",
+    "markdown": "---\ntitle: \"MOGON 2\"\nformat: html\neditor: source\nengine: knitr\n---\n\n\nDummy text for now\n\nLet's hope this works\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
