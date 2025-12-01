@@ -41,7 +41,7 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 12 November      | \-         |
 | 19 November      | Tom (intro to GitHub)          |
 | 26 November      | \-         |
-| 10 December      | Shikhara  |
+| 10 December      | \-  |
 | 17 December      | X         |
 | 24 December      | M         |
 | 31 December      | A         |
@@ -49,7 +49,7 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 14 January      | Hanna         |
 | 21 January      | \-         |
 | 28 January      | Uthara         |
-| 4 February      | \-         |
+| 4 February      | Shikhara       |
 | 11 February      | Gaurav         |
 | 18 February      | Aschermittwoch         |
 | 25 February      | Roman         |
