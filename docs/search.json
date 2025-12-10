@@ -1,5 +1,393 @@
 [
   {
+    "objectID": "technical/math_notebooks/NLD.html",
+    "href": "technical/math_notebooks/NLD.html",
+    "title": "Studying one-dimensional and two-dimensional systems",
+    "section": "",
+    "text": "Non-linear dynamics is broadly the study of systems whose behaviour is described by complicated non-linear functions. Since most of the world is non-linear, this is a very useful field of mathematics for biology. In this notebook, we will see how graphical methods can be used to study non-linear systems of equations. Those interested in details can refer to Strogatz’s excellent book for details.\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.integrate import odeint\nfrom sympy import *",
+    "crumbs": [
+      "Technical knowledge",
+      "General math",
+      "Nonlinear dynamics"
+    ]
+  },
+  {
+    "objectID": "technical/math_notebooks/NLD.html#one-dimensional-systems",
+    "href": "technical/math_notebooks/NLD.html#one-dimensional-systems",
+    "title": "Studying one-dimensional and two-dimensional systems",
+    "section": "One dimensional systems",
+    "text": "One dimensional systems\nOne-dimensional systems are equations of the form  \\[\n\\dot{x} = f(x)\n\\]  where \\(\\dot{x}\\) denotes the derivative of \\(x\\) with respect to time and \\(f\\) is a (non-linear) function. For instance, the logistic equation\n\\[\n\\dot{x} = x(1-x)\n\\]\nis an example of a one-dimensional non-linear system. Let us see how we may study this system.\n\ndef logistic(x,t):\n    return x*(1-x)\n\n\nFinding fixed points diagrammatically\nOften, we are only interesed in the behavior of our biological system at equilibrium (or over very long timescales). In this case, we are interested in finding points at which \\(\\dot{x} = 0\\) (the quantity \\(x\\) is no longer changing). Such points are called fixed points of the system. To find fixed points of a one-dimensional system, we can plot \\(\\dot{x}\\) vs \\(x\\). The points at which this curve intersects the x-axis are then the fixed points of our system.\n\nxarray = np.arange(-0.01,1.01,0.001)\nxdotarray = [logistic(x,0) for x in xarray]\nplt.plot(xarray,xdotarray)\nplt.axhline(y=0,color='g',linestyle='--')\nplt.xlabel('x')\nplt.ylabel('x dot')\nplt.show()\n\n\n\n\n\n\n\n\nThus, we see that the only fixed points of this system are \\(x=0\\) and \\(x=1\\).\nWe can also ask which fixed points of the system are attractors. If we begin at, say, \\(x=0.01\\), will the system move towards \\(x=0\\) or \\(x=1\\)? This too can be answered diagramatically. Notice, in the plot above, that \\(\\dot{x}\\) is positive when \\(x \\in [0,1]\\). Thus, if \\(x\\) is between \\(0\\) and \\(1\\), it will increase (since the rate of change is positive) towards \\(x = 1\\). However, if \\(x&gt;1\\), then \\(\\dot{x}\\) is negative, meaning that \\(x\\) tends to decrease. This means that systems with \\(x&gt;1\\) tend to decrease towards \\(x=1\\) - the point \\(x=1\\) is an attractor!\nWe can confirm this by numerically integrating the logistic equation for a variety of initial conditions\n\ndef logistic_trajectory(x0list,t=10,tstep=0.01):\n    for x0 in x0list:\n        xlist = np.arange(0,t,tstep)\n        ylist = odeint(func=logistic,y0=[x0],t=np.arange(0,t,tstep))\n        plt.plot(xlist,ylist,label='x0 = '+str(x0))\n    \n    plt.legend(loc='upper right')\n    plt.xlabel('time')\n    plt.ylabel('x')\n    plt.axhline(y=1,color='g',linestyle='--')\n    plt.show()\n\nlogistic_trajectory([0.02,0.1,0.25,1.5,2])\n\n\n\n\n\n\n\n\n\n\nA more complicated example with a single tunable parameter\nConsider now the more complicated system\n\\[\n\\dot{x} = rx - x^3\n\\]\nwhere \\(r\\) is a model parameter.\n\ndef xdot(x,t,r):\n    return r*x - x**3\n\n\n\nThe fixed points\nTo begin, let us study the fixed points of the system. As before, we do it graphically\n\ndef xdot_vs_x(rlist):\n    for r in np.arange(rlist[0],rlist[1],rlist[2]):\n        x = np.arange(-10,10,0.01)\n        xdotlist = []\n        for val in x:\n            xdotlist.append(xdot(val,0,r))\n        \n        plt.plot(x,xdotlist,label='r = '+str(r))\n    plt.axhline(y=0,color='g',linestyle='--')\n    plt.axvline(x=0,color='g',linestyle='--')\n    plt.legend(loc='upper right')\n    plt.xlabel('x')\n    plt.ylabel('x dot')\n    plt.xlim([-5,5])\n    plt.ylim([-10,10])\n    plt.show()\n\n\nxdot_vs_x([-6,6.1,6])\n\n\n\n\n\n\n\n\nThe number of fixed points changes depending on the parameter!\n\nfrom celluloid import Camera\n\nrlist = np.arange(-10,10,0.1)\nfig = plt.figure(figsize = (8,8))\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"x\")\nplt.ylabel(\"x dot\")\ncamera = Camera(fig)\nfor r in rlist:\n    xlist = np.arange(-10,10,0.1)\n    ylist = [xdot(x,0,r) for x in xlist]\n    plt.plot(xlist,ylist,color='r')\n    plt.axhline(y=0,color='g',linestyle='--')\n    plt.axvline(x=0,color='g',linestyle='--')\n    plt.legend(['$r = '+str(np.round(r,1))+'$'],loc='upper right')\n    plt.xlabel('x')\n    plt.ylabel('x dot')\n    plt.xlim([-5,5])\n    plt.ylim([-10,10])\n    camera.snap()\nplt.close()\n\nYou can play around with it here:\n\nplt.rcParams[\"animation.html\"] = \"jshtml\"\nanimation = camera.animate()\nanimation\n\n\n\n\n\n\n\n\n  \n  \n    \n    \n      \n          \n      \n        \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n    \n    \n      \n      Once\n      \n      Loop\n      \n      Reflect\n    \n  \n\n\n\n\n\n\n\n\nSolving the ODE\n\nObtaining an analytic solution\nThis can also be seen by actually solving the differential equation. I will use sympy to analytically solve the differential equation\n\n#Solving the given ODE symbolically\nn,r = symbols('n r')\ninit_printing()\nn_dot = r*n - n**3\n\nsolve(n_dot,n)\n\n\\(\\displaystyle \\left[ 0, \\  - \\sqrt{r}, \\  \\sqrt{r}\\right]\\)\n\n\n\n\nNumeric integration to find trajectories\nSince solving ODEs analytically is not always feasible, we could also use numerical integration to obtain the trajectory, i.e the values of \\(x(t)\\) as \\(t\\) varies, given an initial value \\(x_0\\). Here, I use the odeint package from scipy.\n\ndef trajectory(rlist,x0,t=10,tstep=0.01):\n    xlist = np.arange(0,t,tstep)\n    for r in rlist:\n        ylist = odeint(func=xdot,y0=[x0],t=np.arange(0,t,tstep),args=tuple([r]))\n        plt.plot(xlist,ylist,label='r = '+str(r))\n    \n    plt.legend(loc='upper right')\n    plt.xlabel('time')\n    plt.ylabel('x')\n    plt.show()\n\n\ntrajectory(np.arange(-4,4.1,4),1)\n\n\n\n\n\n\n\n\n\n\n\nDependence on parameters\nFinally, we can examine how the number of fixed points varies as we vary parameters. In our case, the system has a single parameter: \\(r\\).   We examine the relationship between fixed points and parameter values by plotting a bifurcation diagram. In this case, we plot \\(r\\) against the corresponding equilibrium values of \\(x\\), for various initial values \\(x(0)\\).\n\ndef bifurcation(r_range):\n    rvals = np.arange(r_range[0],r_range[1],r_range[2])\n    eq_list = []\n    r_list = []\n    for r in rvals:\n        for x in np.arange(-10,10.1,5):\n            unique_sols = np.unique(odeint(func=xdot,y0=[x],t=np.arange(0,1000,1),args=tuple([r]))[900:1000])\n            for sol in unique_sols:\n                eq_list.append(sol)\n                r_list.append(r)\n    \n    plt.scatter(r_list,eq_list,color='g',s=2)\n    plt.xlabel('r')\n    plt.ylabel('x*')\n    plt.show()\n        \n\n\nbifurcation([-4,4.1,0.1])\n\n\n\n\n\n\n\n\nThis diagram tells us that when r is less than 0, there is a single fixed point present at x = 0. At r = 0, the behaviour changes, and two new fixed points appear for all values of r &gt; 0. Values of \\(r\\) at which such changes occur are known as bifurcation points.",
+    "crumbs": [
+      "Technical knowledge",
+      "General math",
+      "Nonlinear dynamics"
+    ]
+  },
+  {
+    "objectID": "technical/math_notebooks/NLD.html#two-dimensional-systems",
+    "href": "technical/math_notebooks/NLD.html#two-dimensional-systems",
+    "title": "Studying one-dimensional and two-dimensional systems",
+    "section": "Two dimensional systems",
+    "text": "Two dimensional systems\nTwo dimensional systems are systems of the form:\n\\[\n\\begin{align*}\n\\dot{x} = f(x,y) \\\\\n\\dot{y} = g(x,y)\n\\end{align*}\n\\] \nAs before, we can begin by plotting the phase portrait. Here, the phase portrait is two-dimensional, and you can think of \\(f(x,y)\\) and \\(g(x,y)\\) as representing the flow on a plane.\n\ndef twoD_phase_portrait(var,var_dot,xlims=[-10,10,40],ylims=[-10,10,40],plot_nullclines=True,save=False,filename='2D_portrait.png'):    \n    \n    #convert the symbolic math into a python function\n    dvar = lambdify(var,var_dot,'numpy')\n    \n    #The range of values in which you want the phase portrait\n    x_in = np.linspace(xlims[0],xlims[1],xlims[2])\n    y_in = np.linspace(ylims[0],ylims[1],ylims[2])\n        \n    X_in, Y_in = np.meshgrid(x_in,y_in)\n    \n    #Compute and store the derivatives at each point\n    u,v = np.zeros(X_in.shape), np.zeros(Y_in.shape)\n    shape_1, shape_2 = X_in.shape\n    for i in range(shape_1):\n        for j in range(shape_2):\n            pt_x = X_in[i,j]\n            pt_y = Y_in[i,j]\n            derivative = dvar(pt_x,pt_y)\n            u[i,j] = derivative[0]\n            v[i,j] = derivative[1]\n    \n    colors = np.hypot(u,v)\n    colors[colors==0] = 1 #To avoid division by 0\n    \n    #Normalize arrow lengths\n    #u /= colors\n    #v /= colors\n    \n    \n    plt.figure(figsize=(8,8))\n    plt.quiver(X_in,Y_in,u,v,colors,cmap='Reds',pivot='mid')\n    \n    if plot_nullclines:\n        #Compute and plot the nullclines\n        x_nullcline = solve(var_dot[0])\n        y_nullcline = solve(var_dot[1])\n    \n        xnull_label = \"x nullcline\"\n        for sol in range(len(x_nullcline)):\n            try:\n                null_func = lambdify(var[1],x_nullcline[sol][x],'numpy')\n                null = []\n                for i in range(len(y_in)):\n                    null.append(null_func(y_in[i]))\n                plt.plot(null,y_in,'b',label=xnull_label)\n                xnull_label = '_nolegend_' #To avoid duplicate labels\n            except KeyError:\n                null_func = lambdify(var[0],y_nullcline[sol][y],'numpy')\n                null = []\n                for i in range(len(x_in)):\n                    null.append(null_func(x_in[i]))\n                plt.plot(x_in,null,'b',label=xnull_label)\n                xnull_label = '_nolegend_' #To avoid duplicate labels\n    \n        ynull_label = 'y nullcline'\n        for sol in range(len(y_nullcline)):\n            try:\n                null_func = lambdify(var[1],y_nullcline[sol][x],'numpy')\n                null = []\n                for i in range(len(y_in)):\n                    null.append(null_func(y_in[i]))\n                plt.plot(null,y_in,'r',label=ynull_label)\n                ynull_label = '_nolegend_' #To avoid duplicate labels\n            except KeyError:\n                null_func = lambdify(var[0],y_nullcline[sol][y],'numpy')\n                null = []\n                for i in range(len(x_in)):\n                    null.append(null_func(x_in[i]))\n                plt.plot(x_in,null,'r',label=ynull_label)\n                ynull_label = '_nolegend_' #To avoid duplicate labels\n    \n    plt.xlabel(str(var[0]))\n    plt.ylabel(str(var[1]))\n    plt.xlim(xlims[0:2])\n    plt.ylim(ylims[0:2])\n    plt.colorbar(label=\"Derivative\")\n    \n    if plot_nullclines:\n        plt.legend(bbox_to_anchor=[1.3,1])\n    if save:\n        plt.savefig(filename)\n    \n\n\nx,y = symbols('x y')\n\ninit_printing()\n\n\n#write the differential equations here\nx_dot, y_dot = cos(x-y), sin(x*y+1)\n\nx_dot, y_dot\n\n\\(\\displaystyle \\left( \\cos{\\left(x - y \\right)}, \\  \\sin{\\left(x y + 1 \\right)}\\right)\\)\n\n\n\ntwoD_phase_portrait([x,y],[x_dot,y_dot],xlims=[-10,10,50],ylims=[-10,10,50],plot_nullclines=False)\n\n\n\n\n\n\n\n\n\nNullclines\nOne useful notion is that of a nullcline. Nullclines are defined as the curves where either \\(\\dot{x} = 0\\) or \\(\\dot{y} = 0\\). Fixed points are points at which nullclines intersect.\n\ntwoD_phase_portrait([x,y],[x_dot,y_dot],xlims=[-10,10,100],ylims=[-10,10,100])\n\n\n\n\n\n\n\n\n\n#Number of fixed points should equal the number of times the nullclines intersect\nfixed_points = solve([x_dot,y_dot],[x,y])\nlen(fixed_points)\n\n\\(\\displaystyle 8\\)",
+    "crumbs": [
+      "Technical knowledge",
+      "General math",
+      "Nonlinear dynamics"
+    ]
+  },
+  {
+    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html",
+    "href": "technical/EGTsims/hawk-dove-reciprocator.html",
+    "title": "Studying hawk dove games using Python",
+    "section": "",
+    "text": "from sympy import *\nimport ternary\nimport numpy as np\nfrom ternary.helpers import project_point\nimport matplotlib.pyplot as plt\n\ninit_printing()\nAuthor’s note: This notebook was co-authored by Shikhara Bhat and Shivam Chitnis in around 2021-2022.",
+    "crumbs": [
+      "Technical knowledge",
+      "Evolutionary game theory examples",
+      "Introduction: Hawks and Doves"
+    ]
+  },
+  {
+    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html#hawk-dove-game",
+    "href": "technical/EGTsims/hawk-dove-reciprocator.html#hawk-dove-game",
+    "title": "Studying hawk dove games using Python",
+    "section": "Hawk-Dove Game",
+    "text": "Hawk-Dove Game\nIn this model there is a population of Hawks (\\(H\\)) and a population of Doves (\\(D\\)). We assume that Hawks and Doves compete for food in pairwise interactions. When interacting, Hawks “fight to death” and Doves “retreat when attacked”. When a bird gets the food its Darwinian fitness (say number of children) increases by \\(V\\). When a fight occurs, the injured opponent experiences a reduced fitness of \\(C\\).\n\nPayoffs\nTherefore, when a Hawk meets a Hawk, we get the expected payoff i.e. expected increase in fitness to be\n\\[E(H,H) = \\dfrac{1}{2}(V-C)\\]\nThis is because we assume that half the time the Hawk will win and half the time it will lose. When at Hawk meets a Dove, it gets the entire meal, i.e.\n\\[E(H,D) = V\\]\nWhen a Dove meets a Hawk it will get nothing since it retreats immediately. Therefore,\n\\[E(D,H) = 0\\]\nFinally, when a Dove meets a Dove, both can sit peacefully and enjoy their meal implying\n\\[E(D,D) = \\dfrac{V}{2}\\]\nThis information can be written as a matrix \\(M\\) that will have useful properties.\n\n\nPayoff Matrix\nFor a two-player, two-strategy game like the one we are discussing we write:\n\\[M = \\bigg[\\begin{matrix} E(A,A)&E(A,B)\\\\ E(B,A)&E(B,B) \\end{matrix}\\bigg]\\]\nwhere \\(E(A,B)\\) is the expected payoff for a player playing strategy \\(A\\) against an opponent playing \\(B\\).\n\nPayoff Matrix for the Hawk-Dove Game\n\\[M = \\bigg[\\begin{matrix} (V-C)/2&V \\\\ 0&V/2 \\end{matrix}\\bigg]\\]\n\ndef M(V,C):\n    M = np.array([[(V-C)/2,V],[0,V/2]])\n    return M\n\n\n\n\nNet Payoff\nNow that we have a compact description of the model in the form of the matrix, we would like to get a sense of what happens when there are multiple interactions going on between birds in the wild. If the interactions happen completely at random, the frequency of \\(H\\) individuals is \\(p_H\\) and the frequency of \\(D\\) individuals is \\(1-p_H\\), then the expected fitness for a Hawk can be written as:\n\\[W(H) = W_0 + p_HE(H,H) + (1-p_H)E(H,D)\\]\nSimilary, the fitness for a Dove can be written as:\n\\[W(D) = W_0 + (1-p_H)E(D,D) + p_HE(D,H)\\]\nwhere \\(W_0\\) was the fitness of all the birds before the contests began.\n\ndef W(M,pH,W0=5):\n    W = W0+np.matmul(M,np.array([pH,1-pH]).T)\n    return W\n\n\n\nThe Notion of Equilibrium\nThis is great. We now have a sense of the mean fitness of the animals in the two populations. It is intuitive (but we will make it precise) that when the fitness of the two populations is equal, their population sizes will not change.\nOn equating \\(W(H)\\) and \\(W(D)\\), we can derive\n\\[p_H = V/C\\]\nThis is a nice result that tells us that if \\(V/C&gt;0.5\\) then there will be more Hawks than Doves and if \\(V/C&lt;0.5\\) there will be more Doves than Hawks. When \\(V/C&gt;1\\), it is possible to show from the following equations that \\(p_H = 1\\).\n\n\nHow can we make this notion of equilibrium more precise?\nSince we want to understand how strategies change over time we can make the simplifying assumption that Hawks and Doves reproduce asexually and their population growth in the next generation \\(p_H'\\) depends on their fitness in this one\n\\[p_H' = p_H \\dfrac{W(H)}{\\bar{W}}\\]\nwhere \\(\\bar{W} = p_H W(H) + (1-p_H)W(D)\\)\nIt can now be seen that when \\(p_H'-p_H = 0\\), the system is in equilibrium. This gives us \\(W(H) = W(D)\\). Now that we have an equation that evolves in time, it’s time to play around with some values of \\(V\\) and \\(C\\).\n\n#Define functions to calculate frequency and evolve according to repliator equation\n\ndef pHt(pH,W):\n    pHt = (pH*W[0])/(pH*W[0]+(1-pH)*W[1])\n    return pHt\n\ndef evolve(V,C,pH0=0.5,T=5,dt=0.1):\n    time = np.arange(0,T,dt)\n    pH = np.ones(np.size(time))*pH0\n    for i,t in enumerate(time):\n        pH[i] = pHt(pH[i-1],W(M(V,C),pH[i-1]))\n    return (time,pH)\n\n\n#Set parameters\n\npH0 = 0.5\nV = 4\nC = 2\n\n#plot\n\nplt.plot(evolve(V,C)[0],evolve(V,C)[1])\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"$t$\");\nplt.ylabel(\"$p_H$\");\n\n\n\n\n\n\n\n\nSince \\(V/C = 2 &gt; 1\\) the Doves were driven to extinction.\n\nV = 1\nC = 3\n\nplt.plot(evolve(V,C)[0],evolve(V,C)[1],label='_nolegend_')\nplt.axhline(0.33,linestyle='--',color='seagreen',alpha=0.5)\nplt.legend([\"0.33\"])\n\n\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"$t$\");\nplt.ylabel(\"$p_H$\");\n\n\n\n\n\n\n\n\nSince \\(V/C = 1/3\\), \\(pH\\) goes to \\(0.33\\).\n\nfrom celluloid import Camera\n\nC = 1; V = np.arange(0,2,0.1)\nfig = plt.figure(figsize = (7,5))\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"$t$\")\nplt.ylabel(\"$p_H$\")\ncamera = Camera(fig)\nfor v in V:\n    plt.plot(evolve(v,C,T=10)[0],evolve(v,C,T=10)[1],'k')\n    plt.legend(['$V/C = '+str(np.round(v/C,1))+'$'])\n    camera.snap()\nplt.close()\n\nYou can play around with the slider belo to change the value of \\(V/C\\). When \\(V/C&gt;1\\), Hawks always win!\n\nplt.rcParams[\"animation.html\"] = \"jshtml\"\nanimation = camera.animate()\nanimation\n\n\n\n\n\n\n\n\n  \n  \n    \n    \n      \n          \n      \n        \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n    \n    \n      \n      Once\n      \n      Loop\n      \n      Reflect",
+    "crumbs": [
+      "Technical knowledge",
+      "Evolutionary game theory examples",
+      "Introduction: Hawks and Doves"
+    ]
+  },
+  {
+    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html#the-notion-of-an-ess",
+    "href": "technical/EGTsims/hawk-dove-reciprocator.html#the-notion-of-an-ess",
+    "title": "Studying hawk dove games using Python",
+    "section": "The notion of an ESS",
+    "text": "The notion of an ESS\nWe can now take the above notion of equilibrium and extend it further. In our model we had two strategies \\(H\\) and \\(D\\). An evolutionarily stable strategy is one in which if you start with a population consisting of only that strategy, another strategy should not be able to take over. It can be shown that for a two-player, two-strategy game like Hawk-Dove, a strategy \\(A\\) is an ESS if:\n\\[\\text{Either} \\ E(A,A)&gt;E(B,A) \\qquad [1]\\]\n\\[\\text{or} \\ E(A,A) = E(B,A)\\ \\text{and}\\ E(A,B) &gt; E(B,B) \\qquad [2]\\]\nThis can be generalised in the form of arrow patterns for \\(M\\) in which arrows are drawn towards the highest valued neighbour in the vertical direction:\n\nIf both arrows point along one strategy, that is the ESS.\nIf both arrows point in different directions, then the arrow pointing towards the diagonal element specifies the ESS.\nIf there is no arrow pointing towards a diagonal element, there is a mixed ESS (in our case \\(p_H \\in (0,1)\\)).\nIf one of the arrows is a double arrow representing equality, the other arrow determines the ESS (pure if towards diagonal element, else mixed)\n\nNote that it can also be shown for a two-player, two-strategy game that an ESS always exists.\n\nWhat is a mixed ESS?\nGames in which a strategy can be played with probability \\(P\\) and another by probability \\(Q\\) by the same individual can have mixed ESS in which the evolutionarily stable outcome has individuals playing different strategies with different probabilities. In our simple example, a mixed ESS is equivalent to the case of neither population of birds going extinct. Cf. Maynard Smith (1982) for a more careful definition of a mixed strategy and its relation to the frequency of a pure strategy at equilibrium.\nIt is easy to see that conditions \\([1]\\) and \\([2]\\) guarantee an ESS.",
+    "crumbs": [
+      "Technical knowledge",
+      "Evolutionary game theory examples",
+      "Introduction: Hawks and Doves"
+    ]
+  },
+  {
+    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html#introducing-a-third-strategy",
+    "href": "technical/EGTsims/hawk-dove-reciprocator.html#introducing-a-third-strategy",
+    "title": "Studying hawk dove games using Python",
+    "section": "Introducing a third strategy",
+    "text": "Introducing a third strategy\nNow consider a modification that introduces a third strategy. A reciprocator, denoted by R, responds to a hawk with a hawk strategy, and responds to a dove with a dove strategy. When two reciprocators interact, the payoff to each is given by \\(V/2 - \\mu C\\). This value is obtained by simplifying \\(\\mu(V/2-C) + (1-\\mu)V/2\\), and thus, \\(\\mu\\) can be interpreted as the probability that a reciprocator will play a hawk strategy when it encounters another reciprocator.  We can first calculate the payoff matrix. Here, the order of the rows (and columns) is H-D-R.\n\nV,C,mu = symbols(' V C mu')\n\nPayoff_matrix = Matrix([[V/2 - C, V, V/2-C],[0,V/2,V/2],[V/2-C,V/2,V/2-mu*C]])\n\nPayoff_matrix\n\n\\(\\displaystyle \\left[\\begin{matrix}- C + \\frac{V}{2} & V & - C + \\frac{V}{2}\\\\0 & \\frac{V}{2} & \\frac{V}{2}\\\\- C + \\frac{V}{2} & \\frac{V}{2} & - C \\mu + \\frac{V}{2}\\end{matrix}\\right]\\)\n\n\nAssuming that all strategies have a base fitness of \\(\\omega_0\\) and that the effect of the interactions is factored by a selection coefficient \\(s\\), we can obtain the fitness of each strategy:\n\n#Variables for fitness\nwh,wd,wr = symbols('omega_h omega_d omega_r')\n\n#Parameters affecting fitness\nw0,s,PD,PH = symbols('omega_0 s P_D P_H')\n\n#Variables for fitness differences\nalpha,beta = symbols('alpha beta')\n\nwh = w0 + s*(PH*(V/2 - C)+PD*(V) + (1-PD-PH)*(V/2 - C))\nwd = w0 + s*(PH*0 + PD*(V/2) + (1-PH-PD)*(V/2))\nwr = w0 + s*(PH*(V/2-C)+PD*(V/2)+(1-PH-PD)*(V/2-mu*C))\n\n\n#fitness of hawks\nwh\n\n\\(\\displaystyle \\omega_{0} + s \\left(P_{D} V + P_{H} \\left(- C + \\frac{V}{2}\\right) + \\left(- C + \\frac{V}{2}\\right) \\left(- P_{D} - P_{H} + 1\\right)\\right)\\)\n\n\n\n#fitness of doves\nwd\n\n\\(\\displaystyle \\omega_{0} + s \\left(\\frac{P_{D} V}{2} + \\frac{V \\left(- P_{D} - P_{H} + 1\\right)}{2}\\right)\\)\n\n\n\n#fitness of reciprocators\nwr\n\n\\(\\displaystyle \\omega_{0} + s \\left(\\frac{P_{D} V}{2} + P_{H} \\left(- C + \\frac{V}{2}\\right) + \\left(- C \\mu + \\frac{V}{2}\\right) \\left(- P_{D} - P_{H} + 1\\right)\\right)\\)\n\n\nWe can find the equations for nullclines - values at which two of the fitnesses are equal. Fixed points are given by the points at which all nullclines intersect.\n\nalpha = wh-wd\nbeta = wd-wr\n\nh_d_nullcline = solve([alpha],PH,PD)\nd_r_nullcline = solve([beta],PH,PD)\nh_r_nullcline = solve([alpha+beta],PH,PD)\n\n\nfixed_points = solve([alpha,beta],PH,PD)\n\nh_d_nullcline, d_r_nullcline, h_r_nullcline\n\n\\(\\displaystyle \\left( \\left\\{ P_{H} : \\frac{2 C}{V} + \\frac{P_{D} \\left(- 2 C - V\\right)}{V}\\right\\}, \\  \\left\\{ P_{H} : - \\frac{2 C P_{D} \\mu}{2 C \\mu - 2 C + V} + \\frac{2 C \\mu}{2 C \\mu - 2 C + V}\\right\\}, \\  \\left\\{ P_{H} : \\frac{P_{D} \\left(- 2 C \\mu + 2 C + V\\right)}{2 C \\mu - 2 C} + 1\\right\\}\\right)\\)\n\n\n\ndef h_d_null_func(pd,v,c,mu):\n    null_sol = lambdify([V,C,PD],h_d_nullcline[PH],'numpy')\n    ph = null_sol(v,c,pd)\n    pr = 1-pd-ph\n    \n    return (pd,pr,ph)\n\ndef d_r_null_func(pd,v,c,Mu):\n    null_sol = lambdify([V,C,PD,mu],d_r_nullcline[PH],'numpy')\n    ph = null_sol(v,c,pd,Mu)\n    pr = 1-pd-ph\n    \n    return (pd,pr,ph)\n\ndef h_r_null_func(pd,v,c,Mu):\n    null_sol = lambdify([V,C,PD,mu],h_r_nullcline[PH],'numpy')\n    ph = null_sol(v,c,pd,Mu)\n    pr = 1-pd-ph\n    \n    return (pd,pr,ph)\n\n\n#Analytical solution for fixed points\nfixed_points\n\n\\(\\displaystyle \\left\\{ P_{D} : \\frac{4 C^{2} \\mu - 4 C^{2} - 2 C V \\mu + 2 C V}{4 C^{2} \\mu - 4 C^{2} + V^{2}}, \\  P_{H} : \\frac{2 C V \\mu}{4 C^{2} \\mu - 4 C^{2} + V^{2}}\\right\\}\\)\n\n\nWe can find fixed points by plotting these nullclines on a simplex and looking at points of intersection: i.e plotting nullclines under the constraint that all are positive and that \\(P_H + P_D + P_R \\leq 1\\)\n\ndef within_simplex(r): #Find out whether a given point lies within the S_1 simplex\n    if r[0]+r[1]+r[2] &lt;= 1 and r[0] &gt;= 0 and r[1] &gt;= 0 and r[2] &gt;= 0:\n        return True\n    else:\n        return False\n    \n#Convert the nullclines into Python functions\nwd_func = lambdify([PD,PH,V,w0,s],wd)\nwh_func = lambdify([PD,PH,V,C,w0,s],wh)\nwr_func = lambdify([PD,PH,V,C,mu,w0,s],wr)\n\n#Get the vector describing the trajectory at each point\n#Trajectory is given by the replicator equation df/dt = (w-w_bar)f\ndef get_vector(pd,ph,v,c,mu,w0,s):\n    \n    #get the fitness values\n    wd_val = wd_func(pd,ph,v,w0,s)\n    wh_val = wh_func(pd,ph,v,c,w0,s)\n    wr_val = wr_func(pd,ph,v,c,mu,w0,s)\n    \n    #Get relative fitness\n    w_bar = pd*wd_val + ph*wh_val + (1-pd-ph)*wr_val\n    wd_val -= w_bar\n    wh_val -= w_bar\n    wr_val -= w_bar\n    \n    #Project the 3D Cartesian coordinates onto a 2D simplex\n    r_proj = project_point((pd,1-pd-ph,ph))\n    dr_proj = project_point((pd*wd_val,(1-pd-ph)*wr_val,ph*wh_val))\n    \n    return r_proj,dr_proj\n\ndef get_color(pd,ph,v,c,mu,w0,s): #To indicate which strategy is best at that point\n    \n    wd = wd_func(pd,ph,v,w0,s)\n    wh = wh_func(pd,ph,v,c,w0,s)\n    wr = wr_func(pd,ph,v,c,mu,w0,s)\n    \n    if wd &gt;= wh and wd &gt;= wr:\n        return 'red'\n    if wh &gt;= wd and wh &gt;= wr:\n        return 'green'\n    if wr &gt;= wh and wr &gt;= wd:\n        return 'blue'\n    else:\n        return 'black'   \n\n\ndef make_ternary_plot(V,C,mu,w0=0,s=1,plot_field=True,plot_nullclines=True,save=False,filename=''):\n    \n    figure, tax = ternary.figure(scale=1)\n\n    fontsize = 16\n    offset = 0.11\n    \n    #set background\n    tax.set_background_color(color=\"#bbbbbb\", alpha=0.7)\n    \n    # Draw Boundary and Gridlines\n    tax.boundary(linewidth=2.0)\n    tax.gridlines(color=\"#aaaaaa\", linestyle='-',linewidth=1, multiple=1)\n    tax.gridlines(color=\"#aaaaaa\", linestyle='-',linewidth=0.5, multiple=0.2,alpha=0.5)\n    \n    #Depict parameter values\n    tax.set_title(\"V = \"+ str(V) + \"\\nC = \" + str(C) + \"\\n$\\mu$ = \" + str(mu) + '\\nV/2C = ' + format(V/(2*C),'.2f'),position=(-0.05,1.5,-0.03),fontsize=18)\n\n    #Label the axes and vertices\n    tax.top_corner_label(\"Pure Reciprocator\", fontsize=fontsize,position=(-0.1,1.2,-0.03),offset=0)\n    tax.left_corner_label(\"Pure\\nHawk\", fontsize=fontsize,position=(-0.05,-0.01,1.1),offset=0)\n    tax.right_corner_label(\"Pure\\nDove\", fontsize=fontsize,position=(1.05,0,-0.02),offset=0)\n    tax.left_axis_label(\"$P_H$\", fontsize=18, offset=0.16)\n    tax.right_axis_label(\"$P_R$\", fontsize=18, offset=0.16)\n    tax.bottom_axis_label(\"$P_D$\", fontsize=18, offset=0.16)\n    \n    if plot_nullclines:\n        \n        pd_list = np.arange(0,1.01,0.01)\n        h_d_null = []\n        h_r_null = []\n        d_r_null = []\n        for pd in pd_list:\n        \n            #Get the value of the H-D null\n            tuple1 = h_d_null_func(pd,V,C,mu)\n            if within_simplex(tuple1):\n                h_d_null.append(tuple1)\n        \n            #Get the value of the H-R null\n            tuple2 = h_r_null_func(pd,V,C,mu)\n            if within_simplex(tuple2):\n                h_r_null.append(tuple2)\n        \n            #Get the value of the D-R null\n            tuple3 = d_r_null_func(pd,V,C,mu)\n            if within_simplex(tuple3):\n                d_r_null.append(tuple3)\n    \n        #Plot nullclines\n        if len(h_d_null) &gt; 0:\n            tax.plot(h_d_null,linewidth=2.0,color='green',label='H-D nullcline')\n        if len(h_r_null) &gt; 0:\n            tax.plot(h_r_null,linewidth=2.0,color='#0047ab',label='R-H nullcline')\n        if len(d_r_null) &gt; 0:\n            tax.plot(d_r_null,linewidth=2.0,color='orange',label='D-R nullcline')\n    \n    #draw the vector field\n    if plot_field:\n        length = 0.02\n        prop_list = np.arange(0,1.2,0.05)\n        for pd in prop_list:\n            for ph in prop_list:\n                if within_simplex((pd,ph,1-pd-ph)):\n                    r, dr = get_vector(pd,ph,V,C,mu,w0,s)\n                    if np.hypot(dr[0],dr[1]) != 0:\n                        dx,dy = length*dr/np.hypot(dr[0],dr[1])\n                    else:\n                        dx,dy = 0,0\n                    color = get_color(pd,ph,V,C,mu,w0,s)\n                    tax.get_axes().quiver(r[0],r[1],dx,dy,color=color,width=0.005,scale=0.1,scale_units='inches')\n    \n    tax.ticks(axis='lbr', fontsize=13, multiple=0.2, linewidth=0.5, tick_formats=\"%.1f\",axes_colors={'l':'white','r':'white','b':'white'}, offset=0.02)    \n    tax.get_axes().axis('off')\n    tax.clear_matplotlib_ticks()\n    tax.legend()\n    \n    if save:\n        tax.savefig(str(filename+\".png\"))\n    tax.show()\n\n&lt;&gt;:17: SyntaxWarning: invalid escape sequence '\\m'\n&lt;&gt;:17: SyntaxWarning: invalid escape sequence '\\m'\n/var/folders/b_/xqbznk296tb4z4dhdrlrd4rr0000gn/T/ipykernel_21433/3399975650.py:17: SyntaxWarning: invalid escape sequence '\\m'\n  tax.set_title(\"V = \"+ str(V) + \"\\nC = \" + str(C) + \"\\n$\\mu$ = \" + str(mu) + '\\nV/2C = ' + format(V/(2*C),'.2f'),position=(-0.05,1.5,-0.03),fontsize=18)\n\n\n\nmake_ternary_plot(20,8,0.2,save=False)",
+    "crumbs": [
+      "Technical knowledge",
+      "Evolutionary game theory examples",
+      "Introduction: Hawks and Doves"
+    ]
+  },
+  {
+    "objectID": "teaching/Bachelors_teaching.html",
+    "href": "teaching/Bachelors_teaching.html",
+    "title": "Bachelor level",
+    "section": "",
+    "text": "The postdocs in the group coordinate a late-level Bachelors module Theoretical Evolutionary Ecology. It’s designed to be a students first experience with mathematical modelling, which we approach in a very hands-on manner. Broadly, teaching tasks include:\n\nA small number of ~90 min lectures designed to provide the background needed to model a particular evolutionary phenomena. Previous topics include antagonistic pleiotropy, sex ratios, evolutionary game theory, demographic buffering and Lotka-Volterra style dynamics.\nBuilding and running coding and soft skills workshops. The coding is most likely to be in R, but is dependent on current lab expertise. Tom’s previous attempt to introduce the tidyverse can be found in this repository.\nGuiding students through a basic model of your choice. Very simple, intellectually stimulating models are the aim of the game here.\nGeneral course admin stuff - when shared: very manageable.\n\nPast material can be found in the 14b_content folder on github. In the Admin_docs sub directory, there are two helpful files. These are what you need to submit to JGU’s teaching office to register the subject for the following semester. Registering. is done by emailing Gunther Ochs ochs[at]uni-mainz.de and/or Peter Schubert schubepe[at]uni-mainz.de.\nCode written by the 2024 cohort can be found here.",
+    "crumbs": [
+      "Teaching",
+      "Bachelor level"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
+    "href": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
+    "title": "General information",
+    "section": "Information from the JGU for new employees",
+    "text": "Information from the JGU for new employees\nPrepare for your arrival",
+    "crumbs": [
+      "Onboarding",
+      "General info"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/onboarding_general_info.html#vacation",
+    "href": "lab_organisation/onboarding_general_info.html#vacation",
+    "title": "General information",
+    "section": "Vacation",
+    "text": "Vacation\nAs an employee of the University, you have 30 days paid leave per year (on a full year’s contract). You must take this leave each year. Please use Gisbo, using the following link to submit your vacation request, which must be approved by your PI: https://arbeitszeit.uni-mainz.de/. In the settings, please fill in your PI’s email address as well as sekretariat[dot]oekologie[at]uni[hyphen]mainz[dot]de.",
+    "crumbs": [
+      "Onboarding",
+      "General info"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/onboarding_general_info.html#sick-leave",
+    "href": "lab_organisation/onboarding_general_info.html#sick-leave",
+    "title": "General information",
+    "section": "Sick leave",
+    "text": "Sick leave\nIf you are sick and unable to come to work, please send an email to the following addresses so that we can register you in the Gisbo (time management software) system as ill: iome_krankmeldung[at]uni[hyphen]mainz[dot]de; Sekretariat[dot]]oekologie[at]uni[hyphen]mainz[dot]de; or your PI.\nWhen you are healthy again, please send another email letting us know you are healthy and returning to work. Please note – if you are out due to illness for more than 3 days, you must provide a doctor’s note.\nFurther information about vacation, illness and other personnel issues can also be found on the JGU HR Website. Most of the info is in German, some in English.",
+    "crumbs": [
+      "Onboarding",
+      "General info"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities",
+    "href": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities",
+    "title": "General information",
+    "section": "Travelling for University related activities",
+    "text": "Travelling for University related activities\n\nTravel request: download form – please complete with a signature from Hanna as soon as you start planning your travels. Please be sure to submit it to Sabine, so she can forward it to the university management.\nIf you are travelling within the EU you’ll need to fill this out for insurance purposes: download form. This needs to be submitted prior to the trip, ideally alongside the travel request.\nTravel reimbursement: download form – once you return from your trip, you will need to complete this form to request reimbursement for all travel expenses. Please submit this form, all original receipts and payment confirmation from your MC or Bank statement.",
+    "crumbs": [
+      "Onboarding",
+      "General info"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
+    "href": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
+    "title": "General information",
+    "section": "Miscellaneous Germany things",
+    "text": "Miscellaneous Germany things\n\nMost shops, and all supermarkets, are closed on Sundays in Germany. Plan for this so you don’t starve.\nGermany lives in the stone age with respect to technology and still relies heavily on cash and post. Make sure to keep some cash on you (many shops and restaurants don’t take card), and check your postbox often (a lot of the official communication happens via post).\nPublic transport is very good in Germany, and Mainz is no exception. The Deutschlandticket allows you to board any regional public transport (all buses and trams, and regional trains such as REs, RBs, U-Bahns, and S-Bahns) for just €58 per month. This is a fantastic deal, I strongly recommend you take it.\nDeepL is a very good online translator for translating German to English and vice versa. They also have an app.\nYou can buy a SIM card at most supermarkets, and they will be able to activate it for you at the checkout counter. You may need to provide some form of proof of identity such as a passport when activating the passport.\nMainz has various weekly markets selling fresh produce. You can see the days, times, and locations of the markets here.\nKleinanzeigen is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.\nIf you are looking for a place to stay, try Immoscout and Immowelt. If you are okay with shared housing, you can also look at WG-Gesucht. The housing market is really tough, so don’t be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.\nToogoodtogo is a great servic for buying food and groceries that are left unsold at the end of the day. It’s really cheap, and helps reduce food waste!\nNINA is the official federal disaster warning app in Germany. Download it so you stay informed about any natural disasters (storms, fires, etc) in your area.\nNORA is the official emergency call app in Germany, and will let you contact emergency services without speaking the language.\nMeteoblue is a reasonably good weather app in Germany.\nIf you enjoy hiking, consider using komoot or alltrails to find hiking routes around you. Germany tends to have many well-documented routes, so the apps are a very good resource. The Rheinsteig is a long (320km) multi-stage hike from Bonn to Weisbaden that could be a good summer goal to keep you occupied on the weekends ;)",
+    "crumbs": [
+      "Onboarding",
+      "General info"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/labmeeting-talk-schedule.html#content",
+    "href": "lab_organisation/labmeeting-talk-schedule.html#content",
+    "title": "Lab meeting talk schedule",
+    "section": "Content",
+    "text": "Content\nGoals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
+    "crumbs": [
+      "Lab meeting talks"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
+    "href": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
+    "title": "Lab meeting talk schedule",
+    "section": "Schedule 2025",
+    "text": "Schedule 2025\nThe dates below are for every second Wednesday starting the week of 27 January, upto and including the month of April (note the change in dates because we have switched to Wednesday lab meetings from Thursday).\nThe exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.\n\n\n\nDate\nSpeaker\n\n\n\n\n3 September\nClaudia\n\n\n10 September\n-\n\n\n17 September\n-\n\n\n24 September\nRoman\n\n\n1 October\n-\n\n\n8 October\nMos\n\n\n15 October\n-\n\n\n22 October\nVictor\n\n\n29 October\n-\n\n\n5 November\nMargaux\n\n\n12 November\n-\n\n\n19 November\nTom (intro to GitHub)\n\n\n26 November\n-\n\n\n10 December\n-\n\n\n17 December\nX\n\n\n24 December\nM\n\n\n31 December\nA\n\n\n7 January\nS\n\n\n14 January\nKora\n\n\n21 January\n-\n\n\n28 January\nUthara\n\n\n4 February\nShikhara\n\n\n11 February\nGaurav\n\n\n18 February\nAschermittwoch\n\n\n25 February\nRoman\n\n\n4 March\n-\n\n\n11 March\nYi\n\n\n18 March\n-\n\n\n25 March\nClaudia\n\n\n1 April\n-\n\n\n8 April\nMos",
+    "crumbs": [
+      "Lab meeting talks"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/Downloading_software.html",
+    "href": "lab_organisation/Downloading_software.html",
+    "title": "Downloading software",
+    "section": "",
+    "text": "If you are a JGU employee, you can activate the ZDV license for mathematica by:\n\nDownload Mathematica using the Download Manager that Tom will send you.\nAfter the download is complete, open Wolfram for the first time, it should ask you to activate the product. We will do this with an “activation key”. Here is how to get one:\n\n\nGeneral details on installation are on https://reference.wolfram.com/language/tutorial/InstallingWolfram.html. What works for us is to go to the JGU’s “site info page”: https://www.wolfram.com/siteinfo/.\nThe page, once opened, should say “Johannes Gutenberg Universitaet Mainz Has Access to Wolfram Products” at the top and ask you for your institutional email address.\nEnter your email address, and then on the next page, select the appropriate option when asked if you are a student or staff (PhD students are technically staff).\nClick the red button that says “Get Mathematica Desktop”.\nFill out the form asking for name, email address, department, etc.\nNote: the department drop-down doesn’t seem to be university specific, I just chose “Biological & Life Sciences” and this works. Submit the form.\nThis should immediately lead to the generation of an activation key that is both displayed on the browser and sent to your Mainz email.\n\n\nGo back to the Wolfram app. Click “Other ways to activate” and select “Connect online using an Activation Key”.\n\n\nEnter the activation key that you got above.\nDone!",
+    "crumbs": [
+      "Computing",
+      "Downloading software"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/Downloading_software.html#mathematica",
+    "href": "lab_organisation/Downloading_software.html#mathematica",
+    "title": "Downloading software",
+    "section": "",
+    "text": "If you are a JGU employee, you can activate the ZDV license for mathematica by:\n\nDownload Mathematica using the Download Manager that Tom will send you.\nAfter the download is complete, open Wolfram for the first time, it should ask you to activate the product. We will do this with an “activation key”. Here is how to get one:\n\n\nGeneral details on installation are on https://reference.wolfram.com/language/tutorial/InstallingWolfram.html. What works for us is to go to the JGU’s “site info page”: https://www.wolfram.com/siteinfo/.\nThe page, once opened, should say “Johannes Gutenberg Universitaet Mainz Has Access to Wolfram Products” at the top and ask you for your institutional email address.\nEnter your email address, and then on the next page, select the appropriate option when asked if you are a student or staff (PhD students are technically staff).\nClick the red button that says “Get Mathematica Desktop”.\nFill out the form asking for name, email address, department, etc.\nNote: the department drop-down doesn’t seem to be university specific, I just chose “Biological & Life Sciences” and this works. Submit the form.\nThis should immediately lead to the generation of an activation key that is both displayed on the browser and sent to your Mainz email.\n\n\nGo back to the Wolfram app. Click “Other ways to activate” and select “Connect online using an Activation Key”.\n\n\nEnter the activation key that you got above.\nDone!",
+    "crumbs": [
+      "Computing",
+      "Downloading software"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/admin_essentials.html#registration",
+    "href": "lab_organisation/admin_essentials.html#registration",
+    "title": "Admin essentials when starting out",
+    "section": "Registration",
+    "text": "Registration\nYour first step after moving to Mainz will be to complete your registration with the city. You can book an appointment for registration online at this link, and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment here. The appointment will be at the Bürgeramt (=citizenship office) in Mainz, located on Kaiserstraße 3-5.  To register, you will need to have\n\nYour passport (and a visa if applicable).\nA residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See here for how this is done.\nProof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a Wohnungsgeberbestätigung.\nIf you are married, a marriage certificate (officially translated into German)\nIf you are registering children, you also need to carry ID proof for your children.\n\nWhen you register, you will receive a piece of paper from the citizenship office called an Anmeldebescheinigung (=registration certificate). Hold on to this certificate, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your Steuer ID (= tax ID) by post to the address you registered. This ID should be communicated to both JGU’s HR contact and to Sabine (our secretary). This is important because you cannot be paid without a Steuer ID.",
+    "crumbs": [
+      "Onboarding",
+      "Admin essentials"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/admin_essentials.html#certificate-of-conduct",
+    "href": "lab_organisation/admin_essentials.html#certificate-of-conduct",
+    "title": "Admin essentials when starting out",
+    "section": "Certificate of Conduct",
+    "text": "Certificate of Conduct\nThe certificate of conduct is a police document required by JGU that essentially checks whether you have a criminal record in your home country. Everyone with an employment contract must submit a Certificate of Conduct to the university within the first three months of starting. Like Registration, the Certificate of Conduct is obtained from the Bürgeramt. The Certificate requires a €13 fee (to be paid by card). The Burgeramt will send the certificate directly to JGU’s HR: The address of HR is Dezernat Personal, Forum universitatis 3, 550099 Mainz. Both registration and getting the Certificate of Conduct can be done in the same appointment — I recommend doing this to save yourself time, there is no point in booking two separate appointments.",
+    "crumbs": [
+      "Onboarding",
+      "Admin essentials"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/admin_essentials.html#bank-accounts-and-getting-your-salary",
+    "href": "lab_organisation/admin_essentials.html#bank-accounts-and-getting-your-salary",
+    "title": "Admin essentials when starting out",
+    "section": "Bank accounts and getting your salary",
+    "text": "Bank accounts and getting your salary\nYou will be paid on the last working day of each month. To be paid, the university needs to have your Steuer ID. You also need to have a bank account that has an IBAN. As far as I (Shikhara) am aware, this is a largely European concept, so if you are not from Europe, you will likely have to create a local bank account to be paid. You can open a bank account immediately after registering with the city (see above), though some banks may have more stringent requirements than others (for instance, Sparkasse sometimes requires long-term residence permits). See here for some opinions on various banks in Germany to see your options. I (Shikhara) use Commerzbank because they have a branch in Mainz, have a very straightforward online process for opening an account, and offer English customer service. I have also heard good things about online banks like N26 and Revolut. However, please do your own research before taking financial advice on which bank to choose. Once you have an IBAN, you should share your IBAN with Sabine. This, again, is important for getting your salary. When you get your first payslip, you will be able to find the Personalnummer that has been given to you by the Landesamt für finanzen (LfF). The Personalnummer is an eight digit number assigned to you by the LfF and is important for tax purposes, so keep note of it. In general, if you contact the LfF for queries related to your salary, tax contributions, or tax returns, you will need to quote your Personalnummer. You should also hold on to all the payslips you receive because you could need them for administrative purposes (for instance, when applying for a residence permit, see below). You will also need your Personalnummer to get travel expenses reimbursed.",
+    "crumbs": [
+      "Onboarding",
+      "Admin essentials"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/admin_essentials.html#applying-for-a-residence-permit",
+    "href": "lab_organisation/admin_essentials.html#applying-for-a-residence-permit",
+    "title": "Admin essentials when starting out",
+    "section": "Applying for a residence permit",
+    "text": "Applying for a residence permit\nIf you are staying in Germany for longer than a year, you will need to apply for a residence permit. A residence permit essentially supersedes a visa and will be given for the length of your contract (or until your passport expires if that happens first). Applications for residence permits from JGU scientists are processed differently by the Bürgeramt, so do not try to apply for a residence permit independently. Instead, write an email to the JGU Welcome Center (welcome[at]international[dot]uni[hyphen]mainz[dot]de) saying you are employed with us and need a residence permit, and the Welcome Center will arrange for an appointment with the Burgerämt and give you further directions. When you first write to the Welcome Center for this, they will ask you to fill out some forms they send, and also send them copies of\n\nYour passport and visa\nYour rental certificate\nYour employment certiciate\nA hosting agreement from Hanna\nA health insurance certificate (not just a card)\nYour last three payslips\n\nFor the appointment with the Burgerämt itself, you will need\n\nA current (= at most six month old) biometric picture of yourself.\nYour passport and visa if applicable.\nA debit card to pay a fee of €100 (they don’t take cash). I (Shikhara) was able to get this reimbursed by the university, so hang on to the receipt.\n\nYou will need to visit the Burgerämt in person a few weeks after this appoint to pick up your residence permit (the Burgerämt will give you an exact date). While your application is being processed (after the first appointment but before you pick it up), it is possible to ask the Burgerämt for a Fiktionsbescheinigung, a temporary form for any immigration/border authorities that says that your application is being processed. I would recommend taking this form just to be safe. The residence permit process can take a really long time, so make sure to contact the Welcome Center well before your visa expires. This is really important because your contract will be terminated immediately by HR if you do not have a residence permit in hand before your visa expires.",
+    "crumbs": [
+      "Onboarding",
+      "Admin essentials"
+    ]
+  },
+  {
+    "objectID": "homepage.html",
+    "href": "homepage.html",
+    "title": "The Kokkonutcase",
+    "section": "",
+    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a German resident, how to receive your salary and generally how to grapple with the monolith that is German bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A necessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nTo go to the kokkonutscase repository of scripts, click here.  To visit the kokkonuts lab group webpage, click here.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/coding.html",
+    "href": "lab_organisation/coding.html",
+    "title": "Coding practices",
+    "section": "",
+    "text": "itle: “Coding practices” ormat: html ditor: source ngine: knitr",
+    "crumbs": [
+      "Code practice"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/coding.html#good-habits-a-small-subset-of-the-zen-of-python",
+    "href": "lab_organisation/coding.html#good-habits-a-small-subset-of-the-zen-of-python",
+    "title": "Coding practices",
+    "section": "Good habits: A small subset of the Zen Of Python",
+    "text": "Good habits: A small subset of the Zen Of Python\nExplicit is better than implicit.\nReadability counts.\nSimple is better than complex.\nErrors should never pass silently.\nUnless explicitly silenced.\nIn the face of ambiguity, refuse the temptation to guess.\nThe Zen of Python is a list of coding conventions that are supposed to exemplify how good Python code should be written. Since the majority of the lab currently uses either Python or languages that are very similar to Python (R, MATLAB, Octave, etc.), many of these tenets carry over to our use case. I have collated the ones I thnk are most important to us above.\n\nExplicit is better than implicit.\nAssign meaningful variable names and be as explicit as possible about why you are doing the things you are doing. You may be tempted to leave some parts of your code unwritten/unexplained because you think it is ‘obvious’, or assign arbitrary variable names because it is faster - this is a bad idea because what is obvious to you may not be obvious to others, and what is obvious to you now may not be obvious to you five months or five years from now.\nIt is also important to comment your code thoroughly. Much like with variable names, commenting code can greatly improve how understandable it is. It also improves readability (more on that below). Comments should specify what your code does and, more importantly, why you are doing what you do. Being explicit also means you explicitly write down what sort of inputs your code expects and what sort of assumptions it is making. This is especially important in languges like R and Python that allow users to be relatively sloppy about datatypes. For instance, Python allows you to multiply a string by an integer. Thus, if your code contains a block like 2*foo where foo is an input, it is important to be explicit about whether foo is supposed to be a string or an integer, since both will return valid outputs but the outputs will have radically different meanings and so could cause problems downstream. Similarlu,\nAs an example, suppose you wanted to write a function that calculates the (approximate) net salary a PhD student or post-doc in the lab should receive this month, given their starting date. Here is a bad way to write this code:\n\n#implicit\n#this is bad code\nf &lt;- function(x,y=0.65){\n    return (2935*y +  200* (as.numeric(Sys.Date() - x)%/%365)) #so confusing. what are x and y? wtf is 2935?? what.\n}\n\nThis is bad code because all of the thinking behind the final formula has been obscured. If you saw it without context, it would be unclear what the function is even supposed to accomplish. A much better way to write the same function is:\n\nCalculateSalary &lt;- function(start_date, job_fraction=0.65){\n    #Function to calculate expected monthly salary sometime into your PhD. start_date is either a Date() object or a string of the form YYYY-MM-DD.\n    #This argument describes the date you started being employed in academia in the EU. If you are a PhD student, this is probably the date you started your contract.\n    #If you are a post-doc, where you did your PhD decides what counts as job experience. job_fraction is a float b/w 0 and 1) describing what percentage of a full contract you have.\n    #All current PhDs are on 65% contracts. If you are a post-doc, you are on 100%.\n    \n    start_date &lt;- as.Date(start_date)  #assert that the start_date is a Date() object. If user accidentally supplied a string, convert it. \n\n    # Both post-docs and PhDs are on the TV-L E13 scale. This results in a base net salary (stufe 1) of about 2935 EUR per month if you are not paying for VBL.\n    base_salary &lt;- 2935 # From https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 \n\n    #calculate how many years of job experience you have\n    years_of_experience &lt;- as.numeric(Sys.Date() - start_date)%/%365 #the 365 is to convert days to years\n\n    yearly_bonus &lt;- 200 #average yearly bonus for getting job experience. Calculated from https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 \n\n    return(job_fraction*base_salary + yearly_bonus*years_of_experience)\n}\n\nWe have now named our function CalculateSalary(), making it clear what the function does. The arguments of the function have been renamed from the very opaque x and y to more transparent, meaningful names. We have also explicitly declared the local variables base_salary and yearly_bonus amd explained where these numbers come from. Even though you generally think in a way that is closer to how CalculateSalary() was written, on you have already done the thinking, you may be tempted to just write down the final code in the way that f() was written because the logic is now obvious (to you). Resist this temptation.\n\n\nReadability counts\nIt is often worth making a code longer and defining more intermediate steps if this improves how readable the code is. Ultimately, you want a human reading the script to understand it as quickly as possible, even if it makes the code slightly slower to the computer. For instance, our CalculateSalary() code can be further improved by adding more systematic comments and including some intermediate steps like this:\n\nCalculateSalary &lt;- function(start_date, job_fraction=0.65){\n\n    #########################\n    #Function to calculate expected monthly salary sometime into your PhD\n    #Inputs:\n        # start_date (Date or str): Either a Date() object or a string of the form YYYY-MM-DD. \n        #                           This argument describes the date you started being employed in academia in the EU. \n        #                           If you are a PhD student, this is probably the date you started your contract.\n        #                           If you are a post-doc, where you did your PhD decides what counts as job experience.\n        # job_fraction (float b/w 0 and 1): What percentage of a full salary is your contract? All current PhDs are on 65% contracts. If you are a post-doc, you are on 100%.\n\n    #Outputs: Your expected monthly salary in euros.\n    #######################\n\n    start_date &lt;- as.Date(start_date)  ##assert that the start_date is a Date() object. if the user supplied a string, force it to be a Date type. \n\n    # Both post-docs and PhDs are on the TV-L E13 scale. This results in a base net salary (stufe 1) of about 2935 EUR per month if you are not paying for VBL.\n    base_salary &lt;- 2935 # From https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 \n    \n    # PhDs are considered partial employment. Modify their base salary accordingly\n    base_salary &lt;- job_fraction*base_salary\n\n    #calculate how many years of job experience you have\n    current_date &lt;- Sys.Date()\n    years_of_experience &lt;- as.numeric(current_date - start_date)%/%365 #the 365 is to convert days to years\n\n    yearly_bonus &lt;- 200 #average yearly bonus for getting job experience\n\n    #calculate the salary you will actually get by adding any bonuses you may get due to job experience\n    realized_salary &lt;- base_salary + yearly_bonus*years_of_experience\n\n    return(realized_salary)\n}",
+    "crumbs": [
+      "Code practice"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/Getting_help.html",
+    "href": "lab_organisation/Getting_help.html",
+    "title": "Getting help",
+    "section": "",
+    "text": "If you need a hand with anything, we have a strong relationship with the IQCB. They’re happy to help with IT issues and are equipped to deal with rather complex problems i.e. using the HPC. Coveniently, their IT department is housed in our building, up one floor from us. Visiting in person tends to be the best way to solve problems quickly, but they are also responsive at it[dot]]iqcb[at]uni[hyphen]mainz[dot]de. The two staff members you’re most likely to interact with are Helge Vatheuer and Robert Vettel (the crow whisperer).\nOne reason the IQCB exists is to act as a bridge between researchers like us and the ZDV; JGU’s official IT department. I strongly suggest taking your problems to the ICQB first, because the ZDV can be a little… unpredictable. If you absolutely need to liase with the ZDV, visit them in person at their hotline office.\nYour choice of operating system determines how much help IT can give you. Windows is the ZDV’s preferred operating system and as such, a lot of supporting infrastructure exists. They also have an entire LINUX division, but you need to talk to the right person to actually get help. MAC has no support at all - Carte Blanche! This has pros and cons.",
+    "crumbs": [
+      "Computing",
+      "Getting help"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/mogon.html",
+    "href": "lab_organisation/mogon.html",
+    "title": "MOGON 2",
+    "section": "",
+    "text": "Dummy text for now\nLet’s hope this works",
+    "crumbs": [
+      "Computing",
+      "Using MOGON 2"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/sems_lists.html",
+    "href": "lab_organisation/sems_lists.html",
+    "title": "Seminars and mailing lists",
+    "section": "",
+    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
+    "crumbs": [
+      "Seminars and mailing lists"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/sems_lists.html#mailing-lists",
+    "href": "lab_organisation/sems_lists.html#mailing-lists",
+    "title": "Seminars and mailing lists",
+    "section": "",
+    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
+    "crumbs": [
+      "Seminars and mailing lists"
+    ]
+  },
+  {
+    "objectID": "lab_organisation/sems_lists.html#seminars",
+    "href": "lab_organisation/sems_lists.html#seminars",
+    "title": "Seminars and mailing lists",
+    "section": "Seminars",
+    "text": "Seminars\nThe four most relevant seminar series held at JGU are\n\nThe seminar series in Evolutionary Biology\nThe Institute for Quantitative and Computational Biosciences seminar series\nThe GenEvo seminar series. PhD students in the GenEvo research training program are allocated funds to invite an external speaker that’s influential in their field. There tend to be about eight a year. This link isn’t helpful for upcoming seminars, but the archives give a sense of the types of topics covered.\nThe ECR seminar series. This has no formal documentation, but is designed for ECRs to get to know each others work while practicing communication skills. To get involved email Camille Cozzarolo at ccozzaro[at]]uni[hyphen]mainz[dot]de.",
+    "crumbs": [
+      "Seminars and mailing lists"
+    ]
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Useful Links",
+    "section": "",
+    "text": "ggplot2 cheatsheet\nFundamentals of Data Visualization\nA collection of graphs made in R\nA collection of graphs made in Python\nA color scheme generator for making better plots: Generates complimentary colors, lets you vary hue, provides simulations of various types of colorblindness as well as common lightness/hue/saturation changes that can be caused by faulty screens.",
+    "crumbs": [
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "links.html#data-visualization",
+    "href": "links.html#data-visualization",
+    "title": "Useful Links",
+    "section": "",
+    "text": "ggplot2 cheatsheet\nFundamentals of Data Visualization\nA collection of graphs made in R\nA collection of graphs made in Python\nA color scheme generator for making better plots: Generates complimentary colors, lets you vary hue, provides simulations of various types of colorblindness as well as common lightness/hue/saturation changes that can be caused by faulty screens.",
+    "crumbs": [
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "links.html#coding",
+    "href": "links.html#coding",
+    "title": "Useful Links",
+    "section": "Coding",
+    "text": "Coding\n\nThe good research coding handbook\nPro git, an introduction to using git and GitHub for version control\nThe tidyverse, a set of packages for data wrangling and data visualization in R\n\nUsing the tidyverse for data wrangling in R\nHands-on tutorial on using dplyr for data wrangling in R\nA mapping of MATLAB functions to numpy functions in Python\npython-ternary, a library for making ternary plots in Python using matplotlib\nHigh-performance computing using SLURM:\n\nIntroduction to SLURM and job scripting\nCreating batch scripts for SLURM\nSLURM tutorial series by the makers themselves\nSLURM directives to put into a bash script\nUsing Python on the HPC\n\nGenerally useful fact: You can push your local git repo to two or more remote locations simultaneously. To set this up, we need to run the following locally on the terminal:\n\n\n\nTerminal\n\ngit remote set-url origin --push --add &lt;a remote&gt;\ngit remote set-url origin --push --add &lt;another remote&gt;",
+    "crumbs": [
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "links.html#reading-writing-and-presentation",
+    "href": "links.html#reading-writing-and-presentation",
+    "title": "Useful Links",
+    "section": "Reading, writing, and presentation",
+    "text": "Reading, writing, and presentation\n\nPlaylist on academic writing by the Leadership Lab at UChicago\nHow to speak by Patrick Winston at MIT\nList of commonly used phrases in academic writing\nTen simple rules for making good oral presentations\nHow to give a theory talk by Shengwu Li",
+    "crumbs": [
+      "Useful links"
+    ]
+  },
+  {
+    "objectID": "teaching/Bachelor_thesis.html#information-for-interested-students",
+    "href": "teaching/Bachelor_thesis.html#information-for-interested-students",
+    "title": "Supervising or completing a bachelor thesis",
+    "section": "Information for interested students",
+    "text": "Information for interested students\nAt JGU, bachelor students are required to write a Bachelor thesis to successfully complete their degree. It spans 16 weeks and is a combination of modules 15 and 16 in the Bachelor of Science in Biology. When the student starts has considerable wiggle room; that is, it need not conform to the academic semesters. It makes up the final 30 credits that are required to be awarded the degree. General information about the thesis can be found in the handbook and/or by talking to Dr. Peter Schubert from the Prüfungsamt (advice from recent students is to do this in person).\nIt is the students responsibility to find a thesis project and it is our responsibility to offer potential projects for interested students. Here, ‘our’ refers primarily to the postdocs in the group, but it can also include PhD students if they wish to gain supervision experience. A common attraction to working with the Kokkonuts is Hanna’s module 11b lectures. However, because these lectures tend to be quite general, and Hanna will not be hugely involved in the project, it can be difficult to know exactly the types of projects that we offer. While our interests are varied, it is safe to assume that\n\nThe research question will concern evolutionary biology\nMost projects will be theoretical and all will involve some mathematics.\nThe project will not include lab or field work.\n\nWe also include particpiation in the module 14b bachelor winter semester subject Theoretical Evolutionary Ecology as a pre-requisite to doing your thesis with our group.",
+    "crumbs": [
+      "Supervising or completing a bachelor thesis"
+    ]
+  },
+  {
+    "objectID": "teaching/Bachelor_thesis.html#current-potential-thesis-topics",
+    "href": "teaching/Bachelor_thesis.html#current-potential-thesis-topics",
+    "title": "Supervising or completing a bachelor thesis",
+    "section": "Current potential thesis topics",
+    "text": "Current potential thesis topics\nDo stressed mothers produce more variable offspring?\nSupervisor: Erin Macartney\nMaternal environment can influence offspring traits important for survival and reproduction. These effects can be positive, negative, or neutral. However, studies of maternal environmental effects often only consider effects on trait means (i.e., does a particular environment increase or decrease the trait of interest). One of the key factors important for ‘evolutionary potential’, particularly in changing environments, is phenotypic variation. Genetic variation provides the backbone for selection to act on, but phenotypic variation induced by non-genetic factors can also affect ‘evolutionary potential’. This project will examine how maternal environmental stress can influence the phenotypic variation of a population in the following generation using meta-analytic methods. This will provide us with a greater understanding how populations may respond to changing environments through non-genetic inheritance.\nDoes competition for nest sites influence adaptation to climate change?\nSupervisor: Tomos Potter\nClimate change is altering the optimum timing of reproduction in seasonally breeding animals. Many species have shown a phenological shift: they start breeding earlier in the year. Rapid adaptive evolution can contribute to earlier nesting and may be key to species survival as the climate continues to change. But is nesting earlier always better? In some animals, like seabirds, early arrivals to breeding sites get the best nesting spots, and latecomers may find none left. However in others, like sea turtles, early nests can be damaged by later ones, making early breeding less successful. In this project, we will investigate how competition for nest sites might help or hinder species phenological responses to climate change.\nOne reason why whales aren’t dinosaurs\nSupervisor: Tom Keaney\nThis click-baity title is definitely a little annoying, but hopefully also thought provoking. Once you get past the one’s a mammal, one’s a reptile and one lives in the ocean, one mostly doesn’t kind of answers, it starts to get interesting. A particularly intriguing difference is that dinosaurs lay eggs while whales give birth to live young. Why it that thought provoking? Well, eggs can only get so big before the embryos asphyxiate, whereas this constraint on offspring size at birth is relaxed in mammals. The question you’ll explore is how natural selection acting on comparably gigantic organisms such as non-avian dinsoaurs and whales optimises their life history. Specifically, how does this differing constraint on offspring size change things?",
+    "crumbs": [
+      "Supervising or completing a bachelor thesis"
+    ]
+  },
+  {
+    "objectID": "teaching/Bachelor_thesis.html#a-kokkonuts-style-thesis-experience",
+    "href": "teaching/Bachelor_thesis.html#a-kokkonuts-style-thesis-experience",
+    "title": "Supervising or completing a bachelor thesis",
+    "section": "A Kokkonuts style thesis experience",
+    "text": "A Kokkonuts style thesis experience\nThe handbook instructions are not written with theory projects in mind, so we treat these more as guidelines. For students, the most important changes are that modules 15 and 16 are informally treated as a single module (15 doesn’t need to be completed before writing can begin) and that we don’t expect a protocol to be submitted. The three pieces of assessment that should be completed throughout a successful bachelor thesis in our group are the:\nProject proposal presentation\nA presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is a hurdle requirement that must be passed but is not graded.\nThesis\nA document written in manuscript style, mimicking the format of a society journal like the American Naturalist, Evolution or the Journal of Evolutionary Biology. The exact length of the document is up to the student and their supervisor, but will tend to be shorter than studies that appear in the above journals. This is marked by the two examiners and makes up x% of the grade. The hand-in date is set 16 working weeks after the project is registered with the department.\nThesis defense\nA 15 minute oral presentation delivered to the lab group, followed by a maximum of 15 minutes of questions. At this point the examiners will have read the thesis, so questions are not limited to the content of the talk. This is marked by the two examiners and makes up x% of the grade.",
+    "crumbs": [
+      "Supervising or completing a bachelor thesis"
+    ]
+  },
+  {
     "objectID": "technical/EGTsims/RPS.html",
     "href": "technical/EGTsims/RPS.html",
     "title": "Studying rock paper scissors using Python",
@@ -69,394 +457,6 @@
       "Technical knowledge",
       "Evolutionary game theory examples",
       "Rock paper scissors"
-    ]
-  },
-  {
-    "objectID": "technical/math_notebooks/NLD.html",
-    "href": "technical/math_notebooks/NLD.html",
-    "title": "Studying one-dimensional and two-dimensional systems",
-    "section": "",
-    "text": "Non-linear dynamics is broadly the study of systems whose behaviour is described by complicated non-linear functions. Since most of the world is non-linear, this is a very useful field of mathematics for biology. In this notebook, we will see how graphical methods can be used to study non-linear systems of equations. Those interested in details can refer to Strogatz’s excellent book for details.\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.integrate import odeint\nfrom sympy import *",
-    "crumbs": [
-      "Technical knowledge",
-      "General math",
-      "Nonlinear dynamics"
-    ]
-  },
-  {
-    "objectID": "technical/math_notebooks/NLD.html#one-dimensional-systems",
-    "href": "technical/math_notebooks/NLD.html#one-dimensional-systems",
-    "title": "Studying one-dimensional and two-dimensional systems",
-    "section": "One dimensional systems",
-    "text": "One dimensional systems\nOne-dimensional systems are equations of the form  \\[\n\\dot{x} = f(x)\n\\]  where \\(\\dot{x}\\) denotes the derivative of \\(x\\) with respect to time and \\(f\\) is a (non-linear) function. For instance, the logistic equation\n\\[\n\\dot{x} = x(1-x)\n\\]\nis an example of a one-dimensional non-linear system. Let us see how we may study this system.\n\ndef logistic(x,t):\n    return x*(1-x)\n\n\nFinding fixed points diagrammatically\nOften, we are only interesed in the behavior of our biological system at equilibrium (or over very long timescales). In this case, we are interested in finding points at which \\(\\dot{x} = 0\\) (the quantity \\(x\\) is no longer changing). Such points are called fixed points of the system. To find fixed points of a one-dimensional system, we can plot \\(\\dot{x}\\) vs \\(x\\). The points at which this curve intersects the x-axis are then the fixed points of our system.\n\nxarray = np.arange(-0.01,1.01,0.001)\nxdotarray = [logistic(x,0) for x in xarray]\nplt.plot(xarray,xdotarray)\nplt.axhline(y=0,color='g',linestyle='--')\nplt.xlabel('x')\nplt.ylabel('x dot')\nplt.show()\n\n\n\n\n\n\n\n\nThus, we see that the only fixed points of this system are \\(x=0\\) and \\(x=1\\).\nWe can also ask which fixed points of the system are attractors. If we begin at, say, \\(x=0.01\\), will the system move towards \\(x=0\\) or \\(x=1\\)? This too can be answered diagramatically. Notice, in the plot above, that \\(\\dot{x}\\) is positive when \\(x \\in [0,1]\\). Thus, if \\(x\\) is between \\(0\\) and \\(1\\), it will increase (since the rate of change is positive) towards \\(x = 1\\). However, if \\(x&gt;1\\), then \\(\\dot{x}\\) is negative, meaning that \\(x\\) tends to decrease. This means that systems with \\(x&gt;1\\) tend to decrease towards \\(x=1\\) - the point \\(x=1\\) is an attractor!\nWe can confirm this by numerically integrating the logistic equation for a variety of initial conditions\n\ndef logistic_trajectory(x0list,t=10,tstep=0.01):\n    for x0 in x0list:\n        xlist = np.arange(0,t,tstep)\n        ylist = odeint(func=logistic,y0=[x0],t=np.arange(0,t,tstep))\n        plt.plot(xlist,ylist,label='x0 = '+str(x0))\n    \n    plt.legend(loc='upper right')\n    plt.xlabel('time')\n    plt.ylabel('x')\n    plt.axhline(y=1,color='g',linestyle='--')\n    plt.show()\n\nlogistic_trajectory([0.02,0.1,0.25,1.5,2])\n\n\n\n\n\n\n\n\n\n\nA more complicated example with a single tunable parameter\nConsider now the more complicated system\n\\[\n\\dot{x} = rx - x^3\n\\]\nwhere \\(r\\) is a model parameter.\n\ndef xdot(x,t,r):\n    return r*x - x**3\n\n\n\nThe fixed points\nTo begin, let us study the fixed points of the system. As before, we do it graphically\n\ndef xdot_vs_x(rlist):\n    for r in np.arange(rlist[0],rlist[1],rlist[2]):\n        x = np.arange(-10,10,0.01)\n        xdotlist = []\n        for val in x:\n            xdotlist.append(xdot(val,0,r))\n        \n        plt.plot(x,xdotlist,label='r = '+str(r))\n    plt.axhline(y=0,color='g',linestyle='--')\n    plt.axvline(x=0,color='g',linestyle='--')\n    plt.legend(loc='upper right')\n    plt.xlabel('x')\n    plt.ylabel('x dot')\n    plt.xlim([-5,5])\n    plt.ylim([-10,10])\n    plt.show()\n\n\nxdot_vs_x([-6,6.1,6])\n\n\n\n\n\n\n\n\nThe number of fixed points changes depending on the parameter!\n\nfrom celluloid import Camera\n\nrlist = np.arange(-10,10,0.1)\nfig = plt.figure(figsize = (8,8))\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"x\")\nplt.ylabel(\"x dot\")\ncamera = Camera(fig)\nfor r in rlist:\n    xlist = np.arange(-10,10,0.1)\n    ylist = [xdot(x,0,r) for x in xlist]\n    plt.plot(xlist,ylist,color='r')\n    plt.axhline(y=0,color='g',linestyle='--')\n    plt.axvline(x=0,color='g',linestyle='--')\n    plt.legend(['$r = '+str(np.round(r,1))+'$'],loc='upper right')\n    plt.xlabel('x')\n    plt.ylabel('x dot')\n    plt.xlim([-5,5])\n    plt.ylim([-10,10])\n    camera.snap()\nplt.close()\n\nYou can play around with it here:\n\nplt.rcParams[\"animation.html\"] = \"jshtml\"\nanimation = camera.animate()\nanimation\n\n\n\n\n\n\n\n\n  \n  \n    \n    \n      \n          \n      \n        \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n    \n    \n      \n      Once\n      \n      Loop\n      \n      Reflect\n    \n  \n\n\n\n\n\n\n\n\nSolving the ODE\n\nObtaining an analytic solution\nThis can also be seen by actually solving the differential equation. I will use sympy to analytically solve the differential equation\n\n#Solving the given ODE symbolically\nn,r = symbols('n r')\ninit_printing()\nn_dot = r*n - n**3\n\nsolve(n_dot,n)\n\n\\(\\displaystyle \\left[ 0, \\  - \\sqrt{r}, \\  \\sqrt{r}\\right]\\)\n\n\n\n\nNumeric integration to find trajectories\nSince solving ODEs analytically is not always feasible, we could also use numerical integration to obtain the trajectory, i.e the values of \\(x(t)\\) as \\(t\\) varies, given an initial value \\(x_0\\). Here, I use the odeint package from scipy.\n\ndef trajectory(rlist,x0,t=10,tstep=0.01):\n    xlist = np.arange(0,t,tstep)\n    for r in rlist:\n        ylist = odeint(func=xdot,y0=[x0],t=np.arange(0,t,tstep),args=tuple([r]))\n        plt.plot(xlist,ylist,label='r = '+str(r))\n    \n    plt.legend(loc='upper right')\n    plt.xlabel('time')\n    plt.ylabel('x')\n    plt.show()\n\n\ntrajectory(np.arange(-4,4.1,4),1)\n\n\n\n\n\n\n\n\n\n\n\nDependence on parameters\nFinally, we can examine how the number of fixed points varies as we vary parameters. In our case, the system has a single parameter: \\(r\\).   We examine the relationship between fixed points and parameter values by plotting a bifurcation diagram. In this case, we plot \\(r\\) against the corresponding equilibrium values of \\(x\\), for various initial values \\(x(0)\\).\n\ndef bifurcation(r_range):\n    rvals = np.arange(r_range[0],r_range[1],r_range[2])\n    eq_list = []\n    r_list = []\n    for r in rvals:\n        for x in np.arange(-10,10.1,5):\n            unique_sols = np.unique(odeint(func=xdot,y0=[x],t=np.arange(0,1000,1),args=tuple([r]))[900:1000])\n            for sol in unique_sols:\n                eq_list.append(sol)\n                r_list.append(r)\n    \n    plt.scatter(r_list,eq_list,color='g',s=2)\n    plt.xlabel('r')\n    plt.ylabel('x*')\n    plt.show()\n        \n\n\nbifurcation([-4,4.1,0.1])\n\n\n\n\n\n\n\n\nThis diagram tells us that when r is less than 0, there is a single fixed point present at x = 0. At r = 0, the behaviour changes, and two new fixed points appear for all values of r &gt; 0. Values of \\(r\\) at which such changes occur are known as bifurcation points.",
-    "crumbs": [
-      "Technical knowledge",
-      "General math",
-      "Nonlinear dynamics"
-    ]
-  },
-  {
-    "objectID": "technical/math_notebooks/NLD.html#two-dimensional-systems",
-    "href": "technical/math_notebooks/NLD.html#two-dimensional-systems",
-    "title": "Studying one-dimensional and two-dimensional systems",
-    "section": "Two dimensional systems",
-    "text": "Two dimensional systems\nTwo dimensional systems are systems of the form:\n\\[\n\\begin{align*}\n\\dot{x} = f(x,y) \\\\\n\\dot{y} = g(x,y)\n\\end{align*}\n\\] \nAs before, we can begin by plotting the phase portrait. Here, the phase portrait is two-dimensional, and you can think of \\(f(x,y)\\) and \\(g(x,y)\\) as representing the flow on a plane.\n\ndef twoD_phase_portrait(var,var_dot,xlims=[-10,10,40],ylims=[-10,10,40],plot_nullclines=True,save=False,filename='2D_portrait.png'):    \n    \n    #convert the symbolic math into a python function\n    dvar = lambdify(var,var_dot,'numpy')\n    \n    #The range of values in which you want the phase portrait\n    x_in = np.linspace(xlims[0],xlims[1],xlims[2])\n    y_in = np.linspace(ylims[0],ylims[1],ylims[2])\n        \n    X_in, Y_in = np.meshgrid(x_in,y_in)\n    \n    #Compute and store the derivatives at each point\n    u,v = np.zeros(X_in.shape), np.zeros(Y_in.shape)\n    shape_1, shape_2 = X_in.shape\n    for i in range(shape_1):\n        for j in range(shape_2):\n            pt_x = X_in[i,j]\n            pt_y = Y_in[i,j]\n            derivative = dvar(pt_x,pt_y)\n            u[i,j] = derivative[0]\n            v[i,j] = derivative[1]\n    \n    colors = np.hypot(u,v)\n    colors[colors==0] = 1 #To avoid division by 0\n    \n    #Normalize arrow lengths\n    #u /= colors\n    #v /= colors\n    \n    \n    plt.figure(figsize=(8,8))\n    plt.quiver(X_in,Y_in,u,v,colors,cmap='Reds',pivot='mid')\n    \n    if plot_nullclines:\n        #Compute and plot the nullclines\n        x_nullcline = solve(var_dot[0])\n        y_nullcline = solve(var_dot[1])\n    \n        xnull_label = \"x nullcline\"\n        for sol in range(len(x_nullcline)):\n            try:\n                null_func = lambdify(var[1],x_nullcline[sol][x],'numpy')\n                null = []\n                for i in range(len(y_in)):\n                    null.append(null_func(y_in[i]))\n                plt.plot(null,y_in,'b',label=xnull_label)\n                xnull_label = '_nolegend_' #To avoid duplicate labels\n            except KeyError:\n                null_func = lambdify(var[0],y_nullcline[sol][y],'numpy')\n                null = []\n                for i in range(len(x_in)):\n                    null.append(null_func(x_in[i]))\n                plt.plot(x_in,null,'b',label=xnull_label)\n                xnull_label = '_nolegend_' #To avoid duplicate labels\n    \n        ynull_label = 'y nullcline'\n        for sol in range(len(y_nullcline)):\n            try:\n                null_func = lambdify(var[1],y_nullcline[sol][x],'numpy')\n                null = []\n                for i in range(len(y_in)):\n                    null.append(null_func(y_in[i]))\n                plt.plot(null,y_in,'r',label=ynull_label)\n                ynull_label = '_nolegend_' #To avoid duplicate labels\n            except KeyError:\n                null_func = lambdify(var[0],y_nullcline[sol][y],'numpy')\n                null = []\n                for i in range(len(x_in)):\n                    null.append(null_func(x_in[i]))\n                plt.plot(x_in,null,'r',label=ynull_label)\n                ynull_label = '_nolegend_' #To avoid duplicate labels\n    \n    plt.xlabel(str(var[0]))\n    plt.ylabel(str(var[1]))\n    plt.xlim(xlims[0:2])\n    plt.ylim(ylims[0:2])\n    plt.colorbar(label=\"Derivative\")\n    \n    if plot_nullclines:\n        plt.legend(bbox_to_anchor=[1.3,1])\n    if save:\n        plt.savefig(filename)\n    \n\n\nx,y = symbols('x y')\n\ninit_printing()\n\n\n#write the differential equations here\nx_dot, y_dot = cos(x-y), sin(x*y+1)\n\nx_dot, y_dot\n\n\\(\\displaystyle \\left( \\cos{\\left(x - y \\right)}, \\  \\sin{\\left(x y + 1 \\right)}\\right)\\)\n\n\n\ntwoD_phase_portrait([x,y],[x_dot,y_dot],xlims=[-10,10,50],ylims=[-10,10,50],plot_nullclines=False)\n\n\n\n\n\n\n\n\n\nNullclines\nOne useful notion is that of a nullcline. Nullclines are defined as the curves where either \\(\\dot{x} = 0\\) or \\(\\dot{y} = 0\\). Fixed points are points at which nullclines intersect.\n\ntwoD_phase_portrait([x,y],[x_dot,y_dot],xlims=[-10,10,100],ylims=[-10,10,100])\n\n\n\n\n\n\n\n\n\n#Number of fixed points should equal the number of times the nullclines intersect\nfixed_points = solve([x_dot,y_dot],[x,y])\nlen(fixed_points)\n\n\\(\\displaystyle 8\\)",
-    "crumbs": [
-      "Technical knowledge",
-      "General math",
-      "Nonlinear dynamics"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/Getting_help.html",
-    "href": "lab_organisation/Getting_help.html",
-    "title": "Getting help",
-    "section": "",
-    "text": "If you need a hand with anything, we have a strong relationship with the IQCB. They’re happy to help with IT issues and are equipped to deal with rather complex problems i.e. using the HPC. Coveniently, their IT department is housed in our building, up one floor from us. Visiting in person tends to be the best way to solve problems quickly, but they are also responsive at it[dot]]iqcb[at]uni[hyphen]mainz[dot]de. The two staff members you’re most likely to interact with are Helge Vatheuer and Robert Vettel (the crow whisperer).\nOne reason the IQCB exists is to act as a bridge between researchers like us and the ZDV; JGU’s official IT department. I strongly suggest taking your problems to the ICQB first, because the ZDV can be a little… unpredictable. If you absolutely need to liase with the ZDV, visit them in person at their hotline office.\nYour choice of operating system determines how much help IT can give you. Windows is the ZDV’s preferred operating system and as such, a lot of supporting infrastructure exists. They also have an entire LINUX division, but you need to talk to the right person to actually get help. MAC has no support at all - Carte Blanche! This has pros and cons.",
-    "crumbs": [
-      "Computing",
-      "Getting help"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/coding.html",
-    "href": "lab_organisation/coding.html",
-    "title": "Coding practices",
-    "section": "",
-    "text": "itle: “Coding practices” ormat: html ditor: source ngine: knitr",
-    "crumbs": [
-      "Code practice"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/coding.html#good-habits-a-small-subset-of-the-zen-of-python",
-    "href": "lab_organisation/coding.html#good-habits-a-small-subset-of-the-zen-of-python",
-    "title": "Coding practices",
-    "section": "Good habits: A small subset of the Zen Of Python",
-    "text": "Good habits: A small subset of the Zen Of Python\nExplicit is better than implicit.\nReadability counts.\nSimple is better than complex.\nErrors should never pass silently.\nUnless explicitly silenced.\nIn the face of ambiguity, refuse the temptation to guess.\nThe Zen of Python is a list of coding conventions that are supposed to exemplify how good Python code should be written. Since the majority of the lab currently uses either Python or languages that are very similar to Python (R, MATLAB, Octave, etc.), many of these tenets carry over to our use case. I have collated the ones I thnk are most important to us above.\n\nExplicit is better than implicit.\nAssign meaningful variable names and be as explicit as possible about why you are doing the things you are doing. You may be tempted to leave some parts of your code unwritten/unexplained because you think it is ‘obvious’, or assign arbitrary variable names because it is faster - this is a bad idea because what is obvious to you may not be obvious to others, and what is obvious to you now may not be obvious to you five months or five years from now.\nIt is also important to comment your code thoroughly. Much like with variable names, commenting code can greatly improve how understandable it is. It also improves readability (more on that below). Comments should specify what your code does and, more importantly, why you are doing what you do. Being explicit also means you explicitly write down what sort of inputs your code expects and what sort of assumptions it is making. This is especially important in languges like R and Python that allow users to be relatively sloppy about datatypes. For instance, Python allows you to multiply a string by an integer. Thus, if your code contains a block like 2*foo where foo is an input, it is important to be explicit about whether foo is supposed to be a string or an integer, since both will return valid outputs but the outputs will have radically different meanings and so could cause problems downstream. Similarlu,\nAs an example, suppose you wanted to write a function that calculates the (approximate) net salary a PhD student or post-doc in the lab should receive this month, given their starting date. Here is a bad way to write this code:\n\n#implicit\n#this is bad code\nf &lt;- function(x,y=0.65){\n    return (2935*y +  200* (as.numeric(Sys.Date() - x)%/%365)) #so confusing. what are x and y? wtf is 2935?? what.\n}\n\nThis is bad code because all of the thinking behind the final formula has been obscured. If you saw it without context, it would be unclear what the function is even supposed to accomplish. A much better way to write the same function is:\n\nCalculateSalary &lt;- function(start_date, job_fraction=0.65){\n    #Function to calculate expected monthly salary sometime into your PhD. start_date is either a Date() object or a string of the form YYYY-MM-DD.\n    #This argument describes the date you started being employed in academia in the EU. If you are a PhD student, this is probably the date you started your contract.\n    #If you are a post-doc, where you did your PhD decides what counts as job experience. job_fraction is a float b/w 0 and 1) describing what percentage of a full contract you have.\n    #All current PhDs are on 65% contracts. If you are a post-doc, you are on 100%.\n    \n    start_date &lt;- as.Date(start_date)  #assert that the start_date is a Date() object. If user accidentally supplied a string, convert it. \n\n    # Both post-docs and PhDs are on the TV-L E13 scale. This results in a base net salary (stufe 1) of about 2935 EUR per month if you are not paying for VBL.\n    base_salary &lt;- 2935 # From https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 \n\n    #calculate how many years of job experience you have\n    years_of_experience &lt;- as.numeric(Sys.Date() - start_date)%/%365 #the 365 is to convert days to years\n\n    yearly_bonus &lt;- 200 #average yearly bonus for getting job experience. Calculated from https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 \n\n    return(job_fraction*base_salary + yearly_bonus*years_of_experience)\n}\n\nWe have now named our function CalculateSalary(), making it clear what the function does. The arguments of the function have been renamed from the very opaque x and y to more transparent, meaningful names. We have also explicitly declared the local variables base_salary and yearly_bonus amd explained where these numbers come from. Even though you generally think in a way that is closer to how CalculateSalary() was written, on you have already done the thinking, you may be tempted to just write down the final code in the way that f() was written because the logic is now obvious (to you). Resist this temptation.\n\n\nReadability counts\nIt is often worth making a code longer and defining more intermediate steps if this improves how readable the code is. Ultimately, you want a human reading the script to understand it as quickly as possible, even if it makes the code slightly slower to the computer. For instance, our CalculateSalary() code can be further improved by adding more systematic comments and including some intermediate steps like this:\n\nCalculateSalary &lt;- function(start_date, job_fraction=0.65){\n\n    #########################\n    #Function to calculate expected monthly salary sometime into your PhD\n    #Inputs:\n        # start_date (Date or str): Either a Date() object or a string of the form YYYY-MM-DD. \n        #                           This argument describes the date you started being employed in academia in the EU. \n        #                           If you are a PhD student, this is probably the date you started your contract.\n        #                           If you are a post-doc, where you did your PhD decides what counts as job experience.\n        # job_fraction (float b/w 0 and 1): What percentage of a full salary is your contract? All current PhDs are on 65% contracts. If you are a post-doc, you are on 100%.\n\n    #Outputs: Your expected monthly salary in euros.\n    #######################\n\n    start_date &lt;- as.Date(start_date)  ##assert that the start_date is a Date() object. if the user supplied a string, force it to be a Date type. \n\n    # Both post-docs and PhDs are on the TV-L E13 scale. This results in a base net salary (stufe 1) of about 2935 EUR per month if you are not paying for VBL.\n    base_salary &lt;- 2935 # From https://oeffentlicher-dienst.info/c/t/rechner/tv-l/allg?id=tv-l&g=E_13&s=1&zv=keine&z=100&zulage=&stkl=1&r=0&zkf=&kk=17%2C05%25 \n    \n    # PhDs are considered partial employment. Modify their base salary accordingly\n    base_salary &lt;- job_fraction*base_salary\n\n    #calculate how many years of job experience you have\n    current_date &lt;- Sys.Date()\n    years_of_experience &lt;- as.numeric(current_date - start_date)%/%365 #the 365 is to convert days to years\n\n    yearly_bonus &lt;- 200 #average yearly bonus for getting job experience\n\n    #calculate the salary you will actually get by adding any bonuses you may get due to job experience\n    realized_salary &lt;- base_salary + yearly_bonus*years_of_experience\n\n    return(realized_salary)\n}",
-    "crumbs": [
-      "Code practice"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/mogon.html",
-    "href": "lab_organisation/mogon.html",
-    "title": "MOGON 2",
-    "section": "",
-    "text": "Dummy text for now\nLet’s hope this works",
-    "crumbs": [
-      "Computing",
-      "Using MOGON 2"
-    ]
-  },
-  {
-    "objectID": "teaching/Bachelors_teaching.html",
-    "href": "teaching/Bachelors_teaching.html",
-    "title": "Bachelor level",
-    "section": "",
-    "text": "The postdocs in the group coordinate a late-level Bachelors module Theoretical Evolutionary Ecology. It’s designed to be a students first experience with mathematical modelling, which we approach in a very hands-on manner. Broadly, teaching tasks include:\n\nA small number of ~90 min lectures designed to provide the background needed to model a particular evolutionary phenomena. Previous topics include antagonistic pleiotropy, sex ratios, evolutionary game theory, demographic buffering and Lotka-Volterra style dynamics.\nBuilding and running coding and soft skills workshops. The coding is most likely to be in R, but is dependent on current lab expertise. Tom’s previous attempt to introduce the tidyverse can be found in this repository.\nGuiding students through a basic model of your choice. Very simple, intellectually stimulating models are the aim of the game here.\nGeneral course admin stuff - when shared: very manageable.\n\nPast material can be found in the 14b_content folder on github. In the Admin_docs sub directory, there are two helpful files. These are what you need to submit to JGU’s teaching office to register the subject for the following semester. Registering. is done by emailing Gunther Ochs ochs[at]uni-mainz.de and/or Peter Schubert schubepe[at]uni-mainz.de.\nCode written by the 2024 cohort can be found here.",
-    "crumbs": [
-      "Teaching",
-      "Bachelor level"
-    ]
-  },
-  {
-    "objectID": "links.html",
-    "href": "links.html",
-    "title": "Useful Links",
-    "section": "",
-    "text": "ggplot2 cheatsheet\nFundamentals of Data Visualization\nA collection of graphs made in R\nA collection of graphs made in Python\nA color scheme generator for making better plots: Generates complimentary colors, lets you vary hue, provides simulations of various types of colorblindness as well as common lightness/hue/saturation changes that can be caused by faulty screens.",
-    "crumbs": [
-      "Useful links"
-    ]
-  },
-  {
-    "objectID": "links.html#data-visualization",
-    "href": "links.html#data-visualization",
-    "title": "Useful Links",
-    "section": "",
-    "text": "ggplot2 cheatsheet\nFundamentals of Data Visualization\nA collection of graphs made in R\nA collection of graphs made in Python\nA color scheme generator for making better plots: Generates complimentary colors, lets you vary hue, provides simulations of various types of colorblindness as well as common lightness/hue/saturation changes that can be caused by faulty screens.",
-    "crumbs": [
-      "Useful links"
-    ]
-  },
-  {
-    "objectID": "links.html#coding",
-    "href": "links.html#coding",
-    "title": "Useful Links",
-    "section": "Coding",
-    "text": "Coding\n\nThe good research coding handbook\nPro git, an introduction to using git and GitHub for version control\nThe tidyverse, a set of packages for data wrangling and data visualization in R\n\nUsing the tidyverse for data wrangling in R\nHands-on tutorial on using dplyr for data wrangling in R\nA mapping of MATLAB functions to numpy functions in Python\npython-ternary, a library for making ternary plots in Python using matplotlib\nHigh-performance computing using SLURM:\n\nIntroduction to SLURM and job scripting\nCreating batch scripts for SLURM\nSLURM tutorial series by the makers themselves\nSLURM directives to put into a bash script\nUsing Python on the HPC\n\nGenerally useful fact: You can push your local git repo to two or more remote locations simultaneously. To set this up, we need to run the following locally on the terminal:\n\n\n\nTerminal\n\ngit remote set-url origin --push --add &lt;a remote&gt;\ngit remote set-url origin --push --add &lt;another remote&gt;",
-    "crumbs": [
-      "Useful links"
-    ]
-  },
-  {
-    "objectID": "links.html#reading-writing-and-presentation",
-    "href": "links.html#reading-writing-and-presentation",
-    "title": "Useful Links",
-    "section": "Reading, writing, and presentation",
-    "text": "Reading, writing, and presentation\n\nPlaylist on academic writing by the Leadership Lab at UChicago\nHow to speak by Patrick Winston at MIT\nList of commonly used phrases in academic writing\nTen simple rules for making good oral presentations\nHow to give a theory talk by Shengwu Li",
-    "crumbs": [
-      "Useful links"
-    ]
-  },
-  {
-    "objectID": "homepage.html",
-    "href": "homepage.html",
-    "title": "The Kokkonutcase",
-    "section": "",
-    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a German resident, how to receive your salary and generally how to grapple with the monolith that is German bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A necessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nTo go to the kokkonutscase repository of scripts, click here.  To visit the kokkonuts lab group webpage, click here.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "teaching/Bachelor_thesis.html#information-for-interested-students",
-    "href": "teaching/Bachelor_thesis.html#information-for-interested-students",
-    "title": "Supervising or completing a bachelor thesis",
-    "section": "Information for interested students",
-    "text": "Information for interested students\nAt JGU, bachelor students are required to write a Bachelor thesis to successfully complete their degree. It spans 16 weeks and is a combination of modules 15 and 16 in the Bachelor of Science in Biology. When the student starts has considerable wiggle room; that is, it need not conform to the academic semesters. It makes up the final 30 credits that are required to be awarded the degree. General information about the thesis can be found in the handbook and/or by talking to Dr. Peter Schubert from the Prüfungsamt (advice from recent students is to do this in person).\nIt is the students responsibility to find a thesis project and it is our responsibility to offer potential projects for interested students. Here, ‘our’ refers primarily to the postdocs in the group, but it can also include PhD students if they wish to gain supervision experience. A common attraction to working with the Kokkonuts is Hanna’s module 11b lectures. However, because these lectures tend to be quite general, and Hanna will not be hugely involved in the project, it can be difficult to know exactly the types of projects that we offer. While our interests are varied, it is safe to assume that\n\nThe research question will concern evolutionary biology\nMost projects will be theoretical and all will involve some mathematics.\nThe project will not include lab or field work.\n\nWe also include particpiation in the module 14b bachelor winter semester subject Theoretical Evolutionary Ecology as a pre-requisite to doing your thesis with our group.",
-    "crumbs": [
-      "Supervising or completing a bachelor thesis"
-    ]
-  },
-  {
-    "objectID": "teaching/Bachelor_thesis.html#current-potential-thesis-topics",
-    "href": "teaching/Bachelor_thesis.html#current-potential-thesis-topics",
-    "title": "Supervising or completing a bachelor thesis",
-    "section": "Current potential thesis topics",
-    "text": "Current potential thesis topics\nDo stressed mothers produce more variable offspring?\nSupervisor: Erin Macartney\nMaternal environment can influence offspring traits important for survival and reproduction. These effects can be positive, negative, or neutral. However, studies of maternal environmental effects often only consider effects on trait means (i.e., does a particular environment increase or decrease the trait of interest). One of the key factors important for ‘evolutionary potential’, particularly in changing environments, is phenotypic variation. Genetic variation provides the backbone for selection to act on, but phenotypic variation induced by non-genetic factors can also affect ‘evolutionary potential’. This project will examine how maternal environmental stress can influence the phenotypic variation of a population in the following generation using meta-analytic methods. This will provide us with a greater understanding how populations may respond to changing environments through non-genetic inheritance.\nDoes competition for nest sites influence adaptation to climate change?\nSupervisor: Tomos Potter\nClimate change is altering the optimum timing of reproduction in seasonally breeding animals. Many species have shown a phenological shift: they start breeding earlier in the year. Rapid adaptive evolution can contribute to earlier nesting and may be key to species survival as the climate continues to change. But is nesting earlier always better? In some animals, like seabirds, early arrivals to breeding sites get the best nesting spots, and latecomers may find none left. However in others, like sea turtles, early nests can be damaged by later ones, making early breeding less successful. In this project, we will investigate how competition for nest sites might help or hinder species phenological responses to climate change.\nOne reason why whales aren’t dinosaurs\nSupervisor: Tom Keaney\nThis click-baity title is definitely a little annoying, but hopefully also thought provoking. Once you get past the one’s a mammal, one’s a reptile and one lives in the ocean, one mostly doesn’t kind of answers, it starts to get interesting. A particularly intriguing difference is that dinosaurs lay eggs while whales give birth to live young. Why it that thought provoking? Well, eggs can only get so big before the embryos asphyxiate, whereas this constraint on offspring size at birth is relaxed in mammals. The question you’ll explore is how natural selection acting on comparably gigantic organisms such as non-avian dinsoaurs and whales optimises their life history. Specifically, how does this differing constraint on offspring size change things?",
-    "crumbs": [
-      "Supervising or completing a bachelor thesis"
-    ]
-  },
-  {
-    "objectID": "teaching/Bachelor_thesis.html#a-kokkonuts-style-thesis-experience",
-    "href": "teaching/Bachelor_thesis.html#a-kokkonuts-style-thesis-experience",
-    "title": "Supervising or completing a bachelor thesis",
-    "section": "A Kokkonuts style thesis experience",
-    "text": "A Kokkonuts style thesis experience\nThe handbook instructions are not written with theory projects in mind, so we treat these more as guidelines. For students, the most important changes are that modules 15 and 16 are informally treated as a single module (15 doesn’t need to be completed before writing can begin) and that we don’t expect a protocol to be submitted. The three pieces of assessment that should be completed throughout a successful bachelor thesis in our group are the:\nProject proposal presentation\nA presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is a hurdle requirement that must be passed but is not graded.\nThesis\nA document written in manuscript style, mimicking the format of a society journal like the American Naturalist, Evolution or the Journal of Evolutionary Biology. The exact length of the document is up to the student and their supervisor, but will tend to be shorter than studies that appear in the above journals. This is marked by the two examiners and makes up x% of the grade. The hand-in date is set 16 working weeks after the project is registered with the department.\nThesis defense\nA 15 minute oral presentation delivered to the lab group, followed by a maximum of 15 minutes of questions. At this point the examiners will have read the thesis, so questions are not limited to the content of the talk. This is marked by the two examiners and makes up x% of the grade.",
-    "crumbs": [
-      "Supervising or completing a bachelor thesis"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/labmeeting-talk-schedule.html#content",
-    "href": "lab_organisation/labmeeting-talk-schedule.html#content",
-    "title": "Lab meeting talk schedule",
-    "section": "Content",
-    "text": "Content\nGoals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we’re currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.\nDetails of the talks: - The talks happen once every two weeks, and the person up that week gets &lt;= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you’d like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work",
-    "crumbs": [
-      "Lab meeting talks"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
-    "href": "lab_organisation/labmeeting-talk-schedule.html#schedule-2025",
-    "title": "Lab meeting talk schedule",
-    "section": "Schedule 2025",
-    "text": "Schedule 2025\nThe dates below are for every second Wednesday starting the week of 27 January, upto and including the month of April (note the change in dates because we have switched to Wednesday lab meetings from Thursday).\nThe exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.\n\n\n\nDate\nSpeaker\n\n\n\n\n3 September\nClaudia\n\n\n10 September\n-\n\n\n17 September\n-\n\n\n24 September\nRoman\n\n\n1 October\n-\n\n\n8 October\nMos\n\n\n15 October\n-\n\n\n22 October\nVictor\n\n\n29 October\n-\n\n\n5 November\nMargaux\n\n\n12 November\n-\n\n\n19 November\nTom (intro to GitHub)\n\n\n26 November\n-\n\n\n10 December\n-\n\n\n17 December\nX\n\n\n24 December\nM\n\n\n31 December\nA\n\n\n7 January\nS\n\n\n14 January\nHanna\n\n\n21 January\n-\n\n\n28 January\nUthara\n\n\n4 February\nShikhara\n\n\n11 February\nGaurav\n\n\n18 February\nAschermittwoch\n\n\n25 February\nRoman\n\n\n4 March\n-\n\n\n11 March\nYi\n\n\n18 March\n-\n\n\n25 March\nClaudia\n\n\n1 April\n-\n\n\n8 April\nMos",
-    "crumbs": [
-      "Lab meeting talks"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/sems_lists.html",
-    "href": "lab_organisation/sems_lists.html",
-    "title": "Seminars and mailing lists",
-    "section": "",
-    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
-    "crumbs": [
-      "Seminars and mailing lists"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/sems_lists.html#mailing-lists",
-    "href": "lab_organisation/sems_lists.html#mailing-lists",
-    "title": "Seminars and mailing lists",
-    "section": "",
-    "text": "The biology faculty mailing list: wissma_fb10 - Wissenschaftliche MitarbeiterInnen FB10 - subscribe\nThe biology faculty talks mailing list: talks_fb10",
-    "crumbs": [
-      "Seminars and mailing lists"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/sems_lists.html#seminars",
-    "href": "lab_organisation/sems_lists.html#seminars",
-    "title": "Seminars and mailing lists",
-    "section": "Seminars",
-    "text": "Seminars\nThe four most relevant seminar series held at JGU are\n\nThe seminar series in Evolutionary Biology\nThe Institute for Quantitative and Computational Biosciences seminar series\nThe GenEvo seminar series. PhD students in the GenEvo research training program are allocated funds to invite an external speaker that’s influential in their field. There tend to be about eight a year. This link isn’t helpful for upcoming seminars, but the archives give a sense of the types of topics covered.\nThe ECR seminar series. This has no formal documentation, but is designed for ECRs to get to know each others work while practicing communication skills. To get involved email Camille Cozzarolo at ccozzaro[at]]uni[hyphen]mainz[dot]de.",
-    "crumbs": [
-      "Seminars and mailing lists"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/admin_essentials.html#registration",
-    "href": "lab_organisation/admin_essentials.html#registration",
-    "title": "Admin essentials when starting out",
-    "section": "Registration",
-    "text": "Registration\nYour first step after moving to Mainz will be to complete your registration with the city. You can book an appointment for registration online at this link, and it is wise to book an appointment ASAP. You can even book an appointment before physically moving if you know when you will move. The university has provided some guidelines on booking an appointment here. The appointment will be at the Bürgeramt (=citizenship office) in Mainz, located on Kaiserstraße 3-5.  To register, you will need to have\n\nYour passport (and a visa if applicable).\nA residence address to which mail can be sent. This will ideally be the place you intend to stay at for a prolonged period of time, but an AirBnB or similar is also okay as long as it has a post-box. If the latter, you will later need to inform the city when you relocate. See here for how this is done.\nProof that you are indeed staying at the address mentioned above. If you are renting a place, you should ask your landlord/landlady for a Wohnungsgeberbestätigung.\nIf you are married, a marriage certificate (officially translated into German)\nIf you are registering children, you also need to carry ID proof for your children.\n\nWhen you register, you will receive a piece of paper from the citizenship office called an Anmeldebescheinigung (=registration certificate). Hold on to this certificate, you could need it for many things. Most immediately, if you wish to open a German bank account, they will almost certainly ask you for your registration certificate. A week or two after registering, you will receive your Steuer ID (= tax ID) by post to the address you registered. This ID should be communicated to both JGU’s HR contact and to Sabine (our secretary). This is important because you cannot be paid without a Steuer ID.",
-    "crumbs": [
-      "Onboarding",
-      "Admin essentials"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/admin_essentials.html#certificate-of-conduct",
-    "href": "lab_organisation/admin_essentials.html#certificate-of-conduct",
-    "title": "Admin essentials when starting out",
-    "section": "Certificate of Conduct",
-    "text": "Certificate of Conduct\nThe certificate of conduct is a police document required by JGU that essentially checks whether you have a criminal record in your home country. Everyone with an employment contract must submit a Certificate of Conduct to the university within the first three months of starting. Like Registration, the Certificate of Conduct is obtained from the Bürgeramt. The Certificate requires a €13 fee (to be paid by card). The Burgeramt will send the certificate directly to JGU’s HR: The address of HR is Dezernat Personal, Forum universitatis 3, 550099 Mainz. Both registration and getting the Certificate of Conduct can be done in the same appointment — I recommend doing this to save yourself time, there is no point in booking two separate appointments.",
-    "crumbs": [
-      "Onboarding",
-      "Admin essentials"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/admin_essentials.html#bank-accounts-and-getting-your-salary",
-    "href": "lab_organisation/admin_essentials.html#bank-accounts-and-getting-your-salary",
-    "title": "Admin essentials when starting out",
-    "section": "Bank accounts and getting your salary",
-    "text": "Bank accounts and getting your salary\nYou will be paid on the last working day of each month. To be paid, the university needs to have your Steuer ID. You also need to have a bank account that has an IBAN. As far as I (Shikhara) am aware, this is a largely European concept, so if you are not from Europe, you will likely have to create a local bank account to be paid. You can open a bank account immediately after registering with the city (see above), though some banks may have more stringent requirements than others (for instance, Sparkasse sometimes requires long-term residence permits). See here for some opinions on various banks in Germany to see your options. I (Shikhara) use Commerzbank because they have a branch in Mainz, have a very straightforward online process for opening an account, and offer English customer service. I have also heard good things about online banks like N26 and Revolut. However, please do your own research before taking financial advice on which bank to choose. Once you have an IBAN, you should share your IBAN with Sabine. This, again, is important for getting your salary. When you get your first payslip, you will be able to find the Personalnummer that has been given to you by the Landesamt für finanzen (LfF). The Personalnummer is an eight digit number assigned to you by the LfF and is important for tax purposes, so keep note of it. In general, if you contact the LfF for queries related to your salary, tax contributions, or tax returns, you will need to quote your Personalnummer. You should also hold on to all the payslips you receive because you could need them for administrative purposes (for instance, when applying for a residence permit, see below). You will also need your Personalnummer to get travel expenses reimbursed.",
-    "crumbs": [
-      "Onboarding",
-      "Admin essentials"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/admin_essentials.html#applying-for-a-residence-permit",
-    "href": "lab_organisation/admin_essentials.html#applying-for-a-residence-permit",
-    "title": "Admin essentials when starting out",
-    "section": "Applying for a residence permit",
-    "text": "Applying for a residence permit\nIf you are staying in Germany for longer than a year, you will need to apply for a residence permit. A residence permit essentially supersedes a visa and will be given for the length of your contract (or until your passport expires if that happens first). Applications for residence permits from JGU scientists are processed differently by the Bürgeramt, so do not try to apply for a residence permit independently. Instead, write an email to the JGU Welcome Center (welcome[at]international[dot]uni[hyphen]mainz[dot]de) saying you are employed with us and need a residence permit, and the Welcome Center will arrange for an appointment with the Burgerämt and give you further directions. When you first write to the Welcome Center for this, they will ask you to fill out some forms they send, and also send them copies of\n\nYour passport and visa\nYour rental certificate\nYour employment certiciate\nA hosting agreement from Hanna\nA health insurance certificate (not just a card)\nYour last three payslips\n\nFor the appointment with the Burgerämt itself, you will need\n\nA current (= at most six month old) biometric picture of yourself.\nYour passport and visa if applicable.\nA debit card to pay a fee of €100 (they don’t take cash). I (Shikhara) was able to get this reimbursed by the university, so hang on to the receipt.\n\nYou will need to visit the Burgerämt in person a few weeks after this appoint to pick up your residence permit (the Burgerämt will give you an exact date). While your application is being processed (after the first appointment but before you pick it up), it is possible to ask the Burgerämt for a Fiktionsbescheinigung, a temporary form for any immigration/border authorities that says that your application is being processed. I would recommend taking this form just to be safe. The residence permit process can take a really long time, so make sure to contact the Welcome Center well before your visa expires. This is really important because your contract will be terminated immediately by HR if you do not have a residence permit in hand before your visa expires.",
-    "crumbs": [
-      "Onboarding",
-      "Admin essentials"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/Downloading_software.html",
-    "href": "lab_organisation/Downloading_software.html",
-    "title": "Downloading software",
-    "section": "",
-    "text": "If you are a JGU employee, you can activate the ZDV license for mathematica by:\n\nDownload Mathematica using the Download Manager that Tom will send you.\nAfter the download is complete, open Wolfram for the first time, it should ask you to activate the product. We will do this with an “activation key”. Here is how to get one:\n\n\nGeneral details on installation are on https://reference.wolfram.com/language/tutorial/InstallingWolfram.html. What works for us is to go to the JGU’s “site info page”: https://www.wolfram.com/siteinfo/.\nThe page, once opened, should say “Johannes Gutenberg Universitaet Mainz Has Access to Wolfram Products” at the top and ask you for your institutional email address.\nEnter your email address, and then on the next page, select the appropriate option when asked if you are a student or staff (PhD students are technically staff).\nClick the red button that says “Get Mathematica Desktop”.\nFill out the form asking for name, email address, department, etc.\nNote: the department drop-down doesn’t seem to be university specific, I just chose “Biological & Life Sciences” and this works. Submit the form.\nThis should immediately lead to the generation of an activation key that is both displayed on the browser and sent to your Mainz email.\n\n\nGo back to the Wolfram app. Click “Other ways to activate” and select “Connect online using an Activation Key”.\n\n\nEnter the activation key that you got above.\nDone!",
-    "crumbs": [
-      "Computing",
-      "Downloading software"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/Downloading_software.html#mathematica",
-    "href": "lab_organisation/Downloading_software.html#mathematica",
-    "title": "Downloading software",
-    "section": "",
-    "text": "If you are a JGU employee, you can activate the ZDV license for mathematica by:\n\nDownload Mathematica using the Download Manager that Tom will send you.\nAfter the download is complete, open Wolfram for the first time, it should ask you to activate the product. We will do this with an “activation key”. Here is how to get one:\n\n\nGeneral details on installation are on https://reference.wolfram.com/language/tutorial/InstallingWolfram.html. What works for us is to go to the JGU’s “site info page”: https://www.wolfram.com/siteinfo/.\nThe page, once opened, should say “Johannes Gutenberg Universitaet Mainz Has Access to Wolfram Products” at the top and ask you for your institutional email address.\nEnter your email address, and then on the next page, select the appropriate option when asked if you are a student or staff (PhD students are technically staff).\nClick the red button that says “Get Mathematica Desktop”.\nFill out the form asking for name, email address, department, etc.\nNote: the department drop-down doesn’t seem to be university specific, I just chose “Biological & Life Sciences” and this works. Submit the form.\nThis should immediately lead to the generation of an activation key that is both displayed on the browser and sent to your Mainz email.\n\n\nGo back to the Wolfram app. Click “Other ways to activate” and select “Connect online using an Activation Key”.\n\n\nEnter the activation key that you got above.\nDone!",
-    "crumbs": [
-      "Computing",
-      "Downloading software"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
-    "href": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
-    "title": "General information",
-    "section": "Information from the JGU for new employees",
-    "text": "Information from the JGU for new employees\nPrepare for your arrival",
-    "crumbs": [
-      "Onboarding",
-      "General info"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/onboarding_general_info.html#vacation",
-    "href": "lab_organisation/onboarding_general_info.html#vacation",
-    "title": "General information",
-    "section": "Vacation",
-    "text": "Vacation\nAs an employee of the University, you have 30 days paid leave per year (on a full year’s contract). You must take this leave each year. Please use Gisbo, using the following link to submit your vacation request, which must be approved by your PI: https://arbeitszeit.uni-mainz.de/. In the settings, please fill in your PI’s email address as well as sekretariat[dot]oekologie[at]uni[hyphen]mainz[dot]de.",
-    "crumbs": [
-      "Onboarding",
-      "General info"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/onboarding_general_info.html#sick-leave",
-    "href": "lab_organisation/onboarding_general_info.html#sick-leave",
-    "title": "General information",
-    "section": "Sick leave",
-    "text": "Sick leave\nIf you are sick and unable to come to work, please send an email to the following addresses so that we can register you in the Gisbo (time management software) system as ill: iome_krankmeldung[at]uni[hyphen]mainz[dot]de; Sekretariat[dot]]oekologie[at]uni[hyphen]mainz[dot]de; or your PI.\nWhen you are healthy again, please send another email letting us know you are healthy and returning to work. Please note – if you are out due to illness for more than 3 days, you must provide a doctor’s note.\nFurther information about vacation, illness and other personnel issues can also be found on the JGU HR Website. Most of the info is in German, some in English.",
-    "crumbs": [
-      "Onboarding",
-      "General info"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities",
-    "href": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities",
-    "title": "General information",
-    "section": "Travelling for University related activities",
-    "text": "Travelling for University related activities\n\nTravel request: download form – please complete with a signature from Hanna as soon as you start planning your travels. Please be sure to submit it to Sabine, so she can forward it to the university management.\nIf you are travelling within the EU you’ll need to fill this out for insurance purposes: download form. This needs to be submitted prior to the trip, ideally alongside the travel request.\nTravel reimbursement: download form – once you return from your trip, you will need to complete this form to request reimbursement for all travel expenses. Please submit this form, all original receipts and payment confirmation from your MC or Bank statement.",
-    "crumbs": [
-      "Onboarding",
-      "General info"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
-    "href": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
-    "title": "General information",
-    "section": "Miscellaneous Germany things",
-    "text": "Miscellaneous Germany things\n\nMost shops, and all supermarkets, are closed on Sundays in Germany. Plan for this so you don’t starve.\nGermany lives in the stone age with respect to technology and still relies heavily on cash and post. Make sure to keep some cash on you (many shops and restaurants don’t take card), and check your postbox often (a lot of the official communication happens via post).\nPublic transport is very good in Germany, and Mainz is no exception. The Deutschlandticket allows you to board any regional public transport (all buses and trams, and regional trains such as REs, RBs, U-Bahns, and S-Bahns) for just €58 per month. This is a fantastic deal, I strongly recommend you take it.\nDeepL is a very good online translator for translating German to English and vice versa. They also have an app.\nYou can buy a SIM card at most supermarkets, and they will be able to activate it for you at the checkout counter. You may need to provide some form of proof of identity such as a passport when activating the passport.\nMainz has various weekly markets selling fresh produce. You can see the days, times, and locations of the markets here.\nKleinanzeigen is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.\nIf you are looking for a place to stay, try Immoscout and Immowelt. If you are okay with shared housing, you can also look at WG-Gesucht. The housing market is really tough, so don’t be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.\nToogoodtogo is a great servic for buying food and groceries that are left unsold at the end of the day. It’s really cheap, and helps reduce food waste!\nNINA is the official federal disaster warning app in Germany. Download it so you stay informed about any natural disasters (storms, fires, etc) in your area.\nNORA is the official emergency call app in Germany, and will let you contact emergency services without speaking the language.\nMeteoblue is a reasonably good weather app in Germany.\nIf you enjoy hiking, consider using komoot or alltrails to find hiking routes around you. Germany tends to have many well-documented routes, so the apps are a very good resource. The Rheinsteig is a long (320km) multi-stage hike from Bonn to Weisbaden that could be a good summer goal to keep you occupied on the weekends ;)",
-    "crumbs": [
-      "Onboarding",
-      "General info"
-    ]
-  },
-  {
-    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html",
-    "href": "technical/EGTsims/hawk-dove-reciprocator.html",
-    "title": "Studying hawk dove games using Python",
-    "section": "",
-    "text": "from sympy import *\nimport ternary\nimport numpy as np\nfrom ternary.helpers import project_point\nimport matplotlib.pyplot as plt\n\ninit_printing()\nAuthor’s note: This notebook was co-authored by Shikhara Bhat and Shivam Chitnis in around 2021-2022.",
-    "crumbs": [
-      "Technical knowledge",
-      "Evolutionary game theory examples",
-      "Introduction: Hawks and Doves"
-    ]
-  },
-  {
-    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html#hawk-dove-game",
-    "href": "technical/EGTsims/hawk-dove-reciprocator.html#hawk-dove-game",
-    "title": "Studying hawk dove games using Python",
-    "section": "Hawk-Dove Game",
-    "text": "Hawk-Dove Game\nIn this model there is a population of Hawks (\\(H\\)) and a population of Doves (\\(D\\)). We assume that Hawks and Doves compete for food in pairwise interactions. When interacting, Hawks “fight to death” and Doves “retreat when attacked”. When a bird gets the food its Darwinian fitness (say number of children) increases by \\(V\\). When a fight occurs, the injured opponent experiences a reduced fitness of \\(C\\).\n\nPayoffs\nTherefore, when a Hawk meets a Hawk, we get the expected payoff i.e. expected increase in fitness to be\n\\[E(H,H) = \\dfrac{1}{2}(V-C)\\]\nThis is because we assume that half the time the Hawk will win and half the time it will lose. When at Hawk meets a Dove, it gets the entire meal, i.e.\n\\[E(H,D) = V\\]\nWhen a Dove meets a Hawk it will get nothing since it retreats immediately. Therefore,\n\\[E(D,H) = 0\\]\nFinally, when a Dove meets a Dove, both can sit peacefully and enjoy their meal implying\n\\[E(D,D) = \\dfrac{V}{2}\\]\nThis information can be written as a matrix \\(M\\) that will have useful properties.\n\n\nPayoff Matrix\nFor a two-player, two-strategy game like the one we are discussing we write:\n\\[M = \\bigg[\\begin{matrix} E(A,A)&E(A,B)\\\\ E(B,A)&E(B,B) \\end{matrix}\\bigg]\\]\nwhere \\(E(A,B)\\) is the expected payoff for a player playing strategy \\(A\\) against an opponent playing \\(B\\).\n\nPayoff Matrix for the Hawk-Dove Game\n\\[M = \\bigg[\\begin{matrix} (V-C)/2&V \\\\ 0&V/2 \\end{matrix}\\bigg]\\]\n\ndef M(V,C):\n    M = np.array([[(V-C)/2,V],[0,V/2]])\n    return M\n\n\n\n\nNet Payoff\nNow that we have a compact description of the model in the form of the matrix, we would like to get a sense of what happens when there are multiple interactions going on between birds in the wild. If the interactions happen completely at random, the frequency of \\(H\\) individuals is \\(p_H\\) and the frequency of \\(D\\) individuals is \\(1-p_H\\), then the expected fitness for a Hawk can be written as:\n\\[W(H) = W_0 + p_HE(H,H) + (1-p_H)E(H,D)\\]\nSimilary, the fitness for a Dove can be written as:\n\\[W(D) = W_0 + (1-p_H)E(D,D) + p_HE(D,H)\\]\nwhere \\(W_0\\) was the fitness of all the birds before the contests began.\n\ndef W(M,pH,W0=5):\n    W = W0+np.matmul(M,np.array([pH,1-pH]).T)\n    return W\n\n\n\nThe Notion of Equilibrium\nThis is great. We now have a sense of the mean fitness of the animals in the two populations. It is intuitive (but we will make it precise) that when the fitness of the two populations is equal, their population sizes will not change.\nOn equating \\(W(H)\\) and \\(W(D)\\), we can derive\n\\[p_H = V/C\\]\nThis is a nice result that tells us that if \\(V/C&gt;0.5\\) then there will be more Hawks than Doves and if \\(V/C&lt;0.5\\) there will be more Doves than Hawks. When \\(V/C&gt;1\\), it is possible to show from the following equations that \\(p_H = 1\\).\n\n\nHow can we make this notion of equilibrium more precise?\nSince we want to understand how strategies change over time we can make the simplifying assumption that Hawks and Doves reproduce asexually and their population growth in the next generation \\(p_H'\\) depends on their fitness in this one\n\\[p_H' = p_H \\dfrac{W(H)}{\\bar{W}}\\]\nwhere \\(\\bar{W} = p_H W(H) + (1-p_H)W(D)\\)\nIt can now be seen that when \\(p_H'-p_H = 0\\), the system is in equilibrium. This gives us \\(W(H) = W(D)\\). Now that we have an equation that evolves in time, it’s time to play around with some values of \\(V\\) and \\(C\\).\n\n#Define functions to calculate frequency and evolve according to repliator equation\n\ndef pHt(pH,W):\n    pHt = (pH*W[0])/(pH*W[0]+(1-pH)*W[1])\n    return pHt\n\ndef evolve(V,C,pH0=0.5,T=5,dt=0.1):\n    time = np.arange(0,T,dt)\n    pH = np.ones(np.size(time))*pH0\n    for i,t in enumerate(time):\n        pH[i] = pHt(pH[i-1],W(M(V,C),pH[i-1]))\n    return (time,pH)\n\n\n#Set parameters\n\npH0 = 0.5\nV = 4\nC = 2\n\n#plot\n\nplt.plot(evolve(V,C)[0],evolve(V,C)[1])\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"$t$\");\nplt.ylabel(\"$p_H$\");\n\n\n\n\n\n\n\n\nSince \\(V/C = 2 &gt; 1\\) the Doves were driven to extinction.\n\nV = 1\nC = 3\n\nplt.plot(evolve(V,C)[0],evolve(V,C)[1],label='_nolegend_')\nplt.axhline(0.33,linestyle='--',color='seagreen',alpha=0.5)\nplt.legend([\"0.33\"])\n\n\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"$t$\");\nplt.ylabel(\"$p_H$\");\n\n\n\n\n\n\n\n\nSince \\(V/C = 1/3\\), \\(pH\\) goes to \\(0.33\\).\n\nfrom celluloid import Camera\n\nC = 1; V = np.arange(0,2,0.1)\nfig = plt.figure(figsize = (7,5))\nplt.ylim(-0.1,1.1)\nplt.xlabel(\"$t$\")\nplt.ylabel(\"$p_H$\")\ncamera = Camera(fig)\nfor v in V:\n    plt.plot(evolve(v,C,T=10)[0],evolve(v,C,T=10)[1],'k')\n    plt.legend(['$V/C = '+str(np.round(v/C,1))+'$'])\n    camera.snap()\nplt.close()\n\nYou can play around with the slider belo to change the value of \\(V/C\\). When \\(V/C&gt;1\\), Hawks always win!\n\nplt.rcParams[\"animation.html\"] = \"jshtml\"\nanimation = camera.animate()\nanimation\n\n\n\n\n\n\n\n\n  \n  \n    \n    \n      \n          \n      \n        \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n      \n          \n    \n    \n      \n      Once\n      \n      Loop\n      \n      Reflect",
-    "crumbs": [
-      "Technical knowledge",
-      "Evolutionary game theory examples",
-      "Introduction: Hawks and Doves"
-    ]
-  },
-  {
-    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html#the-notion-of-an-ess",
-    "href": "technical/EGTsims/hawk-dove-reciprocator.html#the-notion-of-an-ess",
-    "title": "Studying hawk dove games using Python",
-    "section": "The notion of an ESS",
-    "text": "The notion of an ESS\nWe can now take the above notion of equilibrium and extend it further. In our model we had two strategies \\(H\\) and \\(D\\). An evolutionarily stable strategy is one in which if you start with a population consisting of only that strategy, another strategy should not be able to take over. It can be shown that for a two-player, two-strategy game like Hawk-Dove, a strategy \\(A\\) is an ESS if:\n\\[\\text{Either} \\ E(A,A)&gt;E(B,A) \\qquad [1]\\]\n\\[\\text{or} \\ E(A,A) = E(B,A)\\ \\text{and}\\ E(A,B) &gt; E(B,B) \\qquad [2]\\]\nThis can be generalised in the form of arrow patterns for \\(M\\) in which arrows are drawn towards the highest valued neighbour in the vertical direction:\n\nIf both arrows point along one strategy, that is the ESS.\nIf both arrows point in different directions, then the arrow pointing towards the diagonal element specifies the ESS.\nIf there is no arrow pointing towards a diagonal element, there is a mixed ESS (in our case \\(p_H \\in (0,1)\\)).\nIf one of the arrows is a double arrow representing equality, the other arrow determines the ESS (pure if towards diagonal element, else mixed)\n\nNote that it can also be shown for a two-player, two-strategy game that an ESS always exists.\n\nWhat is a mixed ESS?\nGames in which a strategy can be played with probability \\(P\\) and another by probability \\(Q\\) by the same individual can have mixed ESS in which the evolutionarily stable outcome has individuals playing different strategies with different probabilities. In our simple example, a mixed ESS is equivalent to the case of neither population of birds going extinct. Cf. Maynard Smith (1982) for a more careful definition of a mixed strategy and its relation to the frequency of a pure strategy at equilibrium.\nIt is easy to see that conditions \\([1]\\) and \\([2]\\) guarantee an ESS.",
-    "crumbs": [
-      "Technical knowledge",
-      "Evolutionary game theory examples",
-      "Introduction: Hawks and Doves"
-    ]
-  },
-  {
-    "objectID": "technical/EGTsims/hawk-dove-reciprocator.html#introducing-a-third-strategy",
-    "href": "technical/EGTsims/hawk-dove-reciprocator.html#introducing-a-third-strategy",
-    "title": "Studying hawk dove games using Python",
-    "section": "Introducing a third strategy",
-    "text": "Introducing a third strategy\nNow consider a modification that introduces a third strategy. A reciprocator, denoted by R, responds to a hawk with a hawk strategy, and responds to a dove with a dove strategy. When two reciprocators interact, the payoff to each is given by \\(V/2 - \\mu C\\). This value is obtained by simplifying \\(\\mu(V/2-C) + (1-\\mu)V/2\\), and thus, \\(\\mu\\) can be interpreted as the probability that a reciprocator will play a hawk strategy when it encounters another reciprocator.  We can first calculate the payoff matrix. Here, the order of the rows (and columns) is H-D-R.\n\nV,C,mu = symbols(' V C mu')\n\nPayoff_matrix = Matrix([[V/2 - C, V, V/2-C],[0,V/2,V/2],[V/2-C,V/2,V/2-mu*C]])\n\nPayoff_matrix\n\n\\(\\displaystyle \\left[\\begin{matrix}- C + \\frac{V}{2} & V & - C + \\frac{V}{2}\\\\0 & \\frac{V}{2} & \\frac{V}{2}\\\\- C + \\frac{V}{2} & \\frac{V}{2} & - C \\mu + \\frac{V}{2}\\end{matrix}\\right]\\)\n\n\nAssuming that all strategies have a base fitness of \\(\\omega_0\\) and that the effect of the interactions is factored by a selection coefficient \\(s\\), we can obtain the fitness of each strategy:\n\n#Variables for fitness\nwh,wd,wr = symbols('omega_h omega_d omega_r')\n\n#Parameters affecting fitness\nw0,s,PD,PH = symbols('omega_0 s P_D P_H')\n\n#Variables for fitness differences\nalpha,beta = symbols('alpha beta')\n\nwh = w0 + s*(PH*(V/2 - C)+PD*(V) + (1-PD-PH)*(V/2 - C))\nwd = w0 + s*(PH*0 + PD*(V/2) + (1-PH-PD)*(V/2))\nwr = w0 + s*(PH*(V/2-C)+PD*(V/2)+(1-PH-PD)*(V/2-mu*C))\n\n\n#fitness of hawks\nwh\n\n\\(\\displaystyle \\omega_{0} + s \\left(P_{D} V + P_{H} \\left(- C + \\frac{V}{2}\\right) + \\left(- C + \\frac{V}{2}\\right) \\left(- P_{D} - P_{H} + 1\\right)\\right)\\)\n\n\n\n#fitness of doves\nwd\n\n\\(\\displaystyle \\omega_{0} + s \\left(\\frac{P_{D} V}{2} + \\frac{V \\left(- P_{D} - P_{H} + 1\\right)}{2}\\right)\\)\n\n\n\n#fitness of reciprocators\nwr\n\n\\(\\displaystyle \\omega_{0} + s \\left(\\frac{P_{D} V}{2} + P_{H} \\left(- C + \\frac{V}{2}\\right) + \\left(- C \\mu + \\frac{V}{2}\\right) \\left(- P_{D} - P_{H} + 1\\right)\\right)\\)\n\n\nWe can find the equations for nullclines - values at which two of the fitnesses are equal. Fixed points are given by the points at which all nullclines intersect.\n\nalpha = wh-wd\nbeta = wd-wr\n\nh_d_nullcline = solve([alpha],PH,PD)\nd_r_nullcline = solve([beta],PH,PD)\nh_r_nullcline = solve([alpha+beta],PH,PD)\n\n\nfixed_points = solve([alpha,beta],PH,PD)\n\nh_d_nullcline, d_r_nullcline, h_r_nullcline\n\n\\(\\displaystyle \\left( \\left\\{ P_{H} : \\frac{2 C}{V} + \\frac{P_{D} \\left(- 2 C - V\\right)}{V}\\right\\}, \\  \\left\\{ P_{H} : - \\frac{2 C P_{D} \\mu}{2 C \\mu - 2 C + V} + \\frac{2 C \\mu}{2 C \\mu - 2 C + V}\\right\\}, \\  \\left\\{ P_{H} : \\frac{P_{D} \\left(- 2 C \\mu + 2 C + V\\right)}{2 C \\mu - 2 C} + 1\\right\\}\\right)\\)\n\n\n\ndef h_d_null_func(pd,v,c,mu):\n    null_sol = lambdify([V,C,PD],h_d_nullcline[PH],'numpy')\n    ph = null_sol(v,c,pd)\n    pr = 1-pd-ph\n    \n    return (pd,pr,ph)\n\ndef d_r_null_func(pd,v,c,Mu):\n    null_sol = lambdify([V,C,PD,mu],d_r_nullcline[PH],'numpy')\n    ph = null_sol(v,c,pd,Mu)\n    pr = 1-pd-ph\n    \n    return (pd,pr,ph)\n\ndef h_r_null_func(pd,v,c,Mu):\n    null_sol = lambdify([V,C,PD,mu],h_r_nullcline[PH],'numpy')\n    ph = null_sol(v,c,pd,Mu)\n    pr = 1-pd-ph\n    \n    return (pd,pr,ph)\n\n\n#Analytical solution for fixed points\nfixed_points\n\n\\(\\displaystyle \\left\\{ P_{D} : \\frac{4 C^{2} \\mu - 4 C^{2} - 2 C V \\mu + 2 C V}{4 C^{2} \\mu - 4 C^{2} + V^{2}}, \\  P_{H} : \\frac{2 C V \\mu}{4 C^{2} \\mu - 4 C^{2} + V^{2}}\\right\\}\\)\n\n\nWe can find fixed points by plotting these nullclines on a simplex and looking at points of intersection: i.e plotting nullclines under the constraint that all are positive and that \\(P_H + P_D + P_R \\leq 1\\)\n\ndef within_simplex(r): #Find out whether a given point lies within the S_1 simplex\n    if r[0]+r[1]+r[2] &lt;= 1 and r[0] &gt;= 0 and r[1] &gt;= 0 and r[2] &gt;= 0:\n        return True\n    else:\n        return False\n    \n#Convert the nullclines into Python functions\nwd_func = lambdify([PD,PH,V,w0,s],wd)\nwh_func = lambdify([PD,PH,V,C,w0,s],wh)\nwr_func = lambdify([PD,PH,V,C,mu,w0,s],wr)\n\n#Get the vector describing the trajectory at each point\n#Trajectory is given by the replicator equation df/dt = (w-w_bar)f\ndef get_vector(pd,ph,v,c,mu,w0,s):\n    \n    #get the fitness values\n    wd_val = wd_func(pd,ph,v,w0,s)\n    wh_val = wh_func(pd,ph,v,c,w0,s)\n    wr_val = wr_func(pd,ph,v,c,mu,w0,s)\n    \n    #Get relative fitness\n    w_bar = pd*wd_val + ph*wh_val + (1-pd-ph)*wr_val\n    wd_val -= w_bar\n    wh_val -= w_bar\n    wr_val -= w_bar\n    \n    #Project the 3D Cartesian coordinates onto a 2D simplex\n    r_proj = project_point((pd,1-pd-ph,ph))\n    dr_proj = project_point((pd*wd_val,(1-pd-ph)*wr_val,ph*wh_val))\n    \n    return r_proj,dr_proj\n\ndef get_color(pd,ph,v,c,mu,w0,s): #To indicate which strategy is best at that point\n    \n    wd = wd_func(pd,ph,v,w0,s)\n    wh = wh_func(pd,ph,v,c,w0,s)\n    wr = wr_func(pd,ph,v,c,mu,w0,s)\n    \n    if wd &gt;= wh and wd &gt;= wr:\n        return 'red'\n    if wh &gt;= wd and wh &gt;= wr:\n        return 'green'\n    if wr &gt;= wh and wr &gt;= wd:\n        return 'blue'\n    else:\n        return 'black'   \n\n\ndef make_ternary_plot(V,C,mu,w0=0,s=1,plot_field=True,plot_nullclines=True,save=False,filename=''):\n    \n    figure, tax = ternary.figure(scale=1)\n\n    fontsize = 16\n    offset = 0.11\n    \n    #set background\n    tax.set_background_color(color=\"#bbbbbb\", alpha=0.7)\n    \n    # Draw Boundary and Gridlines\n    tax.boundary(linewidth=2.0)\n    tax.gridlines(color=\"#aaaaaa\", linestyle='-',linewidth=1, multiple=1)\n    tax.gridlines(color=\"#aaaaaa\", linestyle='-',linewidth=0.5, multiple=0.2,alpha=0.5)\n    \n    #Depict parameter values\n    tax.set_title(\"V = \"+ str(V) + \"\\nC = \" + str(C) + \"\\n$\\mu$ = \" + str(mu) + '\\nV/2C = ' + format(V/(2*C),'.2f'),position=(-0.05,1.5,-0.03),fontsize=18)\n\n    #Label the axes and vertices\n    tax.top_corner_label(\"Pure Reciprocator\", fontsize=fontsize,position=(-0.1,1.2,-0.03),offset=0)\n    tax.left_corner_label(\"Pure\\nHawk\", fontsize=fontsize,position=(-0.05,-0.01,1.1),offset=0)\n    tax.right_corner_label(\"Pure\\nDove\", fontsize=fontsize,position=(1.05,0,-0.02),offset=0)\n    tax.left_axis_label(\"$P_H$\", fontsize=18, offset=0.16)\n    tax.right_axis_label(\"$P_R$\", fontsize=18, offset=0.16)\n    tax.bottom_axis_label(\"$P_D$\", fontsize=18, offset=0.16)\n    \n    if plot_nullclines:\n        \n        pd_list = np.arange(0,1.01,0.01)\n        h_d_null = []\n        h_r_null = []\n        d_r_null = []\n        for pd in pd_list:\n        \n            #Get the value of the H-D null\n            tuple1 = h_d_null_func(pd,V,C,mu)\n            if within_simplex(tuple1):\n                h_d_null.append(tuple1)\n        \n            #Get the value of the H-R null\n            tuple2 = h_r_null_func(pd,V,C,mu)\n            if within_simplex(tuple2):\n                h_r_null.append(tuple2)\n        \n            #Get the value of the D-R null\n            tuple3 = d_r_null_func(pd,V,C,mu)\n            if within_simplex(tuple3):\n                d_r_null.append(tuple3)\n    \n        #Plot nullclines\n        if len(h_d_null) &gt; 0:\n            tax.plot(h_d_null,linewidth=2.0,color='green',label='H-D nullcline')\n        if len(h_r_null) &gt; 0:\n            tax.plot(h_r_null,linewidth=2.0,color='#0047ab',label='R-H nullcline')\n        if len(d_r_null) &gt; 0:\n            tax.plot(d_r_null,linewidth=2.0,color='orange',label='D-R nullcline')\n    \n    #draw the vector field\n    if plot_field:\n        length = 0.02\n        prop_list = np.arange(0,1.2,0.05)\n        for pd in prop_list:\n            for ph in prop_list:\n                if within_simplex((pd,ph,1-pd-ph)):\n                    r, dr = get_vector(pd,ph,V,C,mu,w0,s)\n                    if np.hypot(dr[0],dr[1]) != 0:\n                        dx,dy = length*dr/np.hypot(dr[0],dr[1])\n                    else:\n                        dx,dy = 0,0\n                    color = get_color(pd,ph,V,C,mu,w0,s)\n                    tax.get_axes().quiver(r[0],r[1],dx,dy,color=color,width=0.005,scale=0.1,scale_units='inches')\n    \n    tax.ticks(axis='lbr', fontsize=13, multiple=0.2, linewidth=0.5, tick_formats=\"%.1f\",axes_colors={'l':'white','r':'white','b':'white'}, offset=0.02)    \n    tax.get_axes().axis('off')\n    tax.clear_matplotlib_ticks()\n    tax.legend()\n    \n    if save:\n        tax.savefig(str(filename+\".png\"))\n    tax.show()\n\n&lt;&gt;:17: SyntaxWarning: invalid escape sequence '\\m'\n&lt;&gt;:17: SyntaxWarning: invalid escape sequence '\\m'\n/var/folders/b_/xqbznk296tb4z4dhdrlrd4rr0000gn/T/ipykernel_21433/3399975650.py:17: SyntaxWarning: invalid escape sequence '\\m'\n  tax.set_title(\"V = \"+ str(V) + \"\\nC = \" + str(C) + \"\\n$\\mu$ = \" + str(mu) + '\\nV/2C = ' + format(V/(2*C),'.2f'),position=(-0.05,1.5,-0.03),fontsize=18)\n\n\n\nmake_ternary_plot(20,8,0.2,save=False)",
-    "crumbs": [
-      "Technical knowledge",
-      "Evolutionary game theory examples",
-      "Introduction: Hawks and Doves"
     ]
   }
 ]
