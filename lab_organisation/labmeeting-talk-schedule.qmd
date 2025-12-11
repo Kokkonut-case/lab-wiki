@@ -20,7 +20,7 @@ Goals of this endeavour: as speaker one gets feedback on & practice presenting p
 
 Details of the talks: - The talks happen once every two weeks, and the person up that week gets \<= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour). - We are currently 9 in the group, so this means a given person presents roughly once every 4-5 months. - Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you'd like to watch. And any other use that you think is appropriate. - Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work
 
-## Schedule 2025
+## Schedule 2026
 
 The dates below are for every second Wednesday starting the week of 27 January, upto and including the month of April (note the change in dates because we have switched to Wednesday lab meetings from Thursday).
 
@@ -28,26 +28,8 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 
 | Date        | Speaker       |
 |-------------|---------------|
-| 3 September      | Claudia        |
-| 10 September      | \-            |
-| 17 September      | \-        |
-| 24 September      | Roman         |
-| 1 October      | \-         |
-| 8 October      |   Mos       |
-| 15 October      | \-         |
-| 22 October      | Victor           |
-| 29 October      | \-         |
-| 5 November      | Margaux         |
-| 12 November      | \-         |
-| 19 November      | Tom (intro to GitHub)          |
-| 26 November      | \-         |
-| 10 December      | \-  |
-| 17 December      | X         |
-| 24 December      | M         |
-| 31 December      | A         |
-| 7 January      | S         |
 | 14 January      | Kora         |
-| 21 January      | \-         |
+| 21 January      | Dajo        |
 | 28 January      | Uthara         |
 | 4 February      | Shikhara       |
 | 11 February      | Gaurav         |
