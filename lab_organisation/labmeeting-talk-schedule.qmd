@@ -24,20 +24,24 @@ Details of the talks: - Talks are generally internal to the lab. Person giving t
 
 The exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.
 
+
 | Date        | Speaker       |
 |-------------|---------------|
 | 14 January      | Kora         |
 | 21 January      | Dajo        |
-| 28 January      | Uthara         |
-| 4 February      | Shikhara       |
-| 11 February      | Gaurav         |
+| 28 January      | \-    |
+| 4 February      | \-       |
+| 11 February      | Shikhara         |
 | 18 February      | Aschermittwoch         |
 | 25 February      | Roman         |
 | 4 March      | Hanna        |
-| 11 March      | Yi         |
-| 18 March      | \-         |
-| 25 March      |  Claudia    |
-| 1 April      |  \-    |
-| 8 April      |  Mos    |
+| 11 March      | \-         |
+| 18 March      | Uthara  |
+| 25 March      |  \-    |
+| 1 April      |  Gaurav    |
+| 8 April      |  \-    |
+| 15 April      |  Claudia    |
+| 22 April      |  \-    |
+| 29 April      |  Mos    |
 
 :::
