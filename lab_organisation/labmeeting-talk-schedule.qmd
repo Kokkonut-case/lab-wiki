@@ -35,7 +35,7 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 18 February      | Aschermittwoch         |
 | 25 February      | Roman         |
 | 4 March      | Hanna        |
-| 11 March      | \-         |
+| 11 March      | Florian         |
 | 18 March      | Uthara  |
 | 25 March      |  \-    |
 | 1 April      |  Gaurav    |
