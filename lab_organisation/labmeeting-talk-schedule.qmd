@@ -30,8 +30,8 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 | 14 January      | Kora         |
 | 21 January      | Dajo        |
 | 28 January      | \-    |
-| 4 February      | \-       |
-| 11 February      | Shikhara         |
+| 4 February      | Shikhara       |
+| 11 February      | \-         |
 | 18 February      | Aschermittwoch         |
 | 25 February      | Roman         |
 | 4 March      | Hanna        |
