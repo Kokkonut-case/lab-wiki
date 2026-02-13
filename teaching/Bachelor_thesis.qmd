@@ -20,7 +20,7 @@ At JGU, bachelor students are required to write a Bachelor thesis to successfull
 
 It is the students responsibility to find a thesis project and it is our responsibility to offer potential projects for interested students. Here, 'our' refers primarily to the postdocs in the group, but it can also include PhD students if they wish to gain supervision experience. A common attraction to working with the Kokkonuts is Hanna's module 11b lectures. However, because these lectures tend to be quite general, and Hanna will not be hugely involved in the project, it can be difficult to know exactly the types of projects that we offer. While our interests are varied, it is safe to assume that
 
-1. The research question will concern evolutionary biology
+1. The research question will concern evolutionary biology.
 
 2. Most projects will be theoretical and all will involve some mathematics. 
 
@@ -54,15 +54,46 @@ The handbook instructions are not written with theory projects in mind, so we tr
 
 **Project proposal presentation**
 
-A presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methodology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is marked by the de facto examiner and makes up 12.5% of the grade (3.75 out of 30 credits).
+A presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methodology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is marked by the _de facto_ examiner and makes up 12.5% of the grade (3.75 out of 30 credits).
 
 **Thesis**
 
-A document written in manuscript style, mimicking the format of a society journal like the American Naturalist, Evolution or the Journal of Evolutionary Biology. The exact length of the document is up to the student and their supervisor, but will tend to be shorter than studies that appear in the above journals. This is marked by the two examiners and makes up x% of the grade. The hand-in date is set 16 working weeks after the project is registered with the department. 
+A document written in manuscript style, mimicking the format of a society journal like _The American Naturalist_, _Evolution_ or the _Journal of Evolutionary Biology_. The exact length of the document is up to the student and their supervisor, but will tend to be shorter than studies that appear in the above journals. This is marked by the two examiners and makes up 40% of the grade (12 out of 30 credits). The hand-in date is set 16 working weeks after the project is registered with the department. 
 
 **Thesis defense**
 
-A 15 minute oral presentation delivered to the lab group, followed by a maximum of 15 minutes of questions. At this point the examiners will have read the thesis, so questions are not limited to the content of the talk. This is marked by the two examiners and makes up x% of the grade.  
+A 15 minute oral presentation delivered to the lab group, followed by a maximum of 15 minutes of questions. At this point the examiners will have read the thesis, so questions are not limited to the content of the talk. This is marked by the two examiners and makes up 10% of the grade (3 out of 30 credits).
+
+**What this all means for grading and filling out forms**
+
+Here’s an overview of how the 30 credits come about:
+
+- practical work (“Projektarbeit”: literature research, conceptual work, coding, …): 15
+- written thesis (“Bachelorarbeit”): 12
+- thesis defense (“mündliche Abschlussprüfung”): 3
+
+For the grading of a BSc thesis, there are two forms. One is used to assess the practical work and the written thesis (“Bewertung der Projektarbeit und Bachelorarbeit (Module 15 und 16)”), and the other is for the thesis defense (“Mündliche Abschlussprüfung im Studiengang Bachelor Biologie”). 
+
+_First form: “Bewertung der Projektarbeit und Bachelorarbeit (Module 15 und 16)”_
+
+Assessment of the practical work (Box “Projektarbeit”) requires you to fill in grades for four different aspects:
+
+1. Proposal: This aspect is part of our “project proposal presentation” (see above).
+2. praktische Arbeitsweise: Assess the student’s motivation, thoroughness, independence.
+3. Protokoll: We don’t do that. Just fill in a grade that fits in with the others.
+4. Poster. This is also a part of the “project proposal presentation”.
+
+Grading is done according to the German grading system (see Grading Scheme). Then calculate the average of these four grades. For this average grade (“Gesamtnote”), keep only the first decimal place; all further decimal places are cancelled.
+
+For the assessment of the written thesis (Box “Bachelorarbeit”), assign a grade and write down some remarks that justify the grade.
+
+Tick the box “Ich stimme mit der Bewertung des Erstgutachters überein”, which means that both examiners agree on the grading.
+
+_Second form: “Mündliche Abschlussprüfung im Studiengang Bachelor Biologie”_
+
+The second examiner (“Beisitzer”) writes down the questions that were asked by the two examiners during the discussion (“Prüfungsstoff”). Then the two examiners agree on a grade (“Prüfungsergebnis”), again from the German grading system (see Grading Scheme).
+
+Completed and signed forms must be sent (via Hauspost or digitally) to Peter Schubert at the Prüfungsamt (schubepe[at]uni-mainz.de).
 
 :::
 
