@@ -22,7 +22,7 @@ Details of the talks: - Talks are generally internal to the lab. Person giving t
 
 ## Schedule 2026
 
-The exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.
+Talks take place after our journal club, so by default on Thursdays. 
 
 
 | Date        | Speaker       |
