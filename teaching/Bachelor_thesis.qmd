@@ -54,7 +54,7 @@ The handbook instructions are not written with theory projects in mind, so we tr
 
 **Project proposal presentation**
 
-A presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methodology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is marked by the _de facto_ examiner and makes up 12.5% of the grade (3.75 out of 30 credits).
+A presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methodology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is only marked as part of the overall grading of the practical work ("Projektarbeit"; see below).
 
 **Thesis**
 
@@ -68,9 +68,9 @@ A 15 minute oral presentation delivered to the lab group, followed by a maximum 
 
 Here’s an overview of how the 30 credits come about:
 
-- practical work (“Projektarbeit”: literature research, conceptual work, coding, …): 15
-- written thesis (“Bachelorarbeit”): 12
-- thesis defense (“mündliche Abschlussprüfung”): 3
+- practical work (“Projektarbeit”): This includes all the actual work (literature research, conceptual work, coding, …), but also the project proposal presentation (poster or oral presentation): 15 credits
+- written thesis (“Bachelorarbeit”): 12 credits
+- thesis defense (“mündliche Abschlussprüfung”): 3 credits
 
 For the grading of a BSc thesis, there are two forms. One is used to assess the practical work and the written thesis (“Bewertung der Projektarbeit und Bachelorarbeit (Module 15 und 16)”), and the other is for the thesis defense (“Mündliche Abschlussprüfung im Studiengang Bachelor Biologie”). 
 
