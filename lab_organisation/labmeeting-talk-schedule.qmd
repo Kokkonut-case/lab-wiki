@@ -27,21 +27,20 @@ The exact day of the week when we have our lab meeting is variable, but usually 
 
 | Date        | Speaker       |
 |-------------|---------------|
-| 14 January      | Kora         |
-| 21 January      | Dajo        |
-| 28 January      | \-    |
-| 4 February      | Shikhara       |
-| 11 February      | \-         |
-| 18 February      | Aschermittwoch         |
-| 25 February      | Roman         |
-| 4 March      | Hanna        |
-| 11 March      | Florian         |
-| 18 March      | Uthara  |
-| 25 March      |  \-    |
-| 1 April      |  Gaurav    |
-| 8 April      |  \-    |
-| 15 April      |  Claudia    |
-| 22 April      |  \-    |
-| 29 April      |  Mos    |
+| 19 February      | /-         |
+| 26 February      | Roman         |
+| 5 March      | Hanna        |
+| 12 March      | Florian         |
+| 19 March      | \-  |
+| 26 March      |  Uthara    |
+| 2 April      |  \-    |
+| 9 April      |  Gaurav    |
+| 16 April      |  \-    |
+| 23 April      |  Claudia    |
+| 30 April      |  \-    |
+| 7 May      |  Mos    |
+| 14 May    |  \-    |
+| 21 May    |  \-    |
+| 28 May    |  \-    |
 
 :::
