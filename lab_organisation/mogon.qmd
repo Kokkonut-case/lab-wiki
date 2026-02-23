@@ -1,10 +1,222 @@
 ---
-title: "MOGON 2"
+title: "Parallelisation in R"
 format: html
 editor: source
 engine: knitr
+execute: 
+    eval: false
 ---
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
 
-Dummy text for now
+::: {.justify}
 
-Let's hope this works
+
+Some facts that have little to do with MOGON in particular but are helpful for parallelising in general using R (Shikhara is writing this because's parallelisation within R is...a little much....).
+
+Some generally useful terminology for this page: 
+<br>
+<ul>
+    <li> <i>Cores</i> are individual processors. A single computer typically has multiple cores (for instance, intel CPUs are usually named 'i5', 'i7', etc.; the numbers are the number of available cores).  </li>
+    <li> <i>Nodes</i> are individual computers within a cluster. Each node can have multiple cores. </li>
+    <li> <i>Processes</i> are instantiations of our program of interest (in this page, typically R) </li>
+</ul>
+<br>
+
+# Parallelising across processors/CPU cores
+
+When running code locally on your PC, it is usually much faster to parallelise across cores if the code does the same thing many times. For instance, running many replicates of a stochastic simulation or scanning a parameter space (running the same simulation with many different parameter values) should be parallelised because each individual process is independent of the other. R provides the ``parallel`` package for this purpose. 
+
+## Setting up the parallelisation
+
+We can start our parallelisation process by running
+
+```{r}
+library(parallel)
+
+#figure out how many cores you have access to
+num_cores <- detectCores()
+
+#initialise a parallelised series of processes, leaving one core free (this is considered good practice: do not use every possible core available on the machine, just to be safe with system performance in case you overload the memory)
+my_clusters <- makeClusters(num_cores - 1, type = 'FORK') #you should choose the type according to which OS you are running. This is explained in the text.
+```
+
+The ``makeClusters()`` function takes in an optional argument, ``type``, which specifies the approach to parallelisation that ``parallel`` uses internally. You have two options
+
+<ul>
+    <li> ``FORK`` is an option available on Unix-like systems (Linux, Mac, Ubuntu, etc. MOGON runs on Unix as well), and essentially  copies your current session of R into each available core. This means that, for instance, variables and packages you defined <i>before</i> running ``makeClusters`` will get passed into each child process. This also means that you should <b>be very careful about how you implement randomisation and seeds</b> (more on this below). A general downside of this method is that it is unavailable on Windows systems, so it will not work if your workflow needs you to be on Windows. </li>
+    <li> ``PSOCK`` is an option that works on all systems (Windows included). It does <i>not</i> copy your current session, but instead creates a new session on every available core. This means that you <b>will have to reload all required packages and pass all required globally defined functions</b> into each child process (more on this below). 
+</ul>
+
+In general, it is easier to use and manipulate processes generated via ``FORK``, so is the method I would recommend if it is available to you. 
+
+### Importing packages and variables on each child process when using PSOCK
+
+If you are using ``PSOCK``, you should import all packages and custom-defined functions and variables you will need like so:
+```{r}
+
+library(dplyr) #necessary package importing before starting parallelisation
+
+my_favourite_year <- 2000 #variable defined before starting parallelisation
+
+find_elders <- function(birthday_list, my_favourite_year){#function defined before starting parallelisation
+    #random function I made up to bully the post-docs
+    #note that this function requires dplyr to work (actually important)
+    birthday_list  %>% filter(birth_year < my_favourite_year)  %>% return()
+    } 
+
+library(parallel)
+
+#figure out how many cores you have access to
+num_cores <- detectCores()
+
+#initialise a parallelised series of processes, leaving one core free
+my_clusters <- makeClusters(num_cores - 1, type = 'PSOCK') #lets say you used PSOCK
+
+#when using 'PSOCK', you need to reimport libraries and variables on each child process.
+#you DO NOT NEED TO DO THIS if you are parellelising using 'FORK'
+
+# loading libraries on each cluster is done using clusterevalQ().
+clusterevalQ(my_clusters, library(dplyr))
+
+# exporting custom functions and variables into each cluster is done using clusterExport().
+#supply everything you want imported within a vector like this
+clusterExport(my_clusters, c('my_favourite_year,
+                             find_elders') )
+                          
+```
+
+### An important note on random seeds and replicability
+
+If your code involves any stochastic/random component (random sampling from a list, drawing a random variable from some random distribution, etc.), you may have heard of the idea of setting a <a href='https://en.wikipedia.org/wiki/Random_seed'>random seed</a>. The fundamental idea behind the random seed is the observation that you cannot algorithmically generate a truly random number (by definition). However, we have algorithms that are very good at mimicking a list of random numbers using <a href='https://en.wikipedia.org/wiki/Pseudorandom_number_generator'>pseudorandom numbers</a> that are deterministically generated. The random seed essentially gives the computer an initial condition to start generating pseudorandom numbers, and so two runs of, say, ``rnorm()``, with the same seed will always generate the same output. Crucially, <b>all instances of randomness in computers is like this</b> --- whether you like it or not, your randomness on a computer is not really random. Usually, if you do not set a seed yourself, the computer picks a seed based on things like computer time or CPU temperature that are considered sufficiently unpredictable to be unbiased. R uses the <a href='https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html'>current time and process ID</a> to generate a seed. When running parallel instantiations, however, this can become problematic: since all your parallel sessions are started at the same time, they share the same current time. Furthermore, since the process IDs are programmatically generated, they are also correlated in this case. To ensure statistical independence between your parallel simulations, you should therefore make sure the RNGs of the child processes do not get in sync. ``parallel`` provides the functionality to do this.
+
+```{r}
+clusterSetRNGStream(my_clusters) #make sure randomness is independent between children
+```
+
+If you want, you can even set a seed here via
+
+```{r}
+clusterSetRNGStream(my_clusters, iseed = 42) #set seed
+```
+
+See <a href='https://www.rdocumentation.org/packages/parallel/versions/3.6.2/topics/RNGstreams'>here</a> for the details on how this works if you are interested in reading more. Regardless of whether you are interested, you should be using ``clustersetRNGStream``if you are trying to run independent realisations of a stochastic simulation in parallel (supplying/setting a seed via ``iseed`` is technically optional but ensures reproducibility of your results, so is recommended). See <a href='https://www.r-bloggers.com/2018/07/%F0%9F%8C%B1-setting-a-seed-in-r-when-using-parallel-simulation/'>here</a> for an example of what can go wrong if you do not set an RNG stream in this way (they use a slightly different function from ``parallel`` but the issues are the same).
+
+## Running your code in parallel
+
+Actually running the parallel code is done exactly the same way you would use the `*-apply` family of functions in base R, and so is quite straightforward. Where you would previously use ``lapply``, you can now use ``parLapply`` (there is also similarly a ``parSapply`` for ``sapply``and  a ``parApply`` for ``apply``). For instance, here is some code that uses ``GillespieSSA2`` to set up a Gillespie simulation and then run many independent realisations.
+
+```{r}
+library(GillespieSSA2) #for stochastic simulations
+
+
+###################
+#We will simulate a stochastic version of the logistic equation.
+#Recall that the logistic equation is dN/dt = r N (1 - N/K).
+#We will simulate a stochastic birth-death process with stochastic rates
+#  N ----> N + 1  at rate  b * N
+#  N ----> N - 1  at rate ((b-d) + d*N/K) * N
+# thus, the per-capita birth rate is a constant b
+# and the per-capita death rate is linearly increasing, (b-d) + d*N/K
+# we can identify r = b-d to recover the logistic equation.
+
+#change parameters as appropriate here 
+model_params <- c(
+    b = 1.2, #birth rate
+    d = 1, #death rate
+    K = 1000, #carrying capacity
+    N0 = 100, #initial population size
+)
+
+initial_state <- c(N = model_params['N0']) #initial state
+
+#update rules for the Gillespie algorithm
+reactions <- list(
+  
+  #               rate                    effect
+    
+  #birth rate
+  reaction(      "b*N"      ,          c(N = +1)),
+  
+  #death rate
+  reaction("(d+(b-d)*N/K)*N",          c(N = -1))
+)
+
+
+final_time <- 85  #time at which the Gillespie simulation stops
+runs <- 1000         #no. of independent realizations to simulate
+
+
+#Run the SSA
+
+start_time = Sys.time() #for timing how long running the code takes
+
+# parallelise simulation across cores
+library(parallel)
+
+# Create cluster (leave 1 core free)
+my_parallels <- makeCluster(detectCores() - 1,
+                            type = 'FORK') #'FORK' only works on UNIX-like systems. Use PSOCK on Windows.
+
+# Load package on each core. Necessary if using PSOCK
+#clusterEvalQ(my_parallels, library(GillespieSSA2))
+
+# Export the objects we defined above to each core. Necessary if using PSOCK
+# clusterExport(my_parallels, c("initial_state", 
+#                     "reactions",
+#                     "model_params",
+#                     "final_time"))
+
+
+clusterSetRNGStream(my_parallels, iseed = 42) #make sure RNGs work; set seed for reproducibility
+
+# Run simulations in parallel. This is just like an lapply. 
+# The first argument is the set of clusters.
+sim_list <- parLapply(my_parallels, 1:runs, function(i) {
+    #the unnamed function is just recording realisation number i.
+    #you can create this function outside parLapply and give it a name if you want.
+
+  sim_run <- ssa(
+    initial_state = initial_state,
+    reactions = reactions,
+    params = model_params,
+    final_time = final_time,
+    method = ssa_exact(),
+    stop_on_neg_state = TRUE,
+    census_interval = 0, #how often to sample the simulation. 0 means sample everything
+    sim_name = "logistic"
+  )
+
+  data.frame(
+    run  = i,
+    time = sim_run$time,
+    N   = sim_run$state[, "N"]
+  )
+})
+
+# kill children once they are done being useful. This is considered good practice.
+stopCluster(my_parallels)
+
+# Combine results into one dataframe
+ssa_data <- do.call(rbind, sim_list)
+
+#rename to something meaningful
+colnames(ssa_data) <- c('run','time','N')
+
+#Report how much time it took to run the simulations
+running_time = Sys.time() - start_time
+
+running_time
+```
+
+Notice that we run ``stopCluster()`` to close all the parallel instances of R that we opened once we are done simulating. This is considered good practice to avoid unwanted memory usage, so do it.  
+
+# Parallelising across nodes using MOGON
+
+Writing this is Tom's job :)
+
+:::
