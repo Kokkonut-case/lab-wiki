@@ -18,7 +18,7 @@ engine: knitr
 
 Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we're currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.
 
-Details of the talks: - Talks are generally internal to the lab. Person giving the talk gets \<= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour).  Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you'd like to watch. And any other use that you think is appropriate. Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work
+Details of the talks: - Talks are generally internal to the lab. Person giving the talk gets \<= 30 minutes (i.e. you can use fewer than 30).  Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you'd like to watch. And any other use that you think is appropriate. Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work
 
 ## Schedule 2026
 
@@ -27,20 +27,16 @@ Talks take place after our journal club, so by default on Thursdays.
 
 | Date        | Speaker       |
 |-------------|---------------|
-| 19 February      | /-         |
 | 26 February      | Roman         |
-| 5 March      | Hanna        |
 | 12 March      | Florian         |
-| 19 March      | \-  |
-| 26 March      |  Uthara    |
-| 2 April      |  \-    |
-| 9 April      |  Gaurav    |
-| 16 April      |  \-    |
-| 23 April      |  Claudia    |
-| 30 April      |  \-    |
-| 7 May      |  Mos    |
-| 14 May    |  \-    |
-| 21 May    |  \-    |
-| 28 May    |  \-    |
+| 9 April      |  Uthara    |
+| 14 May    |  Gaurav    |
+| 11 June      |  Claudia    |
+| 16 July      |  Mos    |
+| 13 August      |  Tom    |
+| 17 September      |  -    |
+| 1 October      |  Hanna    |
+
+
 
 :::
