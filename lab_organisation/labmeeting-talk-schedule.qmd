@@ -28,7 +28,7 @@ Talks take place after our journal club, so by default on Thursdays.
 | Date        | Speaker       |
 |-------------|---------------|
 | 26 February      | Roman         |
-| 12 March      | Florian         |
+| 12 March      | -         |
 | 9 April      |  Uthara    |
 | 14 May    |  Gaurav    |
 | 11 June      |  Claudia    |
@@ -36,7 +36,5 @@ Talks take place after our journal club, so by default on Thursdays.
 | 13 August      |  Tom    |
 | 17 September      |  -    |
 | 1 October      |  Hanna    |
-
-
 
 :::
