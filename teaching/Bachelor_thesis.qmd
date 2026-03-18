@@ -140,5 +140,3 @@ _Second form: “Mündliche Abschlussprüfung im Studiengang Bachelor Biologie�
 The second examiner (“Beisitzer”) writes down the questions that were asked by the two examiners during the discussion (“Prüfungsstoff”). Then the two examiners agree on a grade (“Prüfungsergebnis”), again from the German grading system (see Grading Scheme).
 
 Completed and signed forms must be sent (via Hauspost or digitally) to Peter Schubert at the Prüfungsamt (schubepe[at]uni-mainz.de).
-
-:::
