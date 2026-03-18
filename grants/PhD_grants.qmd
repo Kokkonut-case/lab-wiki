@@ -1,0 +1,18 @@
+---
+title: "Funding relevant for during a PhD in Germany"
+format: html
+editor: source
+engine: knitr
+execute: 
+    eval: false
+---
+<!--- below block is for justifying text --->
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
+:::

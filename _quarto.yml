@@ -46,6 +46,14 @@ website:
         href: lab_organisation/sems_lists.qmd
       - text: "Useful links"
         href: links.qmd
+      - section: "Funding schemes"
+        contents:
+        - text: "PhD relevant"
+          href: grants/PhD_grants
+        - text: "Postdoc relevant"
+          href: grants/Postdoc_grants
+        - text: "Early PI relevant"
+          href: grants/Early_PI_grants
       - section: "Technical knowledge"
         contents:
         - section: "General math"

@@ -1,0 +1,15 @@
+{
+  "hash": "afd9da06f600fd77c73f1bcd4ff3208d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Funding relevant for getting a postdoc in Germany\"\nformat: html\neditor: source\nengine: knitr\nexecute: \n    eval: false\n---\n<!--- below block is for justifying text --->\n\n::: {.cell}\n\n:::\n\n\n::: {.justify}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

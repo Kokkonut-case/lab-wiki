@@ -13,7 +13,8 @@ engine: knitr
 }
 ```
 
-::: justify
+::: {.justify}
+
 ## Information for interested students
 
 At JGU, bachelor students are required to write a Bachelor thesis to successfully complete their degree. It spans 16 weeks and is a combination of modules 15 and 16 in the Bachelor of Science in Biology. When the student starts has considerable wiggle room; that is, it need not conform to the academic semesters. It makes up the final 30 credits that are required to be awarded the degree. General information about the thesis can be found in the [handbook](https://www.bio.uni-mainz.de/files/2019/01/Modulhandbuch_BSc_Biol__MolBiol_2015.pdf) and/or by talking to Dr. Peter Schubert from the Prüfungsamt (advice from recent students is to do this in person).
@@ -140,3 +141,5 @@ _Second form: “Mündliche Abschlussprüfung im Studiengang Bachelor Biologie�
 The second examiner (“Beisitzer”) writes down the questions that were asked by the two examiners during the discussion (“Prüfungsstoff”). Then the two examiners agree on a grade (“Prüfungsergebnis”), again from the German grading system (see Grading Scheme).
 
 Completed and signed forms must be sent (via Hauspost or digitally) to Peter Schubert at the Prüfungsamt (schubepe[at]uni-mainz.de).
+
+:::
