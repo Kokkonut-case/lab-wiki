@@ -16,3 +16,50 @@ execute:
 ::: {.justify}
 
 :::
+
+## The DFG
+
+- There is a centralised format for many of the grants that the DFG offers. It can be found here: https://www.dfg.de/resource/blob/168314/54-01-en.pdf 
+
+- Grants can be submitted at any time, and the research council meets to deliberate on these every three months.
+
+### The common format
+
+1. Starting point
+
+For new proposals please explain briefly and precisely the state of the art in your field in
+its direct relationship to your project. This description should make clear in which context
+you situate your own research and in what areas you intend to make a unique, innovative,
+promising contribution. Indicate the current state of your preliminary work. This description must be concise and understandable without referring to additional literature.
+
+2. Objectives and work program
+
+There's lots of box ticking here, but the majority of your time will be spent on:
+
+- Objectives: Please give a concise description of your project’s research programme and scientific
+objectives.
+
+- Program: Please give a detailed account of the steps planned during the proposed funding period.
+(For experimental projects, a schedule detailing all planned experiments should be provided.)
+The quality of the work programme is critical to the success of a funding proposal. The tasks to be performed within the work programme should correspond to the funds requested. The work programme should therefore indicate and justify what types of funding will be needed and how the funds will be used, providing details on the individual items requested where applicable. Provide a detailed description of the methods that you plan to use in the project: What methods are already available? What methods need to be developed? What assistance is needed from outside your own group/institute?
+
+3. Project and subject related list of publications
+
+This list should only contain those works that you cited in sections 1 and 2.
+
+4. Supplementary information on the research context
+
+This is mostly about ethics and legalities.
+
+### The research grant
+
+### The Emmy Noether grant
+
+## Mary Curie
+
+## ERC starter grant
+
+
+
+
+
