@@ -18,30 +18,23 @@ engine: knitr
 
 Goals of this endeavour: as speaker one gets feedback on & practice presenting projects, space to discuss something we're currently stuck on, etc.; and from being in the audience, we all learn more deeply about each others’ work.
 
-Details of the talks: - Talks are generally internal to the lab. Person giving the talk gets \<= 30 minutes (i.e. you can use fewer than 30. and for those with time concerns: the whole lab meeting will remain capped to one hour).  Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you'd like to watch. And any other use that you think is appropriate. Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work
+Details of the talks: - Talks are generally internal to the lab. Person giving the talk gets \<= 30 minutes (i.e. you can use fewer than 30).  Example use cases: presenting recent results, going through a model that you are constructing, discussing ideas / planned new work, or perhaps even watching an online talk together that you'd like to watch. And any other use that you think is appropriate. Presentation medium can be slides, writing on a board, anything. The idea is not (at all) to have very polished presentations; it doesn’t have to be anywhere near “finished” work
 
 ## Schedule 2026
 
-The exact day of the week when we have our lab meeting is variable, but usually Wednesday. So this table is made assuming that the meeting is by default on Wednesday when it has not been decided otherwise. Changes will be made as necessary.
+Talks take place after our journal club, so by default on Thursdays. 
 
 
 | Date        | Speaker       |
 |-------------|---------------|
-| 14 January      | Kora         |
-| 21 January      | Dajo        |
-| 28 January      | \-    |
-| 4 February      | Shikhara       |
-| 11 February      | \-         |
-| 18 February      | Aschermittwoch         |
-| 25 February      | Roman         |
-| 4 March      | Hanna        |
-| 11 March      | Florian         |
-| 18 March      | Uthara  |
-| 25 March      |  \-    |
-| 1 April      |  Gaurav    |
-| 8 April      |  \-    |
-| 15 April      |  Claudia    |
-| 22 April      |  \-    |
-| 29 April      |  Mos    |
+| 26 February      | Roman         |
+| 12 March      | -         |
+| 9 April      |  Uthara    |
+| 14 May    |  Gaurav    |
+| 11 June      |  Claudia    |
+| 16 July      |  Mos    |
+| 13 August      |  Tom    |
+| 17 September      |  -    |
+| 1 October      |  Hanna    |
 
 :::

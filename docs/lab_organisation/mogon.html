@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MOGON 2 – The Kokkonutcase</title>
+<title>Parallelisation in R – The Kokkonutcase</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,6 +18,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -4209,7 +4243,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lab_organisation/Downloading_software.html">Computing</a></li><li class="breadcrumb-item"><a href="../lab_organisation/mogon.html">Using MOGON 2</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">MOGON 2</h1>
+<h1 class="title">Parallelisation in R</h1>
 </div>
 
 
@@ -4226,10 +4260,209 @@ vertical-align: -.125em;
 </header>
 
 
-<p>Dummy text for now</p>
-<p>Let’s hope this works</p>
+<!--- below block is for justifying text --->
+<div class="justify">
+<p>Some facts that have little to do with MOGON in particular but are helpful for parallelising in general using R (Shikhara is writing this because’s parallelisation within R is…a little much….).</p>
+Some generally useful terminology for this page: <br>
+<ul>
+<li>
+<i>Cores</i> are individual processors. A single computer typically has multiple cores (for instance, intel CPUs are usually named ‘i5’, ‘i7’, etc.; the numbers are the number of available cores).
+</li>
+<li>
+<i>Nodes</i> are individual computers within a cluster. Each node can have multiple cores.
+</li>
+<li>
+<i>Processes</i> are instantiations of our program of interest (in this page, typically R)
+</li>
+</ul>
+<p><br></p>
+<section id="parallelising-across-processorscpu-cores" class="level1">
+<h1>Parallelising across processors/CPU cores</h1>
+<p>When running code locally on your PC, it is usually much faster to parallelise across cores if the code does the same thing many times. For instance, running many replicates of a stochastic simulation or scanning a parameter space (running the same simulation with many different parameter values) should be parallelised because each individual process is independent of the other. R provides the <code>parallel</code> package for this purpose.</p>
+<section id="setting-up-the-parallelisation" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-parallelisation">Setting up the parallelisation</h2>
+<p>We can start our parallelisation process by running</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#figure out how many cores you have access to</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>num_cores <span class="ot">&lt;-</span> <span class="fu">detectCores</span>()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#initialise a parallelised series of processes, leaving one core free (this is considered good practice: do not use every possible core available on the machine, just to be safe with system performance in case you overload the memory)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>my_clusters <span class="ot">&lt;-</span> <span class="fu">makeClusters</span>(num_cores <span class="sc">-</span> <span class="dv">1</span>, <span class="at">type =</span> <span class="st">&#39;FORK&#39;</span>) <span class="co">#you should choose the type according to which OS you are running. This is explained in the text.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>makeClusters()</code> function takes in an optional argument, <code>type</code>, which specifies the approach to parallelisation that <code>parallel</code> uses internally. You have two options</p>
+<ul>
+<li>
+<code>FORK</code> is an option available on Unix-like systems (Linux, Mac, Ubuntu, etc. MOGON runs on Unix as well), and essentially copies your current session of R into each available core. This means that, for instance, variables and packages you defined <i>before</i> running <code>makeClusters</code> will get passed into each child process. This also means that you should <b>be very careful about how you implement randomisation and seeds</b> (more on this below). A general downside of this method is that it is unavailable on Windows systems, so it will not work if your workflow needs you to be on Windows.
+</li>
+<li>
+<code>PSOCK</code> is an option that works on all systems (Windows included). It does <i>not</i> copy your current session, but instead creates a new session on every available core. This means that you <b>will have to reload all required packages and pass all required globally defined functions</b> into each child process (more on this below).
+</li></ul>
+<p>In general, it is easier to use and manipulate processes generated via <code>FORK</code>, so is the method I would recommend if it is available to you.</p>
+<section id="importing-packages-and-variables-on-each-child-process-when-using-psock" class="level3">
+<h3 class="anchored" data-anchor-id="importing-packages-and-variables-on-each-child-process-when-using-psock">Importing packages and variables on each child process when using PSOCK</h3>
+<p>If you are using <code>PSOCK</code>, you should import all packages and custom-defined functions and variables you will need like so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co">#necessary package importing before starting parallelisation</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_favourite_year <span class="ot">&lt;-</span> <span class="dv">2000</span> <span class="co">#variable defined before starting parallelisation</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>find_elders <span class="ot">&lt;-</span> <span class="cf">function</span>(birthday_list, my_favourite_year){<span class="co">#function defined before starting parallelisation</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#random function I made up to bully the post-docs</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">#note that this function requires dplyr to work (actually important)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    birthday_list  <span class="sc">%&gt;%</span> <span class="fu">filter</span>(birth_year <span class="sc">&lt;</span> my_favourite_year)  <span class="sc">%&gt;%</span> <span class="fu">return</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    } </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#figure out how many cores you have access to</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>num_cores <span class="ot">&lt;-</span> <span class="fu">detectCores</span>()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#initialise a parallelised series of processes, leaving one core free</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>my_clusters <span class="ot">&lt;-</span> <span class="fu">makeClusters</span>(num_cores <span class="sc">-</span> <span class="dv">1</span>, <span class="at">type =</span> <span class="st">&#39;PSOCK&#39;</span>) <span class="co">#lets say you used PSOCK</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#when using &#39;PSOCK&#39;, you need to reimport libraries and variables on each child process.</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#you DO NOT NEED TO DO THIS if you are parellelising using &#39;FORK&#39;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># loading libraries on each cluster is done using clusterevalQ().</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterevalQ</span>(my_clusters, <span class="fu">library</span>(dplyr))</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># exporting custom functions and variables into each cluster is done using clusterExport().</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#supply everything you want imported within a vector like this</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterExport</span>(my_clusters, <span class="fu">c</span>(<span class="st">&#39;my_favourite_year,</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">                             find_elders&#39;</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="an-important-note-on-random-seeds-and-replicability" class="level3">
+<h3 class="anchored" data-anchor-id="an-important-note-on-random-seeds-and-replicability">An important note on random seeds and replicability</h3>
+<p>If your code involves any stochastic/random component (random sampling from a list, drawing a random variable from some random distribution, etc.), you may have heard of the idea of setting a <a href="https://en.wikipedia.org/wiki/Random_seed">random seed</a>. The fundamental idea behind the random seed is the observation that you cannot algorithmically generate a truly random number (by definition). However, we have algorithms that are very good at mimicking a list of random numbers using <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom numbers</a> that are deterministically generated. The random seed essentially gives the computer an initial condition to start generating pseudorandom numbers, and so two runs of, say, <code>rnorm()</code>, with the same seed will always generate the same output. Crucially, <b>all instances of randomness in computers is like this</b> — whether you like it or not, your randomness on a computer is not really random. Usually, if you do not set a seed yourself, the computer picks a seed based on things like computer time or CPU temperature that are considered sufficiently unpredictable to be unbiased. R uses the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html">current time and process ID</a> to generate a seed. When running parallel instantiations, however, this can become problematic: since all your parallel sessions are started at the same time, they share the same current time. Furthermore, since the process IDs are programmatically generated, they are also correlated in this case. To ensure statistical independence between your parallel simulations, you should therefore make sure the RNGs of the child processes do not get in sync. <code>parallel</code> provides the functionality to do this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterSetRNGStream</span>(my_clusters) <span class="co">#make sure randomness is independent between children</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you want, you can even set a seed here via</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterSetRNGStream</span>(my_clusters, <span class="at">iseed =</span> <span class="dv">42</span>) <span class="co">#set seed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>See <a href="https://www.rdocumentation.org/packages/parallel/versions/3.6.2/topics/RNGstreams">here</a> for the details on how this works if you are interested in reading more. Regardless of whether you are interested, you should be using <code>clustersetRNGStream</code>if you are trying to run independent realisations of a stochastic simulation in parallel (supplying/setting a seed via <code>iseed</code> is technically optional but ensures reproducibility of your results, so is recommended). See <a href="https://www.r-bloggers.com/2018/07/%F0%9F%8C%B1-setting-a-seed-in-r-when-using-parallel-simulation/">here</a> for an example of what can go wrong if you do not set an RNG stream in this way (they use a slightly different function from <code>parallel</code> but the issues are the same).</p>
+</section>
+</section>
+<section id="running-your-code-in-parallel" class="level2">
+<h2 class="anchored" data-anchor-id="running-your-code-in-parallel">Running your code in parallel</h2>
+<p>Actually running the parallel code is done exactly the same way you would use the <code>*-apply</code> family of functions in base R, and so is quite straightforward. Where you would previously use <code>lapply</code>, you can now use <code>parLapply</code> (there is also similarly a <code>parSapply</code> for <code>sapply</code>and a <code>parApply</code> for <code>apply</code>). For instance, here is some code that uses <code>GillespieSSA2</code> to set up a Gillespie simulation and then run many independent realisations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GillespieSSA2) <span class="co">#for stochastic simulations</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">###################</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#We will simulate a stochastic version of the logistic equation.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Recall that the logistic equation is dN/dt = r N (1 - N/K).</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#We will simulate a stochastic birth-death process with stochastic rates</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  N ----&gt; N + 1  at rate  b * N</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  N ----&gt; N - 1  at rate ((b-d) + d*N/K) * N</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># thus, the per-capita birth rate is a constant b</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># and the per-capita death rate is linearly increasing, (b-d) + d*N/K</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># we can identify r = b-d to recover the logistic equation.</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#change parameters as appropriate here </span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>model_params <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">b =</span> <span class="fl">1.2</span>, <span class="co">#birth rate</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">d =</span> <span class="dv">1</span>, <span class="co">#death rate</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">K =</span> <span class="dv">1000</span>, <span class="co">#carrying capacity</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">N0 =</span> <span class="dv">100</span>, <span class="co">#initial population size</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>initial_state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N =</span> N0) <span class="co">#initial state</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">#update rules for the Gillespie algorithm</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>reactions <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">#               rate                    effect</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">#birth rate</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reaction</span>(      <span class="st">&quot;b*N&quot;</span>      ,          <span class="fu">c</span>(<span class="at">N =</span> <span class="sc">+</span><span class="dv">1</span>)),</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#death rate</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reaction</span>(<span class="st">&quot;(d+(b-d)*N/K)*N&quot;</span>,          <span class="fu">c</span>(<span class="at">N =</span> <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>final_time <span class="ot">&lt;-</span> <span class="dv">85</span>  <span class="co">#time at which the Gillespie simulation stops</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>runs <span class="ot">&lt;-</span> <span class="dv">1000</span>         <span class="co">#no. of independent realizations to simulate</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">#Run the SSA</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>start_time <span class="ot">=</span> <span class="fu">Sys.time</span>() <span class="co">#for timing how long running the code takes</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co"># parallelise simulation across cores</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parallel)</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Create cluster (leave 1 core free)</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>my_parallels <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(<span class="fu">detectCores</span>() <span class="sc">-</span> <span class="dv">1</span>,</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>                            <span class="at">type =</span> <span class="st">&#39;FORK&#39;</span>) <span class="co">#&#39;FORK&#39; only works on UNIX-like systems. Use PSOCK on Windows.</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Load package on each core. Necessary if using PSOCK</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="co">#clusterEvalQ(my_parallels, library(GillespieSSA2))</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Export the objects we defined above to each core. Necessary if using PSOCK</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="co"># clusterExport(my_parallels, c(&quot;initial_state&quot;, </span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="co">#                     &quot;reactions&quot;,</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="co">#                     &quot;model_params&quot;,</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="co">#                     &quot;final_time&quot;))</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="fu">clusterSetRNGStream</span>(my_parallels, <span class="at">iseed =</span> <span class="dv">42</span>) <span class="co">#make sure RNGs work; set seed for reproducibility</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Run simulations in parallel. This is just like an lapply. </span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="co"># The first argument is the set of clusters.</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>sim_list <span class="ot">&lt;-</span> <span class="fu">parLapply</span>(my_parallels, <span class="dv">1</span><span class="sc">:</span>runs, <span class="cf">function</span>(i) {</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>    <span class="co">#the unnamed function is just recording realisation number i.</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>    <span class="co">#you can create this function outside parLapply and give it a name if you want.</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  sim_run <span class="ot">&lt;-</span> <span class="fu">ssa</span>(</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">initial_state =</span> initial_state,</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">reactions =</span> reactions,</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">params =</span> model_params,</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">final_time =</span> final_time,</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="fu">ssa_exact</span>(),</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">stop_on_neg_state =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">census_interval =</span> <span class="dv">0</span>, <span class="co">#how often to sample the simulation. 0 means sample everything</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">sim_name =</span> <span class="st">&quot;logistic&quot;</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">run  =</span> i,</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">time =</span> sim_run<span class="sc">$</span>time,</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">N   =</span> sim_run<span class="sc">$</span>state[, <span class="st">&quot;N&quot;</span>]</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="co"># kill children once they are done being useful. This is considered good practice.</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(my_parallels)</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine results into one dataframe</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>ssa_data <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, sim_list)</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="co">#rename to something meaningful</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ssa_data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;run&#39;</span>,<span class="st">&#39;time&#39;</span>,<span class="st">&#39;N&#39;</span>)</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="co">#Report how much time it took to run the simulations</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>running_time <span class="ot">=</span> <span class="fu">Sys.time</span>() <span class="sc">-</span> start_time</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>running_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice that we run <code>stopCluster()</code> to close all the parallel instances of R that we opened once we are done simulating. This is considered good practice to avoid unwanted memory usage, so do it.</p>
+</section>
+</section>
+<section id="parallelising-across-nodes-using-mogon" class="level1">
+<h1>Parallelising across nodes using MOGON</h1>
+<p>Writing this is Tom’s job :)</p>
+<p>:::</p>
 
 
+</section>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

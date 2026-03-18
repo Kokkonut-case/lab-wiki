@@ -4,12 +4,7 @@ format: html
 editor: source
 engine: knitr
 ---
- ---
-title: "Coding practices"
-format: html
-editor: source
-engine: knitr
----
+
 <!--- below block is for justifying text --->
 ```{css, echo = FALSE}
 .justify {

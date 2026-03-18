@@ -20,7 +20,7 @@ At JGU, bachelor students are required to write a Bachelor thesis to successfull
 
 It is the students responsibility to find a thesis project and it is our responsibility to offer potential projects for interested students. Here, 'our' refers primarily to the postdocs in the group, but it can also include PhD students if they wish to gain supervision experience. A common attraction to working with the Kokkonuts is Hanna's module 11b lectures. However, because these lectures tend to be quite general, and Hanna will not be hugely involved in the project, it can be difficult to know exactly the types of projects that we offer. While our interests are varied, it is safe to assume that
 
-1.  The research question will concern evolutionary biology
+1. The research question will concern evolutionary biology.
 
 2.  Most projects will be theoretical and all will involve some mathematics.
 
@@ -28,39 +28,117 @@ It is the students responsibility to find a thesis project and it is our respons
 
 We also include participation in the module 14b bachelor winter semester subject *Theoretical Evolutionary Ecology* as a **pre-requisite** to doing your thesis with our group.
 
-## Current potential thesis topics
-
-**Do stressed mothers produce more variable offspring?**
-
-*Supervisor: Erin Macartney*
-
-Maternal environment can influence offspring traits important for survival and reproduction. These effects can be positive, negative, or neutral. However, studies of maternal environmental effects often only consider effects on trait means (i.e., does a particular environment increase or decrease the trait of interest). One of the key factors important for ‘evolutionary potential’, particularly in changing environments, is phenotypic variation. Genetic variation provides the backbone for selection to act on, but phenotypic variation induced by non-genetic factors can also affect ‘evolutionary potential’. This project will examine how maternal environmental stress can influence the phenotypic variation of a population in the following generation using meta-analytic methods. This will provide us with a greater understanding how populations may respond to changing environments through non-genetic inheritance.
-
-**Does competition for nest sites influence adaptation to climate change?**
-
-*Supervisor: Tomos Potter*
-
-Climate change is altering the optimum timing of reproduction in seasonally breeding animals. Many species have shown a phenological shift: they start breeding earlier in the year. Rapid adaptive evolution can contribute to earlier nesting and may be key to species survival as the climate continues to change. But is nesting earlier always better? In some animals, like seabirds, early arrivals to breeding sites get the best nesting spots, and latecomers may find none left. However in others, like sea turtles, early nests can be damaged by later ones, making early breeding less successful. In this project, we will investigate how competition for nest sites might help or hinder species phenological responses to climate change.
-
-**One reason why whales aren't dinosaurs**
-
-*Supervisor: Tom Keaney*
-
-This click-baity title is definitely a little annoying, but hopefully also thought provoking. Once you get past the *one's a mammal, one's a reptile* and *one lives in the ocean, one mostly doesn't* kind of answers, it starts to get interesting. A particularly intriguing difference is that dinosaurs lay eggs while whales give birth to live young. Why it that thought provoking? Well, eggs can only get so big before the embryos asphyxiate, whereas this constraint on offspring size at birth is relaxed in mammals. The question you'll explore is how natural selection acting on comparably gigantic organisms such as non-avian dinosaurs and whales optimises their life history. Specifically, how does this differing constraint on offspring size change things?
-
 ## A Kokkonuts style thesis experience
 
-The handbook instructions are not written with theory projects in mind, so we treat these more as guidelines. For students, the most important changes are that modules 15 and 16 are informally treated as a single module (15 doesn't need to be completed before writing can begin) and that we don't expect a protocol to be submitted. The three pieces of assessment that should be completed throughout a successful bachelor thesis in our group are the: XXX
+The handbook instructions are not written with theory projects in mind, so we treat these more as guidelines. For students, the most important changes are that modules 15 ("Projektarbeit") and 16 ("Bachelorarbeit") are informally treated as a single module (15 doesn't need to be completed before writing can begin) and that we don't expect a protocol to be submitted. The three pieces of assessment that should be completed throughout a successful bachelor thesis in our group are the:
 
 **Project proposal presentation**
 
-A presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methodology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is a hurdle requirement that must be passed but is not graded.
+A presentation between 5 to 10 minutes in length, where the student can receive feedback from the research group. The format is flexible; the student can choose to produce a poster or deliver a short oral presentation. The idea is that the student demonstrates that they have developed a clear research question, with an understanding of relevant literature, and a methodology in place that can answer this question. Early results are welcome but not required. To be completed within 6 weeks of starting the project. This is only marked as part of the overall grading of the practical work ("Projektarbeit"; see below).
 
 **Thesis**
 
-A document written in manuscript style, mimicking the format of a society journal like the American Naturalist, Evolution or the Journal of Evolutionary Biology. The exact length of the document is up to the student and their supervisor, but will tend to be shorter than studies that appear in the above journals. This is marked by the two examiners and makes up x% of the grade. The hand-in date is set 16 working weeks after the project is registered with the department.
+A document written in manuscript style, mimicking the format of a society journal like _The American Naturalist_, _Evolution_ or the _Journal of Evolutionary Biology_. The exact length of the document is up to the student and their supervisor, but will tend to be shorter than studies that appear in the above journals. This is marked by the two examiners and makes up 40% of the grade (12 out of 30 credits). The hand-in date is set 16 working weeks after the project is registered with the department. 
 
 **Thesis defense**
 
-A 15 minute oral presentation delivered to the lab group, followed by a maximum of 15 minutes of questions. At this point the examiners will have read the thesis, so questions are not limited to the content of the talk. This is marked by the two examiners and makes up x% of the grade.
+A 15 minute oral presentation delivered to the lab group, followed by a maximum of 15 minutes of questions. At this point the examiners will have read the thesis, so questions are not limited to the content of the talk. This is marked by the two examiners and makes up 10% of the grade (3 out of 30 credits).
+
+**What this all means for grading and filling out forms**
+
+Here’s an overview of how the 30 credits come about:
+
+- practical work (“Projektarbeit”): This includes all the actual work (literature research, conceptual work, coding, …), but also the project proposal presentation (poster or oral presentation): 15 credits
+- written thesis (“Bachelorarbeit”): 12 credits
+- thesis defense (“mündliche Abschlussprüfung”): 3 credits
+
+For the grading of a BSc thesis, there are two forms. One is used to assess the practical work and the written thesis (“Bewertung der Projektarbeit und Bachelorarbeit (Module 15 und 16)”), and the other is for the thesis defense (“Mündliche Abschlussprüfung im Studiengang Bachelor Biologie”). 
+
+_First form: “Bewertung der Projektarbeit und Bachelorarbeit (Module 15 und 16)”_
+
+Assessment of the practical work (Box “Projektarbeit”) requires you to fill in grades for four different aspects:
+
+1. Proposal: This aspect is part of our “project proposal presentation” (see above).
+2. praktische Arbeitsweise: Assess the student’s motivation, thoroughness, independence.
+3. Protokoll: We don’t do that. Just fill in a grade that fits in with the others.
+4. Poster. This is also a part of the “project proposal presentation”.
+
+Grading is done according to the German grading system (see Grading Scheme). Then calculate the average of these four grades. For this average grade (“Gesamtnote”), keep only the first decimal place; all further decimal places are cancelled.
+
+Grading Scheme
+
+<table style="width:100%; border-collapse: collapse; border-top:2px solid black; border-bottom:2px solid black;">
+  <thead>
+    <tr>
+      <th style="text-align:left; padding:6px;">Percentage</th>
+      <th style="text-align:center; padding:6px;">Grade</th>
+      <th style="text-align:left; padding:6px;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:6px;">95.00 - 100.00</td>
+      <td style="text-align:center;">1.0</td>
+      <td>very good / excellent: an outstanding achievement</td>
+    </tr>
+    <tr>
+      <td style="padding:6px;">90.00 - 94.99</td>
+      <td style="text-align:center;">1.3</td>
+      <td></td>
+    </tr>
+
+    <tr style="border-top:2px solid black;">
+      <td style="padding:6px;">85.00 - 89.99</td>
+      <td style="text-align:center;">1.7</td>
+      <td>good: an achievement that exceeds the average requirements considerably</td>
+    </tr>
+    <tr>
+      <td style="padding:6px;">80.00 - 84.99</td>
+      <td style="text-align:center;">2.0</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="padding:6px;">75.00 - 79.99</td>
+      <td style="text-align:center;">2.3</td>
+      <td></td>
+    </tr>
+
+    <tr style="border-top:2px solid black;">
+      <td style="padding:6px;">70.00 - 74.99</td>
+      <td style="text-align:center;">2.7</td>
+      <td>satisfactory: an achievement that fulfills average requirements</td>
+    </tr>
+    <tr>
+      <td style="padding:6px;">65.00 - 69.99</td>
+      <td style="text-align:center;">3.0</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="padding:6px;">60.00 - 64.99</td>
+      <td style="text-align:center;">3.3</td>
+      <td></td>
+    </tr>
+
+    <tr style="border-top:2px solid black;">
+      <td style="padding:6px;">55.00 - 59.99</td>
+      <td style="text-align:center;">3.7</td>
+      <td>sufficient: an achievement that fulfills the requirements despite flaws</td>
+    </tr>
+    <tr>
+      <td style="padding:6px;">50.00 - 54.99</td>
+      <td style="text-align:center;">4.0</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+For the assessment of the written thesis (Box “Bachelorarbeit”), assign a grade and write down some remarks that justify the grade. Tick the box “Ich stimme mit der Bewertung des Erstgutachters überein”, which means that both examiners agree on the grading.
+
+_Second form: “Mündliche Abschlussprüfung im Studiengang Bachelor Biologie”_
+
+The second examiner (“Beisitzer”) writes down the questions that were asked by the two examiners during the discussion (“Prüfungsstoff”). Then the two examiners agree on a grade (“Prüfungsergebnis”), again from the German grading system (see Grading Scheme).
+
+Completed and signed forms must be sent (via Hauspost or digitally) to Peter Schubert at the Prüfungsamt (schubepe[at]uni-mainz.de).
+
 :::
