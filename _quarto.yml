@@ -16,10 +16,10 @@ website:
         href: lab_organisation/labmeeting-talk-schedule.qmd
       - section: "Onboarding"
         contents:
-        - text: "General info"
-          href: lab_organisation/onboarding_general_info.qmd
         - text: "Admin essentials"
           href: lab_organisation/admin_essentials.qmd
+        - text: "Business trips and sick leave"
+          href: lab_organisation/onboarding_general_info.qmd
         - text: "Registering as a student"
           href: lab_organisation/student_rego.qmd
       - section: "Computing"
