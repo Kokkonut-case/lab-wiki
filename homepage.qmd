@@ -26,7 +26,7 @@ We would also like the repository associated with this wiki to function as a cod
 
 Finally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara's inevitable evo-eco theory textbook, and you get a sneak peek!
 
-To go to the kokkonutscase repository of scripts, click [here](https://github.com/Kokkonut-case).
+We also have a GitHub organisation for storing code and data generated within the group. Once you are a Kokkonut, let either Shikhara (abhat[at]uni-mainz[dot]de) or Tom (tkeaney[at]uni-mainz[dot]de) know your GitHub user ID so that we can add you to the organisation. Once you are part of the organisation, you will be able to add your own repository, view others' repositories, and edit this website. To go to the kokkonutcase org, click [here](https://github.com/Kokkonut-case).
 <br>
 To visit the kokkonuts lab group webpage, click [here](https://www.kokkonuts.org/).
 <br>

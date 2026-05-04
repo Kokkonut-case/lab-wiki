@@ -248,7 +248,7 @@
     "href": "homepage.html",
     "title": "The Kokkonutcase",
     "section": "",
-    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a German resident, how to receive your salary and generally how to grapple with the monolith that is German bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A necessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nTo go to the kokkonutscase repository of scripts, click here.  To visit the kokkonuts lab group webpage, click here.",
+    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a German resident, how to receive your salary and generally how to grapple with the monolith that is German bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A necessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nWe also have a GitHub organisation for storing code and data generated within the group. Once you are a Kokkonut, let either Shikhara (abhat[at]uni-mainz[dot]de) or Tom (tkeaney[at]uni-mainz[dot]de) know your GitHub user ID so that we can add you to the organisation. Once you are part of the organisation, you will be able to add your own repository, view others’ repositories, and edit this website. To go to the kokkonutcase org, click here.  To visit the kokkonuts lab group webpage, click here.",
     "crumbs": [
       "Home"
     ]
@@ -368,6 +368,17 @@
     ]
   },
   {
+    "objectID": "lab_organisation/admin_essentials.html#miscellaneous-germany-things",
+    "href": "lab_organisation/admin_essentials.html#miscellaneous-germany-things",
+    "title": "Admin essentials when starting out",
+    "section": "Miscellaneous Germany things",
+    "text": "Miscellaneous Germany things\n\nMost shops, and all supermarkets, are closed on Sundays in Germany. Plan for this so you don’t starve.\nGermany lives in the stone age with respect to technology and still relies heavily on cash and post. Make sure to keep some cash on you (many shops and restaurants don’t take card), and check your postbox often (a lot of the official communication happens via post).\nPublic transport is very good in Germany, and Mainz is no exception. The Deutschlandticket allows you to board any regional public transport (all buses and trams, and regional trains such as REs, RBs, U-Bahns, and S-Bahns) for just €58 per month. This is a fantastic deal, I strongly recommend you take it.\nDeepL is a very good online translator for translating German to English and vice versa. They also have an app.\nYou can buy a SIM card at most supermarkets, and they will be able to activate it for you at the checkout counter. You may need to provide some form of proof of identity such as a passport when activating the passport.\nMainz has various weekly markets selling fresh produce. You can see the days, times, and locations of the markets here.\nKleinanzeigen is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.\nIf you are looking for a place to stay, try Immoscout and Immowelt. If you are okay with shared housing, you can also look at WG-Gesucht. The housing market is really tough, so don’t be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.\nToogoodtogo is a great servic for buying food and groceries that are left unsold at the end of the day. It’s really cheap, and helps reduce food waste!\nNINA is the official federal disaster warning app in Germany. Download it so you stay informed about any natural disasters (storms, fires, etc) in your area.\nNORA is the official emergency call app in Germany, and will let you contact emergency services without speaking the language.\nMeteoblue is a reasonably good weather app in Germany.\nIf you enjoy hiking, consider using komoot or alltrails to find hiking routes around you. Germany tends to have many well-documented routes, so the apps are a very good resource. The Rheinsteig is a long (320km) multi-stage hike from Bonn to Weisbaden that could be a good summer goal to keep you occupied on the weekends ;)",
+    "crumbs": [
+      "Onboarding",
+      "Admin essentials"
+    ]
+  },
+  {
     "objectID": "lab_organisation/Downloading_software.html",
     "href": "lab_organisation/Downloading_software.html",
     "title": "Downloading software",
@@ -390,22 +401,11 @@
     ]
   },
   {
-    "objectID": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
-    "href": "lab_organisation/onboarding_general_info.html#information-from-the-jgu-for-new-employees",
-    "title": "General information",
-    "section": "Information from the JGU for new employees",
-    "text": "Information from the JGU for new employees\nPrepare for your arrival",
-    "crumbs": [
-      "Onboarding",
-      "General info"
-    ]
-  },
-  {
     "objectID": "lab_organisation/onboarding_general_info.html#vacation",
     "href": "lab_organisation/onboarding_general_info.html#vacation",
-    "title": "General information",
+    "title": "Business trips and taking leave",
     "section": "Vacation",
-    "text": "Vacation\nAs an employee of the University, you have 30 days paid leave per year (on a full year’s contract). You must take this leave each year. Please use Gisbo, using the following link to submit your vacation request, which must be approved by your PI: https://arbeitszeit.uni-mainz.de/. In the settings, please fill in your PI’s email address as well as sekretariat[dot]oekologie[at]uni[hyphen]mainz[dot]de.",
+    "text": "Vacation\nAs an employee of the University, you have 30 days paid leave per year (on a full year’s contract). You must take this leave each year. Please use Gisbo, using the following link to submit your vacation request, which must be approved by Hanna: https://arbeitszeit.uni-mainz.de/. Fill in Hanna Kokko under ‘Vorgesetzte/r’ so that Hanna actually gets your request.",
     "crumbs": [
       "Onboarding",
       "General info"
@@ -414,31 +414,20 @@
   {
     "objectID": "lab_organisation/onboarding_general_info.html#sick-leave",
     "href": "lab_organisation/onboarding_general_info.html#sick-leave",
-    "title": "General information",
+    "title": "Business trips and taking leave",
     "section": "Sick leave",
-    "text": "Sick leave\nIf you are sick and unable to come to work, please send an email to the following addresses so that we can register you in the Gisbo (time management software) system as ill: iome_krankmeldung[at]uni[hyphen]mainz[dot]de; Sekretariat[dot]]oekologie[at]uni[hyphen]mainz[dot]de; or your PI.\nWhen you are healthy again, please send another email letting us know you are healthy and returning to work. Please note – if you are out due to illness for more than 3 days, you must provide a doctor’s note.\nFurther information about vacation, illness and other personnel issues can also be found on the JGU HR Website. Most of the info is in German, some in English.",
+    "text": "Sick leave\nIf you are sick and unable to come to work, please send an email to the following addresses so that we can register you in the Gisbo (time management software) system as ill: iome_krankmeldung[at]uni[hyphen]mainz[dot]de; Sekretariat[dot]]oekologie[at]uni[hyphen]mainz[dot]de.\nWhen you are healthy again, please send another email letting us know you are healthy and returning to work. If you are out due to illness for more than 3 days, you must provide a doctor’s note.\nFurther information about vacation, illness and other personnel issues can also be found on the JGU HR Website. Most of the info is in German, some in English.",
     "crumbs": [
       "Onboarding",
       "General info"
     ]
   },
   {
-    "objectID": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities",
-    "href": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities",
-    "title": "General information",
-    "section": "Travelling for University related activities",
-    "text": "Travelling for University related activities\n\nTravel request: download form – please complete with a signature from Hanna as soon as you start planning your travels. Please be sure to submit it to Sabine, so she can forward it to the university management.\nIf you are travelling within the EU you’ll need to fill this out for insurance purposes: download form. This needs to be submitted prior to the trip, ideally alongside the travel request.\nTravel reimbursement: download form – once you return from your trip, you will need to complete this form to request reimbursement for all travel expenses. Please submit this form, all original receipts and payment confirmation from your MC or Bank statement.",
-    "crumbs": [
-      "Onboarding",
-      "General info"
-    ]
-  },
-  {
-    "objectID": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
-    "href": "lab_organisation/onboarding_general_info.html#miscellaneous-germany-things",
-    "title": "General information",
-    "section": "Miscellaneous Germany things",
-    "text": "Miscellaneous Germany things\n\nMost shops, and all supermarkets, are closed on Sundays in Germany. Plan for this so you don’t starve.\nGermany lives in the stone age with respect to technology and still relies heavily on cash and post. Make sure to keep some cash on you (many shops and restaurants don’t take card), and check your postbox often (a lot of the official communication happens via post).\nPublic transport is very good in Germany, and Mainz is no exception. The Deutschlandticket allows you to board any regional public transport (all buses and trams, and regional trains such as REs, RBs, U-Bahns, and S-Bahns) for just €58 per month. This is a fantastic deal, I strongly recommend you take it.\nDeepL is a very good online translator for translating German to English and vice versa. They also have an app.\nYou can buy a SIM card at most supermarkets, and they will be able to activate it for you at the checkout counter. You may need to provide some form of proof of identity such as a passport when activating the passport.\nMainz has various weekly markets selling fresh produce. You can see the days, times, and locations of the markets here.\nKleinanzeigen is a good website and app for buying various things such as furniture, clothes, and electronics second hand. Think of it as eBay but German.\nIf you are looking for a place to stay, try Immoscout and Immowelt. If you are okay with shared housing, you can also look at WG-Gesucht. The housing market is really tough, so don’t be surprised if you have a very hard time finding a place. Paying for the Immoscout premium service seems to help.\nToogoodtogo is a great servic for buying food and groceries that are left unsold at the end of the day. It’s really cheap, and helps reduce food waste!\nNINA is the official federal disaster warning app in Germany. Download it so you stay informed about any natural disasters (storms, fires, etc) in your area.\nNORA is the official emergency call app in Germany, and will let you contact emergency services without speaking the language.\nMeteoblue is a reasonably good weather app in Germany.\nIf you enjoy hiking, consider using komoot or alltrails to find hiking routes around you. Germany tends to have many well-documented routes, so the apps are a very good resource. The Rheinsteig is a long (320km) multi-stage hike from Bonn to Weisbaden that could be a good summer goal to keep you occupied on the weekends ;)",
+    "objectID": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities-and-business-trips",
+    "href": "lab_organisation/onboarding_general_info.html#travelling-for-university-related-activities-and-business-trips",
+    "title": "Business trips and taking leave",
+    "section": "Travelling for University related activities and business trips",
+    "text": "Travelling for University related activities and business trips\n\nBefore you travel, fill in a travel request online on JobRouter: click here. To access the form, click on the ‘plus’ icon on the top left of the screen after logging in, and select the ‘Dienstreise beantragen/anzeigen’ option in the dropdown menu (the option you’re looking for should be on the bottom left). See here for a sample form. Once you have filled in all the details, click ‘submit’/‘senden’ (green button on top left). As a general guideline, this form should be submitted at least two weeks in advance of the date of travel.\nOnce you have submitted this form, it will land on Hanna’s desk for approval. Once Hanna has approved it, you will get a confirmation email. A PDF file containing the formal approval for the business trip will be attached to the email. Send this PDF to Judith (jkochmann@uni-mainz.de) so that she can have it ready for reimbursement.\nAfter you travel, you will have to fill in some forms for reimbursement. I (Shikhara) will tell you about this once I have had to do this and so have more detailed information :P",
     "crumbs": [
       "Onboarding",
       "General info"
