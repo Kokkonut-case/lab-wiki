@@ -30,7 +30,7 @@ Talks take place on Wednesdays after lunch (1:30 pm ish).
 | 26 February      | Roman         |
 | 12 March      | -         |
 | 9 April      |  Uthara    |
-| 20 May    |  Gaurav    |
+| 03 June    |  Gaurav    |
 | 10 June      |  Claudia    |
 | 15 July      |  Mos    |
 | 12 August      |  Tom    |
