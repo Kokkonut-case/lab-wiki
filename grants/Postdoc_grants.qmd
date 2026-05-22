@@ -1,5 +1,5 @@
 ---
-title: "Funding relevant for getting a postdoc in Germany"
+title: "Funding relevant for getting a postdoc"
 format: html
 editor: source
 engine: knitr
@@ -14,5 +14,9 @@ execute:
 ```
 
 ::: {.justify}
+
+See [here](https://docs.google.com/spreadsheets/d/1J2M_tQgoqV4ivpfEClh9qs9f2KQN2O1G3Jpda2aoHfQ/edit?gid=0#gid=0) for Dieter Lukas' list (biology wide)
+
+See [here](https://docs.google.com/spreadsheets/d/1cHkWrbvNrRdhJL9Z8ucgBZ2HSts2GPA_yozbQPl_x_8/edit?gid=0#gid=0) for Allison Barner's list (EEB focused)
 
 :::
