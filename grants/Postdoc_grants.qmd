@@ -15,8 +15,24 @@ execute:
 
 ::: {.justify}
 
-See [here](https://docs.google.com/spreadsheets/d/1J2M_tQgoqV4ivpfEClh9qs9f2KQN2O1G3Jpda2aoHfQ/edit?gid=0#gid=0) for Dieter Lukas' list (biology wide)
+# Positions
 
-See [here](https://docs.google.com/spreadsheets/d/1cHkWrbvNrRdhJL9Z8ucgBZ2HSts2GPA_yozbQPl_x_8/edit?gid=0#gid=0) for Allison Barner's list (EEB focused)
+<ul>
+ <li> [Dieter Lukas' list](https://docs.google.com/spreadsheets/d/1J2M_tQgoqV4ivpfEClh9qs9f2KQN2O1G3Jpda2aoHfQ/edit?gid=0#gid=0) of post-doc positions (biology wide)</li>
+ <li> [Allison Barner's list](https://docs.google.com/spreadsheets/d/1cHkWrbvNrRdhJL9Z8ucgBZ2HSts2GPA_yozbQPl_x_8/edit?gid=0#gid=0) of EEB focused positions </li>
+</ul>
+
+# Resources: Grant applications, research proposals, etc
+
+Some grant applications etc that Shikhara thinks are insightful for how to structure applications.
+
+<ul>
+<li> [Collection of successful job applications in biology](https://github.com/RILAB/statements) compiled by Jeffrey Ross-Ibarra.</li>
+<li> [Collection of successful NSF GRFP applications in EEB](https://docs.google.com/spreadsheets/d/13ex9ykvReOQQSzMjEo9ur89BA_SfRBat4UrEDeiPw2A/pubhtml?gid=0&single=true) by Yaniv Brandvain. NEF GRFP is a USA based fellowship for early PhDs.</li>
+<li> The [Open Grants Project](https://www.ogrants.org/grants-01-all), which collates many grant applications (mostly USA based).</li>
+<li> Some [targeted resources and guidance on post-doc applications](https://zenodo.org/records/13235632) and how to structure CVs and cover letters for them. From EMBL. This is a 24 page PDF, so fairly detailed. 
+
+</ul> 
+
 
 :::
