@@ -183,6 +183,66 @@
     ]
   },
   {
+    "objectID": "teaching/Grading.html#uploading-grades",
+    "href": "teaching/Grading.html#uploading-grades",
+    "title": "Grading at JGU",
+    "section": "Uploading grades",
+    "text": "Uploading grades\nThis is done on Jogustine and is only accessible by course coordinators.\nThe workflow goes: login -&gt; teaching -&gt; Examinations -&gt; Group Examinations -&gt; navigate to the exam of choice -&gt; enter marks (on german scale) -&gt; save -&gt; teaching staff will then release.*\n*You may have to remind them.\nIf the course is ungraded but a passing grade is still required as a hurdle requirement, you should enter be (bestanden) for a pass and nb (nicht bestanden) for a failing grade.",
+    "crumbs": [
+      "Teaching",
+      "Grading"
+    ]
+  },
+  {
+    "objectID": "teaching/Grading.html#from-percentages-to-the-german-scale",
+    "href": "teaching/Grading.html#from-percentages-to-the-german-scale",
+    "title": "Grading at JGU",
+    "section": "From percentages to the German scale",
+    "text": "From percentages to the German scale\nFrom the mouth of Günther Ochs (czar of teaching), the conversion is done correctly according to the attached table – basically, students pass with 50% or more of the max score. If the exam went particularly badly, the pass threshold can be lowered to 45% or even 40%, at the instructor’s discretion.\n\n\n\nPercentage achieved\nGerman rating\nQualitative meaning\n\n\n\n\n95+\n1,0\nVery good\n\n\n90-94\n1,3\nVery good\n\n\n85-89\n1,7\nGood\n\n\n80-84\n2\nGood\n\n\n75-79\n2,3\nGood\n\n\n70-74\n2,7\nSatisfactory\n\n\n65-69\n3\nSatisfactory\n\n\n60-64\n3,3\nSatisfactory\n\n\n55-59\n3,7\nSufficient\n\n\n50-54\n4\nSufficient\n\n\n49 or lower\n5\nNot sufficient",
+    "crumbs": [
+      "Teaching",
+      "Grading"
+    ]
+  },
+  {
+    "objectID": "homepage.html",
+    "href": "homepage.html",
+    "title": "The Kokkonutcase",
+    "section": "",
+    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a German resident, how to receive your salary and generally how to grapple with the monolith that is German bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A necessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nWe also have a GitHub organisation for storing code and data generated within the group. Once you are a Kokkonut, let either Shikhara (abhat[at]uni-mainz[dot]de) or Tom (tkeaney[at]uni-mainz[dot]de) know your GitHub user ID so that we can add you to the organisation. Once you are part of the organisation, you will be able to add your own repository, view others’ repositories, and edit this website. To go to the kokkonutcase org, click here.  To visit the kokkonuts lab group webpage, click here.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "grants/Early_PI_grants.html#the-dfg",
+    "href": "grants/Early_PI_grants.html#the-dfg",
+    "title": "Funding relevant for academic independence in Germany",
+    "section": "The DFG",
+    "text": "The DFG\n\nThere is a centralised format for many of the grants that the DFG offers. It can be found here: https://www.dfg.de/resource/blob/168314/54-01-en.pdf\nGrants can be submitted at any time, and the research council meets to deliberate on these every three months.\n\n\nThe common format\n\nStarting point\n\nFor new proposals please explain briefly and precisely the state of the art in your field in its direct relationship to your project. This description should make clear in which context you situate your own research and in what areas you intend to make a unique, innovative, promising contribution. Indicate the current state of your preliminary work. This description must be concise and understandable without referring to additional literature.\n\nObjectives and work program\n\nThere’s lots of box ticking here, but the majority of your time will be spent on:\n\nObjectives: Please give a concise description of your project’s research programme and scientific objectives.\nProgram: Please give a detailed account of the steps planned during the proposed funding period. (For experimental projects, a schedule detailing all planned experiments should be provided.) The quality of the work programme is critical to the success of a funding proposal. The tasks to be performed within the work programme should correspond to the funds requested. The work programme should therefore indicate and justify what types of funding will be needed and how the funds will be used, providing details on the individual items requested where applicable. Provide a detailed description of the methods that you plan to use in the project: What methods are already available? What methods need to be developed? What assistance is needed from outside your own group/institute?\n\n\nProject and subject related list of publications\n\nThis list should only contain those works that you cited in sections 1 and 2.\n\nSupplementary information on the research context\n\nThis is mostly about ethics and legalities.\n\n\nThe research grant\n\nFunding for research. Does not provide salary.\n\n\n\nThe Emmy Noether grant\n\nPays salary and provides a significant research budget\n\nhttps://www.dfg.de/resource/blob/168076/50-02-en.pdf"
+  },
+  {
+    "objectID": "grants/Early_PI_grants.html#mary-curie",
+    "href": "grants/Early_PI_grants.html#mary-curie",
+    "title": "Funding relevant for academic independence in Germany",
+    "section": "Mary Curie",
+    "text": "Mary Curie"
+  },
+  {
+    "objectID": "grants/Early_PI_grants.html#erc-starter-grant",
+    "href": "grants/Early_PI_grants.html#erc-starter-grant",
+    "title": "Funding relevant for academic independence in Germany",
+    "section": "ERC starter grant",
+    "text": "ERC starter grant\nhttps://erc.europa.eu/apply-grant/starting-grant\n\nUp to 1,5 million Euro over 5 years, with an additional million possible.\nAnnual call"
+  },
+  {
+    "objectID": "grants/Postdoc_grants.html",
+    "href": "grants/Postdoc_grants.html",
+    "title": "Funding relevant for getting a postdoc",
+    "section": "",
+    "text": "Positions\n\n\nDieter Lukas’ list of post-doc positions (biology wide)\n\n\nAllison Barner’s list of EEB focused positions\n\n\n\n\nResources: Grant applications, research proposals, etc\nSome grant applications etc that Shikhara thinks are insightful for how to structure applications.\n\n\nCollection of successful job applications in biology compiled by Jeffrey Ross-Ibarra.\n\n\nCollection of successful NSF GRFP applications in EEB by Yaniv Brandvain. NEF GRFP is a USA based fellowship for early PhDs.\n\n\nThe Open Grants Project, which collates many grant applications (mostly USA based).\n\n\nSome targeted resources and guidance on post-doc applications and how to structure CVs and cover letters for them. From EMBL. This is a 24 page PDF, so fairly detailed.\n\n:::"
+  },
+  {
     "objectID": "links.html",
     "href": "links.html",
     "title": "Useful Links",
@@ -220,44 +280,6 @@
     "text": "Reading, writing, and presentation\n\nPlaylist on academic writing by the Leadership Lab at UChicago\nHow to speak by Patrick Winston at MIT\nList of commonly used phrases in academic writing\nTen simple rules for making good oral presentations\nHow to give a theory talk by Shengwu Li",
     "crumbs": [
       "Useful links"
-    ]
-  },
-  {
-    "objectID": "grants/Postdoc_grants.html",
-    "href": "grants/Postdoc_grants.html",
-    "title": "Funding relevant for getting a postdoc",
-    "section": "",
-    "text": "Positions\n\n\nDieter Lukas’ list of post-doc positions (biology wide)\n\n\nAllison Barner’s list of EEB focused positions\n\n\n\n\nResources: Grant applications, research proposals, etc\nSome grant applications etc that Shikhara thinks are insightful for how to structure applications.\n\n\nCollection of successful job applications in biology compiled by Jeffrey Ross-Ibarra.\n\n\nCollection of successful NSF GRFP applications in EEB by Yaniv Brandvain. NEF GRFP is a USA based fellowship for early PhDs.\n\n\nThe Open Grants Project, which collates many grant applications (mostly USA based).\n\n\nSome targeted resources and guidance on post-doc applications and how to structure CVs and cover letters for them. From EMBL. This is a 24 page PDF, so fairly detailed.\n\n:::"
-  },
-  {
-    "objectID": "grants/Early_PI_grants.html#the-dfg",
-    "href": "grants/Early_PI_grants.html#the-dfg",
-    "title": "Funding relevant for academic independence in Germany",
-    "section": "The DFG",
-    "text": "The DFG\n\nThere is a centralised format for many of the grants that the DFG offers. It can be found here: https://www.dfg.de/resource/blob/168314/54-01-en.pdf\nGrants can be submitted at any time, and the research council meets to deliberate on these every three months.\n\n\nThe common format\n\nStarting point\n\nFor new proposals please explain briefly and precisely the state of the art in your field in its direct relationship to your project. This description should make clear in which context you situate your own research and in what areas you intend to make a unique, innovative, promising contribution. Indicate the current state of your preliminary work. This description must be concise and understandable without referring to additional literature.\n\nObjectives and work program\n\nThere’s lots of box ticking here, but the majority of your time will be spent on:\n\nObjectives: Please give a concise description of your project’s research programme and scientific objectives.\nProgram: Please give a detailed account of the steps planned during the proposed funding period. (For experimental projects, a schedule detailing all planned experiments should be provided.) The quality of the work programme is critical to the success of a funding proposal. The tasks to be performed within the work programme should correspond to the funds requested. The work programme should therefore indicate and justify what types of funding will be needed and how the funds will be used, providing details on the individual items requested where applicable. Provide a detailed description of the methods that you plan to use in the project: What methods are already available? What methods need to be developed? What assistance is needed from outside your own group/institute?\n\n\nProject and subject related list of publications\n\nThis list should only contain those works that you cited in sections 1 and 2.\n\nSupplementary information on the research context\n\nThis is mostly about ethics and legalities.\n\n\nThe research grant\n\n\nThe Emmy Noether grant"
-  },
-  {
-    "objectID": "grants/Early_PI_grants.html#mary-curie",
-    "href": "grants/Early_PI_grants.html#mary-curie",
-    "title": "Funding relevant for academic independence in Germany",
-    "section": "Mary Curie",
-    "text": "Mary Curie"
-  },
-  {
-    "objectID": "grants/Early_PI_grants.html#erc-starter-grant",
-    "href": "grants/Early_PI_grants.html#erc-starter-grant",
-    "title": "Funding relevant for academic independence in Germany",
-    "section": "ERC starter grant",
-    "text": "ERC starter grant"
-  },
-  {
-    "objectID": "homepage.html",
-    "href": "homepage.html",
-    "title": "The Kokkonutcase",
-    "section": "",
-    "text": "The goal of this wiki is to make the process of joining and functioning as a Kokkonut as smooth as possible. The early sections should help with big things like how to register as a German resident, how to receive your salary and generally how to grapple with the monolith that is German bureaucracy.\nOnce you’ve got your life sorted, you’ll probably start wondering how to get your computer running all the appropriate programs, some of which require JGU supplied licenses. You might also enjoy running ambitious simulations. Rather than waiting weeks for your local machine, JGU has a local high-performance computing cluster, called MOGON (weird name, right? see here). Don’t fret, we’ve got a whole section dedicated to these challenges.\nIf you’re a postdoc, then your job might involve some teaching. Currently, the lab is heavily involved with teaching three different courses; a bachelor subject run entirely by the postdocs and two courses in the Masters for Evolutionary Biology, headed by Hanna. Prior resources – lectures, workshops etc. – can be found in the teaching section.\nA big part of lab life is the Bachelor thesis. JGU students complete this as a capstone of their undergrad studies, so we tend to have a couple in the group at any one time. These typically take four months and culminate in a manuscript-style written document. The online documentation for this is suboptimal, so we’ve written our own here.\nWe would also like the repository associated with this wiki to function as a code repository. This means that for projects both published and unpublished, well-documented code is readily accessible. A necessary part of this accessibility is having a good readme file, for which we provide instructions.\nFinally, Shikhara (and eventually others) has supplied some generally useful technical knowledge. Things like an introduction to game theory are included. I suspect these are the very beginnings of Shikhara’s inevitable evo-eco theory textbook, and you get a sneak peek!\nWe also have a GitHub organisation for storing code and data generated within the group. Once you are a Kokkonut, let either Shikhara (abhat[at]uni-mainz[dot]de) or Tom (tkeaney[at]uni-mainz[dot]de) know your GitHub user ID so that we can add you to the organisation. Once you are part of the organisation, you will be able to add your own repository, view others’ repositories, and edit this website. To go to the kokkonutcase org, click here.  To visit the kokkonuts lab group webpage, click here.",
-    "crumbs": [
-      "Home"
     ]
   },
   {

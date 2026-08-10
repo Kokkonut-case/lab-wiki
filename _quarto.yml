@@ -32,6 +32,8 @@ website:
           href: lab_organisation/Getting_help.qmd
       - section: "Teaching"
         contents:
+        - text: "Grading"
+          href: teaching/Grading.qmd
         - text: "Masters level"
           href: teaching/Masters_teaching.qmd
         - text: "Bachelor level"

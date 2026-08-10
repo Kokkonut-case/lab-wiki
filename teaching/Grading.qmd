@@ -1,0 +1,49 @@
+---
+title: "Grading at JGU"
+format: html
+editor: source
+engine: knitr
+---
+
+<!--- below block is for justifying text --->
+
+```{css, echo = FALSE}
+.justify {
+  text-align: justify
+}
+```
+
+::: {.justify}
+
+For those with teaching expectations, there are some idiosyncrasies of the system at JGU that you'll need to familiarise yourself with. This page focuses on grading, but might expand to cover other topics related to teaching admin.
+
+## Uploading grades
+
+This is done on [Jogustine](https://jogustine.uni-mainz.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=EXTERNALPAGES&ARGUMENTS=-N000000000000001,-N000838,-A00%5Fwelcome) and is only accessible by course coordinators.
+
+The workflow goes: login -> teaching -> Examinations -> Group Examinations -> navigate to the exam of choice -> enter marks (on german scale) -> save -> teaching staff will then release.^*^
+
+^*^You may have to remind them.
+
+If the course is ungraded but a passing grade is still required as a hurdle requirement, you should enter **be** (bestanden) for a pass and **nb** (nicht bestanden) for a failing grade.
+
+## From percentages to the German scale
+
+From the mouth of Günther Ochs (czar of teaching), the conversion is done correctly according to the attached table -- basically, students pass with 50% or more of the max score. If the exam went particularly badly, the pass threshold can be lowered to 45% or even 40%, at the instructor's discretion.
+
+
+| Percentage achieved | German rating | Qualitative meaning |
+|---------------------|---------------|---------------------|
+| 95+                 | 1,0           | Very good           |
+| 90-94               | 1,3           | Very good           |
+| 85-89               |  1,7          | Good                |
+| 80-84               |  2            | Good                |
+| 75-79               |  2,3          | Good                | 
+| 70-74               |  2,7          | Satisfactory        |
+| 65-69               |  3            | Satisfactory        |
+| 60-64               |  3,3          | Satisfactory        |
+| 55-59               | 3,7           | Sufficient          |
+| 50-54               | 4             | Sufficient          |
+| 49 or lower         | 5             | Not sufficient      |
+
+:::
