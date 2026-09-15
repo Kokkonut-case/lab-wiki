@@ -1,9 +1,11 @@
 {
-  "hash": "0299221edc54ffebdf787f8808f3031a",
+  "hash": "73eebb89d7feb9717ed153a72224c1de",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Funding relevant for during a PhD in Germany\"\nformat: html\neditor: source\nengine: knitr\nexecute: \n    eval: false\n---\n<!--- below block is for justifying text --->\n\n::: {.cell}\n\n:::\n\n\n::: {.justify}\n\n:::\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Funding relevant for during a PhD in Germany\"\nformat: html\neditor: source\nengine: knitr\nexecute: \n    eval: false\n---\n\n<!--- below block is for justifying text --->\n\n::: {.cell}\n\n:::\n\n\n::: {.justify}\nResearch and travel oriented grants that Shikhara is aware of. Almost surely non-exhaustive.\n<ul>\n<li> The <a href=\"https://eseb.org/prizes-funding/godfrey-hewitt-mobility-award/\">Godfrey-Hewitt Mobility Award</a> from ESEB </li>\n<li> The <a href='https://www.evolutionsociety.org/content/society-awards-and-prizes/graduate-research-excellence-grants.html'>R C Lewontin (early career) and Rosemary Grant (late career) awards</a> from SSE </li>\n<li> The <a href='https://www.amnat.org/announcements/apply-student-research-award.html'>Student Research Award</a> from the ASN.</li>\n<li> If you are a PhD student in our group, you have access to what Tom calls the Dead Lady Money (funding from the Sibylle Kalkhof-Rose Foundation). See details <a href='https://www.foerdern-und-stiften.uni-mainz.de/sibylle-kalkhof-rose-stiftung/'>here</a>. </li>\n</ul>\n\n\n:::\n",
+    "supporting": [
+      "PhD_grants_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
