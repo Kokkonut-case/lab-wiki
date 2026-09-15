@@ -26,13 +26,15 @@ Some other lists that Shikhara occasionally refers to. There is also EcoEvoJobs 
 
 # Grants
 
-Some particular grants for very early post-docs that Shikhara finds enticing. Many of the Institutes of Advanced Study offer fellowships, I do not list those (apart from WiKo below).
+Some particular grants for very early post-docs that Shikhara finds enticing. Many of the <a href='https://en.wikipedia.org/wiki/Some_Institutes_for_Advanced_Study'>Institutes for Advanced Study</a> (think Princeton's IAS and all the EU copycats, e.g. the IAS in Tolouse or WiKo in Berlin) also offer independent fellowships that I do not list.
 
 <ul>
 <li> The <a href='https://www.dfg.de/en/research-funding/funding-opportunities/programmes/individual/walter-benjamin'>Walter Benjamin Grant and Fellowship</a> from the DFG. Note that the stuff you are allowed to apply for depends on whether you finished the majority of your high school etc education in Germany. Mostly for research within Germany. </li>
 <li> The <a href = 'https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships'> Marie Curie Fellowships</a> for post-docs in the EU. </li>
-<li> The <a href = 'https://www.jsps.go.jp/english/e-fellow/'>JSPS fellowships</a> for post-docs in Japan. At most 2 years.
+<li> The <a href = 'https://www.jsps.go.jp/english/e-fellow/'>JSPS fellowships</a> for post-docs in Japan. At most 2 years. </li>
+<li> The <a href = 'https://www.icts.res.in/academic/postdoctoral-fellowships'>ICTS post-doctoral fellowships</a> for 2 year post-docs in Bangalore, India. The vibe of the institute is like the SFI in the US: Most of the crowd is maths and physics but there are also some theoretical biologists (and even one theoretical ecologist). </li>
 <li> The <a href = 'https://www.embo.org/funding/fellowships-grants-and-career-support/postdoctoral-fellowships/'>EMBO fellowships</a> for 2 year post-docs within the EU. </li>
+<li> The <a href='https://www.arc.gov.au/funding-research/applying-grant/new-ncgp-schemes-overview'>Initiate Grants</a> for post-docs in Australia. This is meant to replace/refine what used to be the 'Discovery' ('DECRA') grant. However, the information available online is currently (Sep 2026) incredibly vague. </li>
 <li> The <a href = 'https://www.wiko-berlin.de/en/becoming-a-fellow/wiko-early-career-calls/early-career-call-life-and-natural-sciences/program'>WIKO fellowships</a> for very short-term post-docs in Berlin. </li> 
 <li> The <a href = 'https://www.santafe.edu/research/fellowships/overview'>Santa Fe Institute fellowships</a> to do interdisciplinary work in Santa Fe in the US.</li>
 </ul>
